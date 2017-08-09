@@ -1,0 +1,19 @@
+PODS:
+  - MTZExpirationDatePicker (1.0.1)
+  - MTZTableViewManager (1.0.0):
+    - MTZExpirationDatePicker (~> 1.0.1)
+
+DEPENDENCIES:
+  - MTZTableViewManager (from `../`)
+
+EXTERNAL SOURCES:
+  MTZTableViewManager:
+    :path: ../
+
+SPEC CHECKSUMS:
+  MTZExpirationDatePicker: 0ccde6d751565f26d1a7cf6455c9acc5beaefbe2
+  MTZTableViewManager: 6c6f41dfe04edf82fea72469453431506e430523
+
+PODFILE CHECKSUM: b2aac608634bfc1de4505c46dc3dc788b6092e91
+
+COCOAPODS: 1.3.1
