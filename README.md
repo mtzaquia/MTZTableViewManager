@@ -18,9 +18,42 @@ pod 'MTZTableViewManager', '~> 1.0.1'
 # Sample Usage
 
 ## Rows, sections and data
+Getting started is fairly simple. Just declare a strongly-held `MTZTableManager` somewhere:
+```objc
+@property (nonatomic) MTZTableManager *tableManager;
+```
+Then declare your rows, sections and finally the data. Using a custom `UITableViewCell` subclass is recommended.
+```objc
+MTZTableRow *row = [[MTZTableRow alloc] initWithClazz:[MyCustomCell class] action:^(NSIndexPath * _Nonnull indexPath, id<MTZModel>  _Nonnull model) {
+        NSLog(@"Tap!");
+    }];
+MTZTableSection *section = [[MTZTableSection alloc] initWithTableRows:@[row]];
+MTZTableData *data = [[MTZTableData alloc] initWithTableSections:@[section]];
+self.tableManager = [[MTZTableManager alloc] initWithTableView:self.tableManager tableData:data];
+```
+And you're good to go! Please note you cannot be the `tableView`s delegate or data source while using `MTZTableManager`.
 
 ### Models
+To declare an object as a possible model, just conform it to `MTZModel`:
+```objc
+@interface MyCustomCellModel: NSObject<MTZModel>
+@property (nonatomic) NSString *text;
+@end
+```
 
+Cells can then be configured to display information. Simply conform the cell you want to `MTZModelDisplaying` and implement the required method:
+```objc
+@interface MyCustomCell: UITableViewCell <MTZModelDisplaying>
+@end
+
+@implementation MyCustomCell
+- (void)configureWithModel:(id<MTZModel>)model {
+    self.textLabel.text = ((MyCustomCellModel *)model).text;
+}
+@end
+```
+
+Sections can also have models, and they're provided to custom headers/footers, if any.
 
 ## Forms
 ### Form objects
