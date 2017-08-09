@@ -31,7 +31,11 @@ MTZTableSection *section = [[MTZTableSection alloc] initWithTableRows:@[row]];
 MTZTableData *data = [[MTZTableData alloc] initWithTableSections:@[section]];
 self.tableManager = [[MTZTableManager alloc] initWithTableView:self.tableManager tableData:data];
 ```
-And you're good to go! Please note you cannot be the `tableView`s delegate or data source while using `MTZTableManager`.
+And you're good to go! Please note you cannot be the `tableView`s delegate or data source while using `MTZTableManager`. 
+
+* You can also provide a regular and/or expanded height to a row, and it will toggle between them upon selection.
+* You can also hide rows or sections dinamically, just set the `hidden` property.
+* You can instantiate cells using `nib`s as well. Likewise you can provide custom headers and footers classes for every section.
 
 ### Models
 To declare an object as a possible model, just conform it to `MTZModel`:
