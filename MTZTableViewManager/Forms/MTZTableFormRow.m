@@ -246,7 +246,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 - (void)checkDataTypes {
     if ([self isMemberOfClass:[MTZTableFormRow class]]) {
-        BOOL isDate = MTZFormObjectKeyPathIsOfClass(self.formObject, (MTZKeyPath *)self.keyPath, [NSDate class]);
+        __unused BOOL isDate = MTZFormObjectKeyPathIsOfClass(self.formObject, (MTZKeyPath *)self.keyPath, [NSDate class]);
         NSAssert(!isDate, @"MTZTableFormRow is not compatible with NSDate (keypath '%@'). Please use MTZTableFormDateRow instead.", self.keyPath);
     }
 }

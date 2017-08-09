@@ -139,7 +139,7 @@
 #pragma mark - Private
 - (void)checkDataTypes {
     if ([self isMemberOfClass:[MTZTableFormDateRow class]]) {
-        BOOL isDate = MTZFormObjectKeyPathIsOfClass(self.formObject, (MTZKeyPath *)self.keyPath, [NSDate class]);
+        __unused BOOL isDate = MTZFormObjectKeyPathIsOfClass(self.formObject, (MTZKeyPath *)self.keyPath, [NSDate class]);
         NSAssert(isDate, @"MTZTableFormDateRow is only compatible with NSDate (keypath '%@').", self.keyPath);
     }
 }
