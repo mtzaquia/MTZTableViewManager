@@ -40,7 +40,7 @@
 @dynamic validators;
 @dynamic availableOptions;
 
-- (instancetype)initWithNib:(UINib *)nib formObject:(id<MTZFormObject>)formObject keyPath:(NSString *)keyPath model:(id<MTZModel>)model {
+- (instancetype)initWithNib:(UINib *)nib formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
     self = [super initWithNib:nib formObject:formObject keyPath:keyPath model:model];
     if (self) {
         [self checkDataTypes];
@@ -49,7 +49,7 @@
     return self;
 }
 
-- (instancetype)initWithClazz:(Class)clazz formObject:(id<MTZFormObject>)formObject keyPath:(NSString *)keyPath model:(id<MTZModel>)model {
+- (instancetype)initWithClazz:(Class)clazz formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
     self = [super initWithClazz:clazz formObject:formObject keyPath:keyPath model:model];
     if (self) {
         [self checkDataTypes];

@@ -29,7 +29,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> model);
+typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> _Nullable model);
 
 
 /**

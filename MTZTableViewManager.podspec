@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MTZTableViewManager"
-  s.version      = "1.0.1"
+  s.version      = "1.0.2"
   s.summary      = "A powerful framework for creating table views in a descriptive way, as well generating and handling table view forms."
 
   s.description  = <<-DESC
@@ -25,7 +25,8 @@ Pod::Spec.new do |s|
                            "MTZTableViewManager/Forms/MTZTable{FormRow,FormDateRow}.h",
                            "MTZTableViewManager/Forms/Protocols/MTZForm{Object,Editing,Field,Option}.h",
                            "MTZTableViewManager/Forms/MTZForm{Validator,Converter}.h",
-                           "MTZTableViewManager/Forms/MTZTextFieldMasker.h"]
+                           "MTZTableViewManager/Forms/MTZTextFieldMasker.h",
+		           "MTZTableViewManager/Resources/MTZFormUtils.h"]
 
   s.requires_arc = true
 

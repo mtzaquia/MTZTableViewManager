@@ -37,6 +37,7 @@ FOUNDATION_EXPORT const unsigned char MTZTableViewManagerVersionString[];
 #import <MTZTableViewManager/MTZFormValidator.h>
 #import <MTZTableViewManager/MTZFormConverter.h>
 #import <MTZTableViewManager/MTZFormOption.h>
+#import <MTZTableViewManager/MTZFormUtils.h>
 #import <MTZTableViewManager/MTZTextFieldMasker.h>
 #import <MTZTableViewManager/MTZModel.h>
 #import <MTZTableViewManager/MTZModelDisplaying.h>

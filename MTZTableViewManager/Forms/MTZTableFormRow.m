@@ -39,15 +39,15 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 @implementation MTZTableFormRow
 
-- (instancetype)initWithClazz:(Class)clazz formObject:(id<MTZFormObject>)formObject keyPath:(NSString *)keyPath {
+- (instancetype)initWithClazz:(Class)clazz formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath {
     return [self initWithClazz:clazz formObject:formObject keyPath:keyPath model:nil];
 }
 
-- (instancetype)initWithNib:(UINib *)nib formObject:(id<MTZFormObject>)formObject keyPath:(NSString *)keyPath {
+- (instancetype)initWithNib:(UINib *)nib formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath {
     return [self initWithNib:nib formObject:formObject keyPath:keyPath model:nil];
 }
 
-- (instancetype)initWithClazz:(Class)clazz formObject:(NSObject<MTZFormObject> *)formObject keyPath:(NSString *)keyPath model:(id<MTZModel>)model {
+- (instancetype)initWithClazz:(Class)clazz formObject:(NSObject<MTZFormObject> *)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
     self = [super initWithClazz:clazz model:model action:nil];
     if (self) {
         _formObject = formObject;
@@ -59,7 +59,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     return self;
 }
 
-- (instancetype)initWithNib:(UINib *)nib formObject:(NSObject<MTZFormObject> *)formObject keyPath:(NSString *)keyPath model:(id<MTZModel>)model {
+- (instancetype)initWithNib:(UINib *)nib formObject:(NSObject<MTZFormObject> *)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
     self = [super initWithNib:nib model:model action:nil];
     if (self) {
         _formObject = formObject;
@@ -89,7 +89,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
         }
 
         NSAssert([[self.formField.fieldValue class] isSubclassOfClass:finalClazz] ||
-                 [finalClazz isSubclassOfClass:[self.formField.fieldValue superclass]], @"Type '%@' for form fiel with type '%@' is incompatible without a converter.", [formFieldTypedValue class], [self.formField.fieldValue class]);
+                 [finalClazz isSubclassOfClass:[self.formField.fieldValue superclass]], @"Type '%@' for form field with type '%@' is incompatible without a converter.", [formFieldTypedValue class], [self.formField.fieldValue class]);
     }
 
     self.formField.fieldValue = formFieldTypedValue;

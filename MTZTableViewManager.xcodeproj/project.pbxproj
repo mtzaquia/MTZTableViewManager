@@ -35,6 +35,7 @@
 		21A0B7FD1F36265B00E8E029 /* UIToolbar+MTZFormInputAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = 21A0B7FB1F36265B00E8E029 /* UIToolbar+MTZFormInputAccessoryView.h */; };
 		21A0B7FE1F36265B00E8E029 /* UIToolbar+MTZFormInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A0B7FC1F36265B00E8E029 /* UIToolbar+MTZFormInputAccessoryView.m */; };
 		21A7C6391F31181F00B40B6B /* MTZFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = 217902EA1F09061C00009CE5 /* MTZFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		21B35D7B1F3BAF9B006FAABD /* MTZFormUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 21B35D7A1F3BAF9B006FAABD /* MTZFormUtils.h */; };
 		21BDDE551F0908FB00C9355C /* MTZTableSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 21BDDE531F0908FB00C9355C /* MTZTableSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21BDDE561F0908FB00C9355C /* MTZTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 21BDDE541F0908FB00C9355C /* MTZTableSection.m */; };
 		21BDDE581F09090400C9355C /* MTZTableSection+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 21BDDE571F09090400C9355C /* MTZTableSection+Private.h */; };
@@ -78,6 +79,7 @@
 		21A0B7F31F35D16700E8E029 /* MTZFormOption.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTZFormOption.h; sourceTree = "<group>"; };
 		21A0B7FB1F36265B00E8E029 /* UIToolbar+MTZFormInputAccessoryView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+MTZFormInputAccessoryView.h"; sourceTree = "<group>"; };
 		21A0B7FC1F36265B00E8E029 /* UIToolbar+MTZFormInputAccessoryView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+MTZFormInputAccessoryView.m"; sourceTree = "<group>"; };
+		21B35D7A1F3BAF9B006FAABD /* MTZFormUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTZFormUtils.h; sourceTree = "<group>"; };
 		21BDDE531F0908FB00C9355C /* MTZTableSection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MTZTableSection.h; sourceTree = "<group>"; };
 		21BDDE541F0908FB00C9355C /* MTZTableSection.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MTZTableSection.m; sourceTree = "<group>"; };
 		21BDDE571F09090400C9355C /* MTZTableSection+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MTZTableSection+Private.h"; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 			children = (
 				21DBF1BB1F0905EE00914532 /* MTZTableViewManager.h */,
 				210AA7001F36383000AE9C05 /* MTZTableManagerUtils.h */,
+				21B35D7A1F3BAF9B006FAABD /* MTZFormUtils.h */,
 				21DBF1BC1F0905EE00914532 /* Info.plist */,
 			);
 			path = Resources;
@@ -245,6 +248,7 @@
 				210AA7011F36383000AE9C05 /* MTZTableManagerUtils.h in Headers */,
 				210AA6F91F362D4300AE9C05 /* MTZInputAccessoryViewHandling.h in Headers */,
 				21BDDE631F09120D00C9355C /* MTZTableData+Private.h in Headers */,
+				21B35D7B1F3BAF9B006FAABD /* MTZFormUtils.h in Headers */,
 				2167A0E61F2E59C800FF9B02 /* MTZTextFieldMasker.h in Headers */,
 				217902F71F09080000009CE5 /* MTZTableRow+Private.h in Headers */,
 				211F25151F311FAC00B146C7 /* MTZFormValidator.h in Headers */,

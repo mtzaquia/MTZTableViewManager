@@ -24,6 +24,7 @@
 //
 
 #import "MTZTableRow.h"
+#import "MTZFormUtils.h"
 
 @class MTZFormConverter;
 @class MTZFormValidator;
@@ -76,7 +77,7 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
  */
 - (instancetype)initWithClazz:(Class)clazz
                    formObject:(id<MTZFormObject>)formObject
-                      keyPath:(NSString *)keyPath;
+                      keyPath:(MTZKeyPath *)keyPath;
 
 /**
  Provides an instance of @c MTZTableFormRow that can manipulate a form object at a given key path.
@@ -88,7 +89,7 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
  */
 - (instancetype)initWithNib:(UINib *)nib
                  formObject:(id<MTZFormObject>)formObject
-                    keyPath:(NSString *)keyPath;
+                    keyPath:(MTZKeyPath *)keyPath;
 
 /**
  Provides an instance of @c MTZTableFormRow that can manipulate a form object at a given key path.
@@ -101,7 +102,7 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
  */
 - (instancetype)initWithClazz:(Class)clazz
                    formObject:(id<MTZFormObject>)formObject
-                      keyPath:(NSString *)keyPath
+                      keyPath:(MTZKeyPath *)keyPath
                         model:(nullable id<MTZModel>)model NS_DESIGNATED_INITIALIZER;
 
 /**
@@ -115,7 +116,7 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
  */
 - (instancetype)initWithNib:(UINib *)nib
                  formObject:(id<MTZFormObject>)formObject
-                    keyPath:(NSString *)keyPath
+                    keyPath:(MTZKeyPath *)keyPath
                       model:(nullable id<MTZModel>)model NS_DESIGNATED_INITIALIZER;
 
 @end

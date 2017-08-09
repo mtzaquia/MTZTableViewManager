@@ -1,5 +1,5 @@
 //
-// MTZTableFormRow+Private.h
+// MTZFormUtils.h
 // MTZTableManager
 //
 // Copyright (c) 2017 Mauricio Tremea Zaquia (@mtzaquia)
@@ -23,28 +23,14 @@
 // THE SOFTWARE.
 //
 
-#import "MTZTableFormRow.h"
-#import "MTZFormConverter.h"
-#import "MTZFormField.h"
-#import "MTZFormValidatable.h"
-#import "MTZTableManagerUtils.h"
-#import "MTZTableRow+Private.h"
-#import "MTZTableSection+Private.h"
-
-@protocol MTZFormObject;
-
-NS_ASSUME_NONNULL_BEGIN
-
-/// This key will have the form row at @c NSError @c userInfo that errored out during a validation.
-extern NSErrorUserInfoKey const MTZTableFormRowKey;
-
-@interface MTZTableFormRow () <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, MTZFormValidatable>
-@property (nonatomic, weak) NSObject<MTZFormObject> *formObject;
-@property (nonatomic, weak) __kindof UIControl<MTZFormField> *formField;
-@property (nonatomic) MTZKeyPath *keyPath;
-
-- (id)finalFieldValueWithCustomValue:(id)customValue;
-- (id)finalFormValue;
+@protocol MTZKeyPath <NSObject>
 @end
+typedef NSString<MTZKeyPath> MTZKeyPath;
 
-NS_ASSUME_NONNULL_END
+static inline MTZKeyPath *GetMTZKeyPath(__unused unsigned long val, NSString *str) {
+    return (MTZKeyPath *)str;
+}
+
+#define KEYPATH(obj, key) GetMTZKeyPath(sizeof(obj.key), @#key)
+#define CLASSKEY(cls, key) KEYPATH(((cls*)nil), key)
+
