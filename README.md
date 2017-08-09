@@ -24,7 +24,7 @@ Getting started is fairly simple. Just declare a strongly-held `MTZTableManager`
 ```
 Then declare your rows, sections and finally the data. Using a custom `UITableViewCell` subclass is recommended.
 ```objc
-MTZTableRow *row = [[MTZTableRow alloc] initWithClazz:[MyCustomCell class] action:^(NSIndexPath * _Nonnull indexPath, id<MTZModel>  _Nonnull model) {
+MTZTableRow *row = [[MTZTableRow alloc] initWithClazz:[MyCustomCell class] action:^(NSIndexPath * _Nonnull indexPath, id<MTZModel> model) {
         NSLog(@"Tap!");
     }];
 MTZTableSection *section = [[MTZTableSection alloc] initWithTableRows:@[row]];
@@ -57,7 +57,7 @@ Cells can then be configured to display information. Simply conform the cell you
 @end
 ```
 
-Sections can also have models, and they're provided to custom headers/footers, if any.
+* Sections can also have models, and they're provided to custom headers/footers, if any, as long as their classes also conform to `MTZModelDisplaying`.
 
 ## Forms
 ### Form objects
