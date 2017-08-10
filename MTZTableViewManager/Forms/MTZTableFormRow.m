@@ -234,7 +234,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 - (id)finalFieldValueWithCustomValue:(id)customValue {
     id inputValue = customValue ?: [self.formObject valueForKeyPath:self.keyPath];
     if (self.availableOptions.count) {
-        return ((id<MTZFormOption>)customValue).optionDescription;
+        return ((id<MTZFormOption>)inputValue).optionDescription;
     } else if (self.converter) {
         return [self.converter toFieldValue:inputValue];
     }

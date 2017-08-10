@@ -100,7 +100,23 @@ dateRow.datePickerMode = MTZDatePickerModeDateAndTime;
 * You can also use `MTZDatePickerModeExpirationDate` as a picker mode, and it will use the `MTZExpirationDatePicker` as `inputView`.
 
 ### Form options
-If you want to provide a set of options, do so by setting the `availableOptions` property on the `MTZTableFormRow`:
+If you want to provide a set of options, do so by conforming the type of object you want to provide as an option to `MTZFormOption`:
+```objc
+@interface MyCustomUser: NSObject <MTZFormOption>
+@property (nonatomic) NSInteger ID;
+@property (nonatomic) NSString *email;
+- (instancetype)initWithID:(NSInteger)ID email:(NSString *)email;
+@end
+
+@implementation MyCustomUser
+// ...
+- (NSString *)optionDescription {
+return self.email;
+}
+@end
+```
+
+Then set the `availableOptions` property on the `MTZTableFormRow`:
 ```objc
 NSArray *allUsers = @[[[MyCustomUser alloc] initWithID:1 email:@"a@b.com"],
                           [[MyCustomUser alloc] initWithID:2 email:@"b@c.com"],
@@ -109,7 +125,6 @@ MTZTableFormRow *userRow = [[MTZTableFormRow alloc] initWithClazz:[MyCustomTextF
 userRow.availableOptions = allUsers;
 ```
 
-* This row will most likely require a converter to work properly, to be able to map to and from the field value.
 * If you set available options, you must also use `UITextField` as a form field, as we replace the `inputView` with the adequate picker.
 
 ### Converters
