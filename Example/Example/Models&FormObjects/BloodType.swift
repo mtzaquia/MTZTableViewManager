@@ -50,7 +50,7 @@ import MTZTableViewManager
     }
 
     func optionDescription() -> String {
-        return BloodTypeConverter().toFieldValue(self) as! String
+        return "\(self.group!)\(self.rhFactor ? "+" : "-")"
     }
 
     override var description: String {

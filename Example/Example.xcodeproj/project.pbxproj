@@ -15,7 +15,6 @@
 		217F06DC1F371E61003A34C3 /* ActionCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F06DB1F371E61003A34C3 /* ActionCellModel.swift */; };
 		217F06DE1F371E68003A34C3 /* InformationCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217F06DD1F371E68003A34C3 /* InformationCellModel.swift */; };
 		217F06E01F371EB1003A34C3 /* InformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 217F06DF1F371EB1003A34C3 /* InformationCell.xib */; };
-		21A0B7F61F35E19300E8E029 /* BloodTypeConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A0B7F51F35E19300E8E029 /* BloodTypeConverter.swift */; };
 		21A0B7F81F35E7B100E8E029 /* BloodType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A0B7F71F35E7B100E8E029 /* BloodType.swift */; };
 		21A0B7FA1F35FBFF00E8E029 /* NonEmptyValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21A0B7F91F35FBFF00E8E029 /* NonEmptyValidator.swift */; };
 		21C020DE1F37A29E00DC6A4A /* NonNilValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C020DD1F37A29E00DC6A4A /* NonNilValidator.swift */; };
@@ -58,7 +57,6 @@
 		217F06DB1F371E61003A34C3 /* ActionCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionCellModel.swift; sourceTree = "<group>"; };
 		217F06DD1F371E68003A34C3 /* InformationCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationCellModel.swift; sourceTree = "<group>"; };
 		217F06DF1F371EB1003A34C3 /* InformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = InformationCell.xib; sourceTree = "<group>"; };
-		21A0B7F51F35E19300E8E029 /* BloodTypeConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodTypeConverter.swift; sourceTree = "<group>"; };
 		21A0B7F71F35E7B100E8E029 /* BloodType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BloodType.swift; sourceTree = "<group>"; };
 		21A0B7F91F35FBFF00E8E029 /* NonEmptyValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonEmptyValidator.swift; sourceTree = "<group>"; };
 		21C020DD1F37A29E00DC6A4A /* NonNilValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonNilValidator.swift; sourceTree = "<group>"; };
@@ -97,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				21326DC91F33BB3F00AD5427 /* AgeConverter.swift */,
-				21A0B7F51F35E19300E8E029 /* BloodTypeConverter.swift */,
 				2140D97E1F3B7FA200FB8431 /* CardNumberMasker.swift */,
 			);
 			path = "Converters&Maskers";
@@ -359,7 +356,6 @@
 				2140D97F1F3B7FA200FB8431 /* CardNumberMasker.swift in Sources */,
 				21FAFED31F3399DA00217047 /* PersonFormObject.swift in Sources */,
 				21A0B7FA1F35FBFF00E8E029 /* NonEmptyValidator.swift in Sources */,
-				21A0B7F61F35E19300E8E029 /* BloodTypeConverter.swift in Sources */,
 				D3EC8CF41D304908009662BD /* ViewController.swift in Sources */,
 				21FAFEDC1F33A86300217047 /* TextFieldCellModel.swift in Sources */,
 				D3EC8CF21D304908009662BD /* AppDelegate.swift in Sources */,

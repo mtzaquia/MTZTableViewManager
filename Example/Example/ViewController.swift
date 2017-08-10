@@ -84,7 +84,6 @@ import MTZTableViewManager
         let bloodRow = MTZTableFormRow(nib: textFieldCellNib, formObject: formObject, keyPath: #keyPath(PersonFormObject.blood), model: bloodModel)
         bloodRow.validators = [NonNilValidator(errorMessage: "Blood type must be selected")]
         bloodRow.availableOptions = BloodType.allBloodTypes
-        bloodRow.converter = BloodTypeConverter()
 
         let formSection = MTZTableSection(tableRows: [nameRow, cardNumberRow, expirationDateRow, employedRow, dateRow, ageRow, bloodRow])
         formSection.headerText = "Person form"

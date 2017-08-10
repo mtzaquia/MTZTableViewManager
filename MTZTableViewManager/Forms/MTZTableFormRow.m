@@ -112,12 +112,16 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
         [textField addTarget:self.masker action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     }
 
-    [self updateFormFieldWithCustomValue:nil];
     if (self.availableOptions.count) {
         NSAssert([formField isKindOfClass:[UITextField class]], @"availableOptions can only be applied to UITextField rows.");
         self.pickerView = [[UIPickerView alloc] init];
         self.pickerView.delegate = self;
         [formField setInputView:self.pickerView];
+        if (self.selectedPickerIndex != NSNotFound) {
+            [self updateFormFieldWithCustomValue:self.availableOptions[self.selectedPickerIndex]];
+        }
+    } else {
+        [self updateFormFieldWithCustomValue:nil];
     }
 
     if ([formField isKindOfClass:[UITextField class]] || [formField isKindOfClass:[UITextView class]]) {
@@ -229,7 +233,9 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 #pragma mark - Private
 - (id)finalFieldValueWithCustomValue:(id)customValue {
     id inputValue = customValue ?: [self.formObject valueForKeyPath:self.keyPath];
-    if (self.converter) {
+    if (self.availableOptions.count) {
+        return ((id<MTZFormOption>)customValue).optionDescription;
+    } else if (self.converter) {
         return [self.converter toFieldValue:inputValue];
     }
 
@@ -237,7 +243,9 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 }
 
 - (id)finalFormValue {
-    if (self.converter) {
+    if (self.availableOptions.count) {
+        return self.availableOptions[self.selectedPickerIndex];
+    } else if (self.converter) {
         return [self.converter fromFieldValue:self.formField.fieldValue];
     }
     

@@ -1,0 +1,6 @@
+framework module MTZTableViewManager {
+  umbrella header "MTZTableViewManager-umbrella.h"
+
+  export *
+  module * { export * }
+}
