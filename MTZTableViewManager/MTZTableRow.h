@@ -49,7 +49,7 @@ typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> _Nullable
 /// The expanded height of the cell. If set, the cell will toggle between @c regularHeight and @c expandedHeight on touches.
 @property (nonatomic) CGFloat expandedHeight;
 
-/// A flag indicating whether the row should be hidden or not.
+/// A flag indicating whether the row should hide or not.
 @property (nonatomic) BOOL hidden;
 
 /// A block containing the action to be triggered once the cell is touched.

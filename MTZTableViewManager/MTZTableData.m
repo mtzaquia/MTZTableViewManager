@@ -31,6 +31,7 @@
 CGFloat const MTZTableDataDefaultAnimationDuration = 0.25;
 
 @implementation MTZTableData
+
 - (instancetype)initWithTableSections:(NSArray<MTZTableSection *> *)tableSections {
     self = [super init];
     if (self) {
@@ -41,12 +42,18 @@ CGFloat const MTZTableDataDefaultAnimationDuration = 0.25;
 }
 
 - (void)setTableSection:(MTZTableSection *)tableSection hidden:(BOOL)hidden {
-    if (hidden) {
-        tableSection.index = [self.sections indexOfObject:tableSection];
-        [self hideSection:tableSection];
-    } else {
-        [self showSection:tableSection];
-    }
+    dispatch_sync(MTZTableUpdateQueue(), ^{
+        if (hidden) {
+            tableSection.index = [self.sections indexOfObject:tableSection];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self hideSection:tableSection];
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showSection:tableSection];
+            });
+        }
+    });
 }
 
 - (NSIndexPath *)indexPathForTableRow:(MTZTableRow *)tableRow {
@@ -94,4 +101,5 @@ CGFloat const MTZTableDataDefaultAnimationDuration = 0.25;
     [self.tableView insertSections:[NSIndexSet indexSetWithIndex:tableSection.index] withRowAnimation:UITableViewRowAnimationFade];
     [self.tableView endUpdates];
 }
+
 @end

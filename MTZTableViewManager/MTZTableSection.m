@@ -46,15 +46,22 @@
 }
 
 - (void)setTableRow:(MTZTableRow *)tableRow hidden:(BOOL)hidden {
-    if (hidden) {
-        tableRow.index = [self.rows indexOfObject:tableRow];
-        [self hideRow:tableRow];
-    } else {
-        [self showRow:tableRow];
-    }
+    dispatch_sync(MTZTableUpdateQueue(), ^{
+        if (hidden) {
+            tableRow.index = [self.rows indexOfObject:tableRow];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self hideRow:tableRow];
+            });
+        } else {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self showRow:tableRow];
+            });
+        }
+    });
 }
 
 - (void)setHidden:(BOOL)hidden {
+    NSAssert(self.tableData, @"A section must belong to an initialised MTZTableManager before hiding or unhiding.");
     if (_hidden == hidden) {
         return;
     }

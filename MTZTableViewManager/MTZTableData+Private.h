@@ -38,6 +38,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)setTableSection:(MTZTableSection *)tableSection hidden:(BOOL)hidden;
 - (NSIndexPath *)indexPathForTableRow:(MTZTableRow *)tableRow;
+
 @end
 
 NS_ASSUME_NONNULL_END

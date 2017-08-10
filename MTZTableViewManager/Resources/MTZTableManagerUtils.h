@@ -42,3 +42,13 @@ static inline NSDateFormatter *MTZSharedDateFormatter() {
 
     return formatter;
 }
+
+static inline dispatch_queue_t MTZTableUpdateQueue() {
+    static dispatch_queue_t tableUpdateQueue;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        tableUpdateQueue = dispatch_queue_create("com.zaquia.MTZTableViewManager.queue.tableupdate", 0);
+    });
+
+    return tableUpdateQueue;
+}
