@@ -66,6 +66,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
         }
 
         _tableView.tableFooterView = _tableData.footerView;
+        [self setupInitialHiddenStateFromTableData:_tableData forTableView:_tableView];
     }
 
     return self;
@@ -83,8 +84,9 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 }
 
 - (void)registerTableData:(MTZTableData *)tableData forTableView:(UITableView *)tableView {
-    for (MTZTableSection *section in tableData.sections) {
+    [tableData.sections enumerateObjectsUsingBlock:^(MTZTableSection * _Nonnull section, NSUInteger idx, BOOL * _Nonnull stop) {
         section.tableData = tableData;
+        section.index = idx;
         if (section.headerClazz) {
             [tableView registerClass:section.headerClazz forHeaderFooterViewReuseIdentifier:NSStringFromClass(section.headerClazz)];
         }
@@ -93,21 +95,50 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
             [tableView registerClass:section.footerClazz forHeaderFooterViewReuseIdentifier:NSStringFromClass(section.footerClazz)];
         }
 
-        for (MTZTableRow *row in section.rows) {
+        [section.rows enumerateObjectsUsingBlock:^(MTZTableRow * _Nonnull row, NSUInteger idx, BOOL * _Nonnull stop) {
             row.section = section;
+            row.index = idx;
             if (row.clazz) {
                 [tableView registerClass:row.clazz forCellReuseIdentifier:NSStringFromClass(row.clazz)];
             } else if (row.nib) {
                 [tableView registerNib:row.nib forCellReuseIdentifier:row.nib.description];
             }
-        }
-    }
+        }];
+    }];
 }
 
 - (void)configureTableFormRow:(MTZTableFormRow *)tableFormRow forCell:(UITableViewCell *)cell {
     if ([cell conformsToProtocol:@protocol(MTZFormEditing)]) {
         id<MTZFormEditing> formCell = (id<MTZFormEditing>)cell;
         tableFormRow.formField = [formCell fieldForFormObject];
+    }
+}
+
+- (void)setupInitialHiddenStateFromTableData:(MTZTableData *)tableData forTableView:(UITableView *)tableView {
+    BOOL shouldReloadData = NO;
+    NSMutableArray *sectionsToRemove = [NSMutableArray array];
+    NSMutableArray *rowsToRemove = [NSMutableArray array];
+    for (MTZTableSection *section in tableData.sections) {
+        if (section.hidden) {
+            tableData.hiddenSections[@(section.index)] = section;
+            [sectionsToRemove addObject:section];
+            shouldReloadData = YES;
+        }
+
+        for (MTZTableRow *row in section.rows) {
+            if (row.hidden) {
+                section.hiddenRows[@(row.index)] = row;
+                [rowsToRemove addObject:row];
+                shouldReloadData = YES;
+            }
+        }
+
+        [section.rows removeObjectsInArray:rowsToRemove];
+    }
+
+    [tableData.sections removeObjectsInArray:sectionsToRemove];
+    if (shouldReloadData) {
+        [tableView reloadData];
     }
 }
 

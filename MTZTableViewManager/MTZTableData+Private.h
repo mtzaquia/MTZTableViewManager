@@ -35,6 +35,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface MTZTableData () <MTZFormValidatable>
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic) NSMutableArray<MTZTableSection *> *sections;
+@property (nonatomic) NSMutableDictionary<NSNumber *, MTZTableSection *> *hiddenSections;
 
 - (void)setTableSection:(MTZTableSection *)tableSection hidden:(BOOL)hidden;
 - (NSIndexPath *)indexPathForTableRow:(MTZTableRow *)tableRow;

@@ -59,7 +59,6 @@
 }
 
 - (void)setHidden:(BOOL)hidden {
-    NSAssert(self.section, @"A row must belong to an initialised MTZTableManager before hiding or unhiding.");
     if (_hidden == hidden) {
         return;
     }

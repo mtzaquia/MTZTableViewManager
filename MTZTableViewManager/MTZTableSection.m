@@ -40,6 +40,7 @@
     self = [super init];
     if (self) {
         _rows = [tableRows mutableCopy];
+        _hiddenRows = [NSMutableDictionary dictionary];
     }
 
     return self;
@@ -48,20 +49,21 @@
 - (void)setTableRow:(MTZTableRow *)tableRow hidden:(BOOL)hidden {
     dispatch_sync(MTZTableUpdateQueue(), ^{
         if (hidden) {
-            tableRow.index = [self.rows indexOfObject:tableRow];
+            self.hiddenRows[@(tableRow.index)] = tableRow;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self hideRow:tableRow];
             });
         } else {
+            MTZTableRow *finalTableRow = self.hiddenRows[@(tableRow.index)];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self showRow:tableRow];
+                [self showRow:finalTableRow];
             });
+            self.hiddenRows[@(tableRow.index)] = nil;
         }
     });
 }
 
 - (void)setHidden:(BOOL)hidden {
-    NSAssert(self.tableData, @"A section must belong to an initialised MTZTableManager before hiding or unhiding.");
     if (_hidden == hidden) {
         return;
     }

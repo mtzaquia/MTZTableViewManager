@@ -36,6 +36,7 @@ CGFloat const MTZTableDataDefaultAnimationDuration = 0.25;
     self = [super init];
     if (self) {
         _sections = [tableSections mutableCopy];
+        _hiddenSections = [NSMutableDictionary dictionary];
     }
 
     return self;
@@ -44,14 +45,16 @@ CGFloat const MTZTableDataDefaultAnimationDuration = 0.25;
 - (void)setTableSection:(MTZTableSection *)tableSection hidden:(BOOL)hidden {
     dispatch_sync(MTZTableUpdateQueue(), ^{
         if (hidden) {
-            tableSection.index = [self.sections indexOfObject:tableSection];
+            self.hiddenSections[@(tableSection.index)] = tableSection;
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self hideSection:tableSection];
             });
         } else {
+            MTZTableSection *finalTableSection = self.hiddenSections[@(tableSection.index)];
             dispatch_async(dispatch_get_main_queue(), ^{
-                [self showSection:tableSection];
+                [self showSection:finalTableSection];
             });
+            self.hiddenSections[@(tableSection.index)] = nil;
         }
     });
 }
