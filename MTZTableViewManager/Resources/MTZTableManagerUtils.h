@@ -52,3 +52,13 @@ static inline dispatch_queue_t MTZTableUpdateQueue() {
 
     return tableUpdateQueue;
 }
+
+static inline dispatch_group_t MTZTableUpdateGroup() {
+    static dispatch_group_t tableUpdateGroup;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        tableUpdateGroup = dispatch_group_create();
+    });
+
+    return tableUpdateGroup;
+}

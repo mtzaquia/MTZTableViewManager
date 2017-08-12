@@ -120,14 +120,12 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     NSMutableArray *rowsToRemove = [NSMutableArray array];
     for (MTZTableSection *section in tableData.sections) {
         if (section.hidden) {
-            tableData.hiddenSections[@(section.index)] = section;
             [sectionsToRemove addObject:section];
             shouldReloadData = YES;
         }
 
         for (MTZTableRow *row in section.rows) {
             if (row.hidden) {
-                section.hiddenRows[@(row.index)] = row;
                 [rowsToRemove addObject:row];
                 shouldReloadData = YES;
             }

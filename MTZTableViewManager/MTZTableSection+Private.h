@@ -39,7 +39,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) MTZTableData *tableData;
 @property (nonatomic) NSUInteger index;
 @property (nonatomic) NSMutableArray<MTZTableRow *> *rows;
-@property (nonatomic) NSMutableDictionary<NSNumber *, MTZTableRow *> *hiddenRows;
 @property (nonatomic, copy, readonly) NSArray<MTZTableFormRow *> *formRows;
 
 - (void)setTableRow:(MTZTableRow *)tableRow hidden:(BOOL)hidden;

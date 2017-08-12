@@ -30,37 +30,45 @@
 
 CGFloat const MTZTableDataDefaultAnimationDuration = 0.25;
 
+@interface MTZTableData ()
+@property (nonatomic) NSMutableDictionary<NSNumber *, MTZTableSection *> *updatedSections;
+@end
+
 @implementation MTZTableData
 
 - (instancetype)initWithTableSections:(NSArray<MTZTableSection *> *)tableSections {
     self = [super init];
     if (self) {
         _sections = [tableSections mutableCopy];
-        _hiddenSections = [NSMutableDictionary dictionary];
+        _updatedSections = [NSMutableDictionary dictionary];
     }
 
     return self;
 }
 
 - (void)setTableSection:(MTZTableSection *)tableSection hidden:(BOOL)hidden {
-    dispatch_sync(MTZTableUpdateQueue(), ^{
-        if (hidden) {
-            self.hiddenSections[@(tableSection.index)] = tableSection;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self hideSection:tableSection];
+    dispatch_group_enter(MTZTableUpdateGroup());
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        dispatch_async(MTZTableUpdateQueue(), ^{
+            self.updatedSections[@(tableSection.index)] = tableSection;
+            dispatch_group_leave(MTZTableUpdateGroup());
+        });
+    });
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dispatch_notify(MTZTableUpdateGroup(), dispatch_get_main_queue(), ^{
+            hidden ? [self hideSections] : [self showSections];
+            dispatch_sync(MTZTableUpdateQueue(), ^{
+                [self.updatedSections removeAllObjects];
+                onceToken = 0;
             });
-        } else {
-            MTZTableSection *finalTableSection = self.hiddenSections[@(tableSection.index)];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self showSection:finalTableSection];
-            });
-            self.hiddenSections[@(tableSection.index)] = nil;
-        }
+        });
     });
 }
 
 - (NSIndexPath *)indexPathForTableRow:(MTZTableRow *)tableRow {
-    return [NSIndexPath indexPathForRow:[tableRow.section.rows indexOfObject:tableRow] inSection:[self.sections indexOfObject:tableRow.section]];
+    return [NSIndexPath indexPathForRow:tableRow.index inSection:tableRow.section.index];
 }
 
 #pragma mark - MTZFormValidatable
@@ -91,17 +99,37 @@ CGFloat const MTZTableDataDefaultAnimationDuration = 0.25;
 }
 
 #pragma mark - Private
-- (void)hideSection:(MTZTableSection *)tableSection {
+- (void)hideSections {
+    NSArray *orderedKeys = [self.updatedSections.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+    NSMutableArray *deletedSections = [NSMutableArray array];
+    dispatch_sync(MTZTableUpdateQueue(), ^{
+        for (NSNumber *key in orderedKeys) {
+            [indexSet addIndex:[key integerValue]];
+            [deletedSections addObject:self.updatedSections[key]];
+        }
+    });
+
     [self.tableView beginUpdates];
-    [self.tableView deleteSections:[NSIndexSet indexSetWithIndex:tableSection.index] withRowAnimation:UITableViewRowAnimationFade];
-    [self.sections removeObject:tableSection];
+    [self.tableView deleteSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
+    [self.sections removeObjectsInArray:deletedSections];
     [self.tableView endUpdates];
 }
 
-- (void)showSection:(MTZTableSection *)tableSection {
+- (void)showSections {
+    NSArray *orderedKeys = [self.updatedSections.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    NSMutableArray *addedSections = [NSMutableArray array];
+    NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+    dispatch_sync(MTZTableUpdateQueue(), ^{
+        for (NSNumber *key in orderedKeys) {
+            [addedSections addObject:self.updatedSections[key]];
+            [indexSet addIndex:[key integerValue]];
+        }
+    });
+
     [self.tableView beginUpdates];
-    [self.sections insertObject:tableSection atIndex:tableSection.index];
-    [self.tableView insertSections:[NSIndexSet indexSetWithIndex:tableSection.index] withRowAnimation:UITableViewRowAnimationFade];
+    [self.sections insertObjects:addedSections atIndexes:indexSet];
+    [self.tableView insertSections:indexSet withRowAnimation:UITableViewRowAnimationFade];
     [self.tableView endUpdates];
 }
 

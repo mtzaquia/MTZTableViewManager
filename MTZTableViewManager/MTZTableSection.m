@@ -30,6 +30,10 @@
 #import "MTZTableManagerUtils.h"
 #import "UIResponder+FirstResponder.h"
 
+@interface MTZTableSection ()
+@property (nonatomic) NSMutableDictionary<NSNumber *, MTZTableRow *> *updatedRows;
+@end
+
 @implementation MTZTableSection
 
 - (instancetype)initWithTableRows:(NSArray<MTZTableRow *> *)tableRows {
@@ -40,26 +44,30 @@
     self = [super init];
     if (self) {
         _rows = [tableRows mutableCopy];
-        _hiddenRows = [NSMutableDictionary dictionary];
+        _updatedRows = [NSMutableDictionary dictionary];
     }
 
     return self;
 }
 
 - (void)setTableRow:(MTZTableRow *)tableRow hidden:(BOOL)hidden {
-    dispatch_sync(MTZTableUpdateQueue(), ^{
-        if (hidden) {
-            self.hiddenRows[@(tableRow.index)] = tableRow;
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self hideRow:tableRow];
+    dispatch_group_enter(MTZTableUpdateGroup());
+    dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), ^{
+        dispatch_async(MTZTableUpdateQueue(), ^{
+            self.updatedRows[@(tableRow.index)] = tableRow;
+            dispatch_group_leave(MTZTableUpdateGroup());
+        });
+    });
+
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dispatch_notify(MTZTableUpdateGroup(), dispatch_get_main_queue(), ^{
+            hidden ? [self hideRows] : [self showRows];
+            dispatch_sync(MTZTableUpdateQueue(), ^{
+                [self.updatedRows removeAllObjects];
+                onceToken = 0;
             });
-        } else {
-            MTZTableRow *finalTableRow = self.hiddenRows[@(tableRow.index)];
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self showRow:finalTableRow];
-            });
-            self.hiddenRows[@(tableRow.index)] = nil;
-        }
+        });
     });
 }
 
@@ -127,17 +135,39 @@
     }]];
 }
 
-- (void)hideRow:(MTZTableRow *)tableRow {
+- (void)hideRows {
+    NSArray *orderedKeys = [self.updatedRows.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    NSMutableArray *deletedRows = [NSMutableArray array];
+    dispatch_sync(MTZTableUpdateQueue(), ^{
+        for (NSNumber *key in orderedKeys) {
+            [indexPaths addObject:[self.tableData indexPathForTableRow:self.updatedRows[key]]];
+            [deletedRows addObject:self.updatedRows[key]];
+        }
+    });
+
     [self.tableData.tableView beginUpdates];
-    [self.tableData.tableView deleteRowsAtIndexPaths:@[[self.tableData indexPathForTableRow:tableRow]] withRowAnimation:UITableViewRowAnimationFade];
-    [self.rows removeObject:tableRow];
+    [self.tableData.tableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
+    [self.rows removeObjectsInArray:deletedRows];
     [self.tableData.tableView endUpdates];
 }
 
-- (void)showRow:(MTZTableRow *)tableRow {
+- (void)showRows {
+    NSArray *orderedKeys = [self.updatedRows.allKeys sortedArrayUsingSelector:@selector(compare:)];
+    NSMutableArray *addedRows = [NSMutableArray array];
+    NSMutableIndexSet *indexSet = [NSMutableIndexSet indexSet];
+    NSMutableArray *indexPaths = [NSMutableArray array];
+    dispatch_sync(MTZTableUpdateQueue(), ^{
+        for (NSNumber *key in orderedKeys) {
+            [addedRows addObject:self.updatedRows[key]];
+            [indexSet addIndex:[key integerValue]];
+            [indexPaths addObject:[self.tableData indexPathForTableRow:self.updatedRows[key]]];
+        }
+    });
+
     [self.tableData.tableView beginUpdates];
-    [self.rows insertObject:tableRow atIndex:tableRow.index];
-    [self.tableData.tableView insertRowsAtIndexPaths:@[[self.tableData indexPathForTableRow:tableRow]] withRowAnimation:UITableViewRowAnimationFade];
+    [self.rows insertObjects:addedRows atIndexes:indexSet];
+    [self.tableData.tableView insertRowsAtIndexPaths:indexPaths withRowAnimation:UITableViewRowAnimationFade];
     [self.tableData.tableView endUpdates];
 }
 @end

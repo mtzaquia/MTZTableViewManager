@@ -33,6 +33,7 @@ import MTZTableViewManager
     dynamic var formObject: PersonFormObject!
 
     var dateRow: MTZTableFormDateRow! // required for KVO.
+    var bloodRow: MTZTableFormRow!
 
 
     
@@ -72,6 +73,7 @@ import MTZTableViewManager
         dateRow.minimumDate = Date()
         dateRow.maximumDate = Date().addingTimeInterval(60 * 60 * 24 * 30)
         dateRow.datePickerMode = .date
+        dateRow.hidden = true
 
         let ageModel = TextFieldCellModel()
         ageModel.placeholderText = "Age"
@@ -81,9 +83,10 @@ import MTZTableViewManager
 
         let bloodModel = TextFieldCellModel()
         bloodModel.placeholderText = "Blood Type"
-        let bloodRow = MTZTableFormRow(nib: textFieldCellNib, formObject: formObject, keyPath: #keyPath(PersonFormObject.blood), model: bloodModel)
+        bloodRow = MTZTableFormRow(nib: textFieldCellNib, formObject: formObject, keyPath: #keyPath(PersonFormObject.blood), model: bloodModel)
         bloodRow.validators = [NonNilValidator(errorMessage: "Blood type must be selected")]
         bloodRow.availableOptions = BloodType.allBloodTypes
+        bloodRow.hidden = true
 
         let formSection = MTZTableSection(tableRows: [nameRow, cardNumberRow, expirationDateRow, employedRow, dateRow, ageRow, bloodRow])
         formSection.headerText = "Person form"
@@ -122,6 +125,7 @@ import MTZTableViewManager
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         if keyPath == #keyPath(ViewController.formObject.employed) {
             dateRow.hidden = !((change?[.newKey] as? Bool) ?? false)
+            bloodRow.hidden = dateRow.hidden
         }
     }
 

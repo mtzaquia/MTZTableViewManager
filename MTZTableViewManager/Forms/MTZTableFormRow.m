@@ -119,6 +119,8 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
         [formField setInputView:self.pickerView];
         if (self.selectedPickerIndex != NSNotFound) {
             [self updateFormFieldWithCustomValue:self.availableOptions[self.selectedPickerIndex]];
+        } else {
+            [self updateFormFieldWithCustomValue:nil];
         }
     } else {
         [self updateFormFieldWithCustomValue:nil];
