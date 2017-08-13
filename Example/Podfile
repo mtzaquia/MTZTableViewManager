@@ -1,8 +1,0 @@
-
-target 'Example' do
-  use_frameworks!
-
-  # Pods for TableManagerExample
-  pod 'MTZTableViewManager', :path => '../'
-
-end
