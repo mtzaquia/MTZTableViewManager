@@ -1,6 +1,8 @@
 # MTZTableViewManager
 MTZTableViewManager is a powerful framework that allows you to create table views in a descriptive way, by specifying rows and sections without having to bother with indexes. It also provides a set of tools for creating forms and handling their input, applying masks, performing validations and converting to and from complex objects.
 
+![MTZTableViewManager](https://github.com/mtzaquia/MTZTableViewManager/raw/assets/example.gif)
+
 # Installation
 
 ## Manual
@@ -86,6 +88,7 @@ For a cell to be compatible with a form, it needs to conform with `MTZFormEditin
 ```
 
 * Note that the form fields must conform to `MTZFormField`. The framework already provides a default implementation for `UITextField`, `UITextView`, `UISwitch` and `UIStepper`.
+* Form fields automatically provide you with `inputAccessoryView` for jumping between other fields within the same section.
 
 ### Form date rows
 Dates are a special topic. Due to that, if you want to interact with a `NSDate` key path, use `MTZTableFormDateRow` instead:
@@ -131,7 +134,7 @@ userRow.availableOptions = allUsers;
 
 ### Validators
 
-### Masker
+### Maskers
 
 
 # License

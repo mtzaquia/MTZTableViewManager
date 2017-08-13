@@ -246,7 +246,11 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 - (id)finalFormValue {
     if (self.availableOptions.count) {
-        return self.availableOptions[self.selectedPickerIndex];
+        if (self.selectedPickerIndex < self.availableOptions.count) {
+            return self.availableOptions[self.selectedPickerIndex];
+        } else {
+            return nil;
+        }
     } else if (self.converter) {
         return [self.converter fromFieldValue:self.formField.fieldValue];
     }
