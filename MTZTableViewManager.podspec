@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MTZTableViewManager"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "A powerful framework for creating table views in a descriptive way, as well generating and handling table view forms."
 
   s.description  = <<-DESC
