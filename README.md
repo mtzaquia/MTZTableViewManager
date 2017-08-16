@@ -13,7 +13,7 @@ MTZTableViewManager is a powerful framework that allows you to create table view
 ## CocoaPods
 You can also declare the following on your `Podfile`:
 ```ruby
-pod 'MTZTableViewManager', '~> 1.0.2'
+pod 'MTZTableViewManager', '~> 1.0.3'
 ```
 *Note that this will also add `MTZExpirationDatePicker` as a pod dependency.*
 
