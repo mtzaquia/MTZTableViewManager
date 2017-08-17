@@ -90,7 +90,7 @@ For a cell to be compatible with a form, it needs to conform with `MTZFormEditin
 * Note that the form fields must conform to `MTZFormField`. The framework already provides a default implementation for `UITextField`, `UITextView`, `UISwitch` and `UIStepper`.
 
 ### Form fields input accessory view
-Form fields automatically provide you with `inputAccessoryView` for jumping between other fields within the same section. To localise the buttons on the framework-provided input accessory view, simply add the following entries to your  `Localizable.strings`, replace the translations to whatever fits your needs.:
+Form fields automatically provide you with `inputAccessoryView` for jumping between other fields within the same section. To localise the buttons on the framework-provided input accessory view, simply add the following entries to your  `Localizable.strings`, replacing the translations to whatever fits your needs:
 ```objc
 "mtz_prev" = "Prev";
 "mtz_next" = "Next";
