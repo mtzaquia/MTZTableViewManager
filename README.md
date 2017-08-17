@@ -88,7 +88,16 @@ For a cell to be compatible with a form, it needs to conform with `MTZFormEditin
 ```
 
 * Note that the form fields must conform to `MTZFormField`. The framework already provides a default implementation for `UITextField`, `UITextView`, `UISwitch` and `UIStepper`.
-* Form fields automatically provide you with `inputAccessoryView` for jumping between other fields within the same section.
+
+### Form fields input accessory view
+Form fields automatically provide you with `inputAccessoryView` for jumping between other fields within the same section. To localise the buttons on the framework-provided input accessory view, simply add the following entries to your  `Localizable.strings`, replace the translations to whatever fits your needs.:
+```objc
+"mtz_prev" = "Prev";
+"mtz_next" = "Next";
+"mtz_done" = "Done";
+```
+
+*Please note that if the keyboard provides a return button, the "Done" button is ommitted.*
 
 ### Form date rows
 Dates are a special topic. Due to that, if you want to interact with a `NSDate` key path, use `MTZTableFormDateRow` instead:
