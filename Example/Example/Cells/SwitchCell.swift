@@ -26,7 +26,9 @@
 import UIKit
 import MTZTableViewManager
 
-class SwitchCell: UITableViewCell, MTZModelDisplaying, MTZFormEditing {
+class SwitchCell: UITableViewCell, MTZModelDisplaying, MTZFormEditing, MTZCommandExecuting {
+
+    weak var commandExecutor: MTZCommandExecutor!
 
     @IBOutlet weak var labelDescription: UILabel!
     @IBOutlet weak var buttonInfo: UIButton!
@@ -39,5 +41,15 @@ class SwitchCell: UITableViewCell, MTZModelDisplaying, MTZFormEditing {
     func configure(with model: MTZModel?) {
         let model = model as? SwitchCellModel
         labelDescription.text = model?.descriptionText
+
+        buttonInfo.addTarget(self, action: #selector(SwitchCell.showInfo(sender:)), for: .touchUpInside)
+    }
+
+    @objc func showInfo(sender: UIButton) {
+        let command = MTZCommand { (context) in
+            print(context)
+        }
+
+        commandExecutor.execute(command)
     }
 }

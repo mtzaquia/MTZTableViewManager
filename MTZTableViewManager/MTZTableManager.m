@@ -24,6 +24,8 @@
 //
 
 #import "MTZTableManager.h"
+#import "MTZCommandExecuting.h"
+#import "MTZCommandExecutor+Private.h"
 #import "MTZTableData+Private.h"
 #import "MTZTableSection+Private.h"
 #import "MTZTableRow+Private.h"
@@ -38,11 +40,19 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 @interface MTZTableManager () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic) MTZTableData *tableData;
+@property (nonatomic) MTZCommandExecutor *commandExecutor;
 @end
 
 @implementation MTZTableManager
 
 - (instancetype)initWithTableView:(UITableView *)tableView tableData:(MTZTableData *)tableData {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wnonnull"
+    return [self initWithTableView:tableView tableData:tableData context:nil];
+#pragma clang diagnostic pop
+}
+
+- (instancetype)initWithTableView:(UITableView *)tableView tableData:(MTZTableData *)tableData context:(id)context {
     self = [super init];
     if (self) {
         _tableView = tableView;
@@ -67,6 +77,10 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 
         _tableView.tableFooterView = _tableData.footerView;
         [self setupInitialHiddenStateFromTableData:_tableData forTableView:_tableView];
+
+        if (context) {
+            _commandExecutor = [[MTZCommandExecutor alloc] initWithContext:context];
+        }
     }
 
     return self;
@@ -162,6 +176,11 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     if ([row isKindOfClass:[MTZTableFormRow class]]) {
         MTZTableFormRow *tableFormRow = (MTZTableFormRow *)row;
         [self configureTableFormRow:tableFormRow forCell:cell];
+    }
+
+    if ([cell conformsToProtocol:@protocol(MTZCommandExecuting)]) {
+        NSAssert(self.commandExecutor, @"A row conforms to MTZCommandExecuting, but the table manager instance has no context. Use '-[MTZTableManager initWithTableView:tableData:context:]' instead.");
+        [(id<MTZCommandExecuting>)cell setCommandExecutor:self.commandExecutor];
     }
 
     cell.selectionStyle = row.expandedHeight > 0 || row.expandedHeight == UITableViewAutomaticDimension || row.action ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;

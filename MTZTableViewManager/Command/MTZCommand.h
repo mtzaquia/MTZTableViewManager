@@ -1,5 +1,5 @@
 //
-// MTZFormValidator.h
+// MTZCommand.h
 // MTZTableManager
 //
 // Copyright (c) 2017 Mauricio Tremea Zaquia (@mtzaquia)
@@ -27,34 +27,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void (^MTZCommandAction)(id context);
 
 /**
- A class that provides validation rules for form objects.
+ A class that provides actions that can be triggered from within the rows.
  */
-@interface MTZFormValidator : NSObject
+@interface MTZCommand : NSObject
 
-/// The error message for when the validation fails.
-@property (nonatomic, copy, readonly) NSString *errorMessage;
-
-- (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
+- (instancetype)init NS_UNAVAILABLE;
+
 
 /**
- This method initialises a new instance of a validator.
+ This method initialises a new instance of a command.
 
- @param errorMessage The error message for when the validation fails.
- @return A validator instance.
+ @param action The action to be triggered whenever this command is executed by an executor.
+ @return A command instance.
  */
-- (instancetype)initWithErrorMessage:(NSString *)errorMessage NS_DESIGNATED_INITIALIZER;
-
-/**
- This method validates the provided input. It must be overridden by subclasses.
-
- @param value The value to be validated.
- @param error The error pointer to be populated in case of an error.
- @return A flag indicating whether the value is valid or not.
- */
-- (BOOL)validate:(nullable id)value error:(NSError **)error;
+- (instancetype)initWithAction:(MTZCommandAction)action NS_DESIGNATED_INITIALIZER;
 
 @end
 

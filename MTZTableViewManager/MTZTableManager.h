@@ -36,7 +36,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
-
 /**
  This method provides a new instance of @c MTZTableManager.
 
@@ -47,6 +46,19 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (instancetype)initWithTableView:(UITableView *)tableView
                         tableData:(MTZTableData *)tableData;
+
+/**
+ This method provides a new instance of @c MTZTableManager compatible with commands.
+
+ @warning  This instance must be held strongly along with the tableView that's going to be used.
+ @param tableView The @c UITableView that's going to be managed by this entity.
+ @param tableData The @c MTZTableData that's going to populated the managed table view.
+ @param context The context to be provided for commands triggered from within the rows.
+ @return A valid instance of @c MTZTableManager.
+ */
+- (instancetype)initWithTableView:(UITableView *)tableView
+                        tableData:(MTZTableData *)tableData
+                          context:(id)context;
 
 /**
  This method validates the **visible** fields on the form. Upon a validation error, the offending line is highlighted and the field becomes the first responder.

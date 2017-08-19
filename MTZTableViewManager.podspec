@@ -26,7 +26,9 @@ Pod::Spec.new do |s|
                            "MTZTableViewManager/Forms/Protocols/MTZForm{Object,Editing,Field,Option}.h",
                            "MTZTableViewManager/Forms/MTZForm{Validator,Converter}.h",
                            "MTZTableViewManager/Forms/MTZTextFieldMasker.h",
-		           "MTZTableViewManager/Resources/MTZFormUtils.h"]
+		           "MTZTableViewManager/Resources/MTZFormUtils.h",
+		           "MTZTableViewManager/Command/MTZCommand{,Executor}.h",
+                           "MTZTableViewManager/Command/Protocols/MTZCommandExecuting.h"]
 
   s.requires_arc = true
 
