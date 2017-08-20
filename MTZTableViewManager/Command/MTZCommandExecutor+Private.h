@@ -27,10 +27,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+/**
+ A class capable of executing commands.
+ */
 @interface MTZCommandExecutor ()
 
+/// A context that will be provided to all commands triggered by this executor.
 @property (nonatomic, readonly, weak) id context;
 
+/**
+ Initialises a new executor.
+
+ @param context The context that will be provided to all commands triggered by the instance.
+ @return A valid @c MTZCommandExecutor instance.
+ */
 - (instancetype)initWithContext:(id)context;
 
 @end

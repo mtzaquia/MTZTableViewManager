@@ -25,7 +25,7 @@
 
 @import Foundation;
 
-@class MTZCommand;
+@protocol MTZCommand;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,7 +42,15 @@ NS_ASSUME_NONNULL_BEGIN
 
  @param command The command from which the action will executed.
  */
-- (void)executeCommand:(__kindof MTZCommand *)command;
+- (void)executeCommand:(id<MTZCommand>)command;
+
+/**
+ Asks the executor to trigger a specific action of a command instance.
+
+ @param command The command from which the action will executed.
+ @param sender The entity that triggered the 
+ */
+- (void)executeCommand:(id<MTZCommand>)command sender:(nullable id)sender;
 
 @end
 

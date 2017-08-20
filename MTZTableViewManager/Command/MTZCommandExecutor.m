@@ -24,7 +24,7 @@
 //
 
 #import "MTZCommandExecutor+Private.h"
-#import "MTZCommand+Private.h"
+#import "MTZCommand.h"
 
 @implementation MTZCommandExecutor
 
@@ -37,9 +37,13 @@
     return self;
 }
 
-- (void)executeCommand:(__kindof MTZCommand *)command {
+- (void)executeCommand:(id<MTZCommand>)command {
+    [self executeCommand:command sender:nil];
+}
+
+- (void)executeCommand:(id<MTZCommand>)command sender:(id)sender {
     NSAssert(command.action, @"All commands must provide an action for execution.");
-    command.action(self.context);
+    command.action(self.context, sender);
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-// MTZCommand.m
+// AlertCommand.swift
 // MTZTableManager
 //
 // Copyright (c) 2017 Mauricio Tremea Zaquia (@mtzaquia)
@@ -23,22 +23,28 @@
 // THE SOFTWARE.
 //
 
-#import "MTZCommand+Private.h"
+import UIKit
+import MTZTableViewManager
 
-@implementation MTZCommand
+class AlertCommand: NSObject, MTZCommand {
 
-- (instancetype)initWithAction:(MTZCommandAction)action {
-    self = [super init];
-    if (self) {
-        _action = action;
+    var message: String!
+
+    var action: MTZCommandAction {
+        return { (context, sender) in
+            guard let context = context as? UIViewController else { return }
+            let text = (sender as? NSObject)?.description
+
+            let alert = UIAlertController(title: text ?? "Alert", message: self.message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+            context.present(alert, animated: true, completion: nil)
+        }
     }
 
-    return self;
-}
+    init(message: String) {
+        self.message = message
+        super.init()
+    }
 
-- (MTZCommandAction)action {
-    NSAssert(_action, @"Subclasses of MTZCommand must provide an action.");
-    return _action;
 }
-
-@end

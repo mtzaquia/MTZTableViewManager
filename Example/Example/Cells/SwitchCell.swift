@@ -34,6 +34,11 @@ class SwitchCell: UITableViewCell, MTZModelDisplaying, MTZFormEditing, MTZComman
     @IBOutlet weak var buttonInfo: UIButton!
     @IBOutlet weak var switchToggle: UISwitch!
 
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        buttonInfo.addTarget(self, action: #selector(SwitchCell.showInfo(sender:)), for: .touchUpInside)
+    }
+
     func fieldForFormObject() -> UIControl & MTZFormField {
         return switchToggle
     }
@@ -41,15 +46,9 @@ class SwitchCell: UITableViewCell, MTZModelDisplaying, MTZFormEditing, MTZComman
     func configure(with model: MTZModel?) {
         let model = model as? SwitchCellModel
         labelDescription.text = model?.descriptionText
-
-        buttonInfo.addTarget(self, action: #selector(SwitchCell.showInfo(sender:)), for: .touchUpInside)
     }
 
     @objc func showInfo(sender: UIButton) {
-        let command = MTZCommand { (context) in
-            print(context)
-        }
-
-        commandExecutor.execute(command)
+        commandExecutor.execute(AlertCommand(message: "This is a custom message."), sender: self)
     }
 }

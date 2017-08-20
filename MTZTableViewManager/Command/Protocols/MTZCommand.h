@@ -27,24 +27,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^MTZCommandAction)(id context);
+typedef void (^MTZCommandAction)(id context, id _Nullable sender);
 
 /**
- A class that provides actions that can be triggered from within the rows.
+ Defines an object that provides an action that can be triggered from within the rows.
  */
-@interface MTZCommand : NSObject
+@protocol MTZCommand <NSObject>
 
-+ (instancetype)new NS_UNAVAILABLE;
-- (instancetype)init NS_UNAVAILABLE;
-
-
-/**
- This method initialises a new instance of a command.
-
- @param action The action to be triggered whenever this command is executed by an executor.
- @return A command instance.
- */
-- (instancetype)initWithAction:(MTZCommandAction)action NS_DESIGNATED_INITIALIZER;
+/// The action that this command performs. The action will always be provided with a valid context.
+@property (nonatomic, readonly) MTZCommandAction action;
 
 @end
 
