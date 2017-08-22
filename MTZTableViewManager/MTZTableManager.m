@@ -91,6 +91,11 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     return [self.tableData validate:error];
 }
 
+#pragma mark - MTZCommandRegistering
+- (void)registerCommand:(nonnull id<MTZCommand>)command {
+    [self.commandExecutor registerCommand:command];
+}
+
 #pragma mark - Private
 - (UITableView *)tableView {
     NSAssert(_tableView, @"The table view is weakly held by MTZTableManager, so they must be strongly held by something else.");

@@ -32,18 +32,24 @@
     self = [super init];
     if (self) {
         _context = context;
+        _availableCommands = [@{} mutableCopy];
     }
     
     return self;
 }
 
-- (void)executeCommand:(id<MTZCommand>)command {
-    [self executeCommand:command sender:nil];
+- (void)registerCommand:(id<MTZCommand>)command {
+    self.availableCommands[NSStringFromClass(command.class)] = command;
 }
 
-- (void)executeCommand:(id<MTZCommand>)command sender:(id)sender {
-    NSAssert(command.action, @"All commands must provide an action for execution.");
-    command.action(self.context, sender);
+- (void)executeCommandWithClass:(Class<MTZCommand>)commandClass sender:(id)sender {
+    [self executeCommandWithClass:commandClass payload:nil sender:sender];
+}
+
+- (void)executeCommandWithClass:(Class<MTZCommand>)commandClass payload:(id)payload sender:(id)sender {
+    id<MTZCommand> command = self.availableCommands[NSStringFromClass(commandClass)];
+    NSAssert(command, @"All commands must be added to the invoker using -[MTZCommandInvoker addCommand:] prior to being executed.");
+    [command executeWithPayload:nil sender:sender context:self.context];
 }
 
 @end

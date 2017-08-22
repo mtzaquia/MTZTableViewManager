@@ -117,6 +117,7 @@ import MTZTableViewManager
         let tableData = MTZTableData(tableSections: [formSection, infoSection, actionsSection])
 
         tableViewManager = MTZTableManager(tableView: tableView, tableData: tableData, context: self)
+        tableViewManager.register(AlertCommand(message: "This command was registered"))
 
         // After setting tableViewManager, as `.initial` trigger the hidden flag immediately.
         addObserver(self, forKeyPath: #keyPath(ViewController.formObject.employed), options: [.initial, .new], context: nil)

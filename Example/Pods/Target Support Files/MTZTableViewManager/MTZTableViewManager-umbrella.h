@@ -29,6 +29,7 @@
 #import "MTZCommandExecutor.h"
 #import "MTZCommand.h"
 #import "MTZCommandExecuting.h"
+#import "MTZCommandRegistering.h"
 
 FOUNDATION_EXPORT double MTZTableViewManagerVersionNumber;
 FOUNDATION_EXPORT const unsigned char MTZTableViewManagerVersionString[];

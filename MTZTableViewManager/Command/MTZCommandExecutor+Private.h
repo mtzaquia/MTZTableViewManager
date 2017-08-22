@@ -35,6 +35,9 @@ NS_ASSUME_NONNULL_BEGIN
 /// A context that will be provided to all commands triggered by this executor.
 @property (nonatomic, readonly, weak) id context;
 
+/// A dictionary with the commands available for execution. Keys are the command classes.
+@property (nonatomic, readonly) NSMutableDictionary *availableCommands;
+
 /**
  Initialises a new executor.
 

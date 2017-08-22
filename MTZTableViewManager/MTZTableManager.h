@@ -25,11 +25,13 @@
 
 @import UIKit;
 
+#import "MTZCommandRegistering.h"
+
 @class MTZTableData;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MTZTableManager : NSObject
+@interface MTZTableManager : NSObject <MTZCommandRegistering>
 
 @property (nonatomic) CGFloat estimatedRowHeight;
 

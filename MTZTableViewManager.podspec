@@ -20,18 +20,19 @@ Pod::Spec.new do |s|
 
   s.source_files  = "MTZTableViewManager/**/*.{h,m}"
 
-  s.public_header_files = ['MTZTableViewManager/MTZTable{Manager,Data,Section,Row}.h', 
+  s.public_header_files = ["MTZTableViewManager/MTZTable{Manager,Data,Section,Row}.h", 
                            "MTZTableViewManager/Protocols/MTZModel*.h",
                            "MTZTableViewManager/Forms/MTZTable{FormRow,FormDateRow}.h",
                            "MTZTableViewManager/Forms/Protocols/MTZForm{Object,Editing,Field,Option}.h",
                            "MTZTableViewManager/Forms/MTZForm{Validator,Converter}.h",
                            "MTZTableViewManager/Forms/MTZTextFieldMasker.h",
-		           "MTZTableViewManager/Resources/MTZFormUtils.h",
-		           "MTZTableViewManager/Command/MTZCommandExecutor.h",
-                           "MTZTableViewManager/Command/Protocols/MTZCommand{,Executing}.h"]
+                           "MTZTableViewManager/Resources/MTZFormUtils.h",
+                           "MTZTableViewManager/Command/MTZCommandExecutor.h",
+                           "MTZTableViewManager/Command/Protocols/MTZCommand{,Executing,Registering}.h"
+                          ]
 
-  s.requires_arc = true
+   s.requires_arc = true
 
-  s.dependency "MTZExpirationDatePicker", "~> 1.0.1"
+   s.dependency "MTZExpirationDatePicker", "~> 1.0.1"
 
-end
+ end

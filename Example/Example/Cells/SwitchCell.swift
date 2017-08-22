@@ -49,6 +49,6 @@ class SwitchCell: UITableViewCell, MTZModelDisplaying, MTZFormEditing, MTZComman
     }
 
     @objc func showInfo(sender: UIButton) {
-        commandExecutor.execute(AlertCommand(message: "This is a custom message."), sender: self)
+        commandExecutor.executeCommand(withClass: AlertCommand.self, sender: self)
     }
 }

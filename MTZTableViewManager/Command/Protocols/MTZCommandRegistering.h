@@ -1,5 +1,5 @@
 //
-// MTZCommandExecutor.h
+// MTZCommandRegistering.h
 // MTZTableManager
 //
 // Copyright (c) 2017 Mauricio Tremea Zaquia (@mtzaquia)
@@ -24,36 +24,19 @@
 //
 
 @import Foundation;
-#import "MTZCommandRegistering.h"
 
 @protocol MTZCommand;
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- A class that executes commands, providing them with the adequate context.
- */
-@interface MTZCommandExecutor : NSObject <MTZCommandRegistering>
-
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
+@protocol MTZCommandRegistering <NSObject>
 
 /**
- Asks the executor to trigger a specific action of a command instance.
+ Add a command to the list of available commands for later execution.
 
- @param commandClass The class of the command from which the action will executed.
- @param sender The entity that triggered the action.
+ @param command The instance of the command.
  */
-- (void)executeCommandWithClass:(Class<MTZCommand>)commandClass sender:(id)sender;
-
-/**
- Asks the executor to trigger a specific action of a command instance.
-
- @param commandClass The class of the command from which the action will executed.
- @param payload A payload to support the command execution.
- @param sender The entity that triggered the action.
- */
-- (void)executeCommandWithClass:(Class<MTZCommand>)commandClass payload:(nullable id)payload sender:(id)sender;
+- (void)registerCommand:(id<MTZCommand>)command;
 
 @end
 

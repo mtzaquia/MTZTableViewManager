@@ -30,21 +30,19 @@ class AlertCommand: NSObject, MTZCommand {
 
     var message: String!
 
-    var action: MTZCommandAction {
-        return { (context, sender) in
-            guard let context = context as? UIViewController else { return }
-            let text = (sender as? NSObject)?.description
-
-            let alert = UIAlertController(title: text ?? "Alert", message: self.message, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-
-            context.present(alert, animated: true, completion: nil)
-        }
-    }
-
     init(message: String) {
         self.message = message
         super.init()
+    }
+
+    func execute(withPayload payload: Any?, sender: Any, context: Any) {
+        guard let context = context as? UIViewController else { return }
+        let text = (sender as? NSObject)?.description
+
+        let alert = UIAlertController(title: text ?? "Alert", message: self.message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+
+        context.present(alert, animated: true, completion: nil)
     }
 
 }
