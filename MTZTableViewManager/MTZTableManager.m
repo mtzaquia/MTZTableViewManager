@@ -40,7 +40,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 @interface MTZTableManager () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic) MTZTableData *tableData;
-@property (nonatomic) MTZCommandExecutor *commandExecutor;
+@property (nonatomic, readonly) MTZCommandExecutor *commandExecutor;
 @end
 
 @implementation MTZTableManager
@@ -48,11 +48,11 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 - (instancetype)initWithTableView:(UITableView *)tableView tableData:(MTZTableData *)tableData {
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wnonnull"
-    return [self initWithTableView:tableView tableData:tableData context:nil];
+    return [self initWithTableView:tableView tableData:tableData commandExecutor:nil];
 #pragma clang diagnostic pop
 }
 
-- (instancetype)initWithTableView:(UITableView *)tableView tableData:(MTZTableData *)tableData context:(id)context {
+- (instancetype)initWithTableView:(UITableView *)tableView tableData:(MTZTableData *)tableData commandExecutor:(MTZCommandExecutor *)commandExecutor {
     self = [super init];
     if (self) {
         _tableView = tableView;
@@ -77,10 +77,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 
         _tableView.tableFooterView = _tableData.footerView;
         [self setupInitialHiddenStateFromTableData:_tableData forTableView:_tableView];
-
-        if (context) {
-            _commandExecutor = [[MTZCommandExecutor alloc] initWithContext:context];
-        }
+        _commandExecutor = commandExecutor;
     }
 
     return self;
@@ -89,11 +86,6 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 #pragma mark - MTZFormValidatable
 - (BOOL)validate:(NSError **)error {
     return [self.tableData validate:error];
-}
-
-#pragma mark - MTZCommandRegistering
-- (void)registerCommand:(nonnull id<MTZCommand>)command {
-    [self.commandExecutor registerCommand:command];
 }
 
 #pragma mark - Private

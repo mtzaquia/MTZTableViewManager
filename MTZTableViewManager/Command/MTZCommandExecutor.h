@@ -27,6 +27,7 @@
 #import "MTZCommandRegistering.h"
 
 @protocol MTZCommand;
+@protocol MTZCommandContext;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -39,12 +40,20 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)new NS_UNAVAILABLE;
 
 /**
+ Initialises a new executor.
+
+ @param context The context that will be provided to all commands triggered by the instance.
+ @return A valid @c MTZCommandExecutor instance.
+ */
+- (instancetype)initWithContext:(id<MTZCommandContext>)context;
+
+/**
  Asks the executor to trigger a specific action of a command instance.
 
  @param commandClass The class of the command from which the action will executed.
  @param sender The entity that triggered the action.
  */
-- (void)executeCommandWithClass:(Class<MTZCommand>)commandClass sender:(id)sender;
+- (void)invokeCommandWithClass:(Class<MTZCommand>)commandClass sender:(id)sender NS_SWIFT_NAME(invokeCommand(class:sender:));
 
 /**
  Asks the executor to trigger a specific action of a command instance.
@@ -53,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param payload A payload to support the command execution.
  @param sender The entity that triggered the action.
  */
-- (void)executeCommandWithClass:(Class<MTZCommand>)commandClass payload:(nullable id)payload sender:(id)sender;
+- (void)invokeCommandWithClass:(Class<MTZCommand>)commandClass payload:(nullable id)payload sender:(id)sender NS_SWIFT_NAME(invokeCommand(class:payload:sender:));
 
 @end
 

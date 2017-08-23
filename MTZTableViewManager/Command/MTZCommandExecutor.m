@@ -25,10 +25,11 @@
 
 #import "MTZCommandExecutor+Private.h"
 #import "MTZCommand.h"
+#import "MTZCommandContext.h"
 
 @implementation MTZCommandExecutor
 
-- (instancetype)initWithContext:(id)context {
+- (instancetype)initWithContext:(id<MTZCommandContext>)context {
     self = [super init];
     if (self) {
         _context = context;
@@ -42,14 +43,14 @@
     self.availableCommands[NSStringFromClass(command.class)] = command;
 }
 
-- (void)executeCommandWithClass:(Class<MTZCommand>)commandClass sender:(id)sender {
-    [self executeCommandWithClass:commandClass payload:nil sender:sender];
+- (void)invokeCommandWithClass:(Class<MTZCommand>)commandClass sender:(id)sender {
+    [self invokeCommandWithClass:commandClass payload:nil sender:sender];
 }
 
-- (void)executeCommandWithClass:(Class<MTZCommand>)commandClass payload:(id)payload sender:(id)sender {
+- (void)invokeCommandWithClass:(Class<MTZCommand>)commandClass payload:(id)payload sender:(id)sender {
     id<MTZCommand> command = self.availableCommands[NSStringFromClass(commandClass)];
     NSAssert(command, @"All commands must be added to the invoker using -[MTZCommandInvoker addCommand:] prior to being executed.");
-    [command executeWithPayload:nil sender:sender context:self.context];
+    [command wasInvokedWithPayload:nil sender:sender context:self.context];
 }
 
 @end

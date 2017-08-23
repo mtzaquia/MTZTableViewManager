@@ -25,13 +25,12 @@
 
 @import UIKit;
 
-#import "MTZCommandRegistering.h"
-
+@class MTZCommandExecutor;
 @class MTZTableData;
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MTZTableManager : NSObject <MTZCommandRegistering>
+@interface MTZTableManager : NSObject
 
 @property (nonatomic) CGFloat estimatedRowHeight;
 
@@ -55,12 +54,12 @@ NS_ASSUME_NONNULL_BEGIN
  @warning  This instance must be held strongly along with the tableView that's going to be used.
  @param tableView The @c UITableView that's going to be managed by this entity.
  @param tableData The @c MTZTableData that's going to populated the managed table view.
- @param context The context to be provided for commands triggered from within the rows.
+ @param commandExecutor The command executor to be provided for rows to trigger commands.
  @return A valid instance of @c MTZTableManager.
  */
 - (instancetype)initWithTableView:(UITableView *)tableView
                         tableData:(MTZTableData *)tableData
-                          context:(id)context;
+                  commandExecutor:(MTZCommandExecutor *)commandExecutor;
 
 /**
  This method validates the **visible** fields on the form. Upon a validation error, the offending line is highlighted and the field becomes the first responder.

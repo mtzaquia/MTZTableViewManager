@@ -49,6 +49,6 @@ class SwitchCell: UITableViewCell, MTZModelDisplaying, MTZFormEditing, MTZComman
     }
 
     @objc func showInfo(sender: UIButton) {
-        commandExecutor.executeCommand(withClass: AlertCommand.self, sender: self)
+        commandExecutor.invokeCommand(class: AlertCommand.self, sender: self)
     }
 }
