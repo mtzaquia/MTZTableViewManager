@@ -140,11 +140,16 @@ userRow.availableOptions = allUsers;
 * If you set available options, you must also use `UITextField` as a form field, as we replace the `inputView` with the adequate picker.
 
 ### Converters
+TBA
 
 ### Validators
+TBA
 
 ### Maskers
+TBA
 
+## Commands
+TBA
 
 # License
 `MTZTableViewManager` is released under the MIT license. See LICENSE for details.
