@@ -49,8 +49,8 @@
     return self;
 }
 
-- (instancetype)initWithClazz:(Class)clazz formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
-    self = [super initWithClazz:clazz formObject:formObject keyPath:keyPath model:model];
+- (instancetype)initWithClass:(Class)clazz formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
+    self = [super initWithClass:clazz formObject:formObject keyPath:keyPath model:model];
     if (self) {
         [self checkDataTypes];
     }

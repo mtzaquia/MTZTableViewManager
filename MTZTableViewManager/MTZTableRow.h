@@ -65,8 +65,8 @@ typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> _Nullable
  @param action The action to be triggered while touching the cell.
  @return A valid instance of @c MTZTableFormRow.
  */
-- (instancetype)initWithClazz:(Class)clazz
-                       action:(nullable MTZTableRowAction)action;
+- (instancetype)initWithClass:(Class)clazz
+                       action:(nullable MTZTableRowAction)action NS_SWIFT_NAME(init(class:action:));
 
 /**
  Provides an instance of @c MTZTableRow that can perform an action when selected.
@@ -86,9 +86,9 @@ typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> _Nullable
  @param action The action to be triggered while touching the cell.
  @return A valid instance of @c MTZTableFormRow.
  */
-- (instancetype)initWithClazz:(Class)clazz
+- (instancetype)initWithClass:(Class)clazz
           model:(nullable id<MTZModel>)model
-         action:(nullable MTZTableRowAction)action NS_DESIGNATED_INITIALIZER;
+         action:(nullable MTZTableRowAction)action NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(class:model:action:));
 
 /**
  Provides an instance of @c MTZTableRow that can be configured with a model and perform an action when selected.

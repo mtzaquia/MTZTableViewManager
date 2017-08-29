@@ -94,12 +94,12 @@ import MTZTableViewManager
         
         let validateModel = ActionCellModel()
         validateModel.actionTitle = "Validate"
-        let validateRow = MTZTableRow(clazz: ActionCell.self, model: validateModel) { [unowned self] (_, _) in
+        let validateRow = MTZTableRow(class: ActionCell.self, model: validateModel) { [unowned self] (_, _) in
             self.validateForm(nil)
         }
         let resultsModel = ActionCellModel()
         resultsModel.actionTitle = "View Results"
-        let resultsRow = MTZTableRow(clazz: ActionCell.self, model: resultsModel) { [unowned self] (_, _) in
+        let resultsRow = MTZTableRow(class: ActionCell.self, model: resultsModel) { [unowned self] (_, _) in
             self.viewResult(nil)
         }
         

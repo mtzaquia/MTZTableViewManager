@@ -28,15 +28,15 @@
 
 @implementation MTZTableRow
 
-- (instancetype)initWithClazz:(Class)clazz action:(MTZTableRowAction)action {
-    return [self initWithClazz:clazz model:nil action:action];
+- (instancetype)initWithClass:(Class)clazz action:(MTZTableRowAction)action {
+    return [self initWithClass:clazz model:nil action:action];
 }
 
 - (instancetype)initWithNib:(UINib *)nib action:(MTZTableRowAction)action {
     return [self initWithNib:nib model:nil action:action];
 }
 
-- (instancetype)initWithClazz:(Class)clazz model:(id<MTZModel>)model action:(MTZTableRowAction)action {
+- (instancetype)initWithClass:(Class)clazz model:(id<MTZModel>)model action:(MTZTableRowAction)action {
     self = [super init];
     if (self) {
         _clazz = clazz;

@@ -39,16 +39,16 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 @implementation MTZTableFormRow
 
-- (instancetype)initWithClazz:(Class)clazz formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath {
-    return [self initWithClazz:clazz formObject:formObject keyPath:keyPath model:nil];
+- (instancetype)initWithClass:(Class)clazz formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath {
+    return [self initWithClass:clazz formObject:formObject keyPath:keyPath model:nil];
 }
 
 - (instancetype)initWithNib:(UINib *)nib formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath {
     return [self initWithNib:nib formObject:formObject keyPath:keyPath model:nil];
 }
 
-- (instancetype)initWithClazz:(Class)clazz formObject:(NSObject<MTZFormObject> *)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
-    self = [super initWithClazz:clazz model:model action:nil];
+- (instancetype)initWithClass:(Class)clazz formObject:(NSObject<MTZFormObject> *)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
+    self = [super initWithClass:clazz model:model action:nil];
     if (self) {
         _formObject = formObject;
         _keyPath = keyPath;

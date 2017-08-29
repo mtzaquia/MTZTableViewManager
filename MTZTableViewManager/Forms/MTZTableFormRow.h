@@ -56,11 +56,11 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
-- (instancetype)initWithClazz:(Class)clazz
+- (instancetype)initWithClass:(Class)clazz
                        action:(nullable MTZTableRowAction)action NS_UNAVAILABLE;
 - (instancetype)initWithNib:(UINib *)nib
                      action:(nullable MTZTableRowAction)action NS_UNAVAILABLE;
-- (instancetype)initWithClazz:(Class)clazz
+- (instancetype)initWithClass:(Class)clazz
                         model:(nullable id<MTZModel>)model
                        action:(nullable MTZTableRowAction)action NS_UNAVAILABLE;
 - (instancetype)initWithNib:(UINib *)nib
@@ -75,9 +75,9 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
  @param keyPath The key path to be manipulated by the field on the row.
  @return A valid instance of @c MTZTableFormRow.
  */
-- (instancetype)initWithClazz:(Class)clazz
+- (instancetype)initWithClass:(Class)clazz
                    formObject:(id<MTZFormObject>)formObject
-                      keyPath:(MTZKeyPath *)keyPath;
+                      keyPath:(MTZKeyPath *)keyPath NS_SWIFT_NAME(init(class:formObject:keyPath:));
 
 /**
  Provides an instance of @c MTZTableFormRow that can manipulate a form object at a given key path.
@@ -100,10 +100,10 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
  @param model A model for configuring the cell's appearance.
  @return A valid instance of @c MTZTableFormRow.
  */
-- (instancetype)initWithClazz:(Class)clazz
+- (instancetype)initWithClass:(Class)clazz
                    formObject:(id<MTZFormObject>)formObject
                       keyPath:(MTZKeyPath *)keyPath
-                        model:(nullable id<MTZModel>)model NS_DESIGNATED_INITIALIZER;
+                        model:(nullable id<MTZModel>)model NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(class:formObject:keyPath:model:));
 
 /**
  Provides an instance of @c MTZTableFormRow that can manipulate a form object at a given key path.
