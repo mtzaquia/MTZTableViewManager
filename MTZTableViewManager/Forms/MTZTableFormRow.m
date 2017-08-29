@@ -232,6 +232,11 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     [self updateFormFieldWithCustomValue:self.availableOptions[row]];
 }
 
+- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
+    id<MTZFormOption> option = self.availableOptions[row];
+    return [option optionViewReusingView:view];
+}
+
 #pragma mark - Private
 - (id)finalFieldValueWithCustomValue:(id)customValue {
     id inputValue = customValue ?: [self.formObject valueForKeyPath:self.keyPath];
@@ -265,5 +270,13 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     }
 }
 
+#pragma mark - Runtime
+- (BOOL)respondsToSelector:(SEL)aSelector {
+    if (aSelector == @selector(pickerView:viewForRow:forComponent:reusingView:)) {
+        return [[self.availableOptions firstObject] respondsToSelector:@selector(optionViewReusingView:)];
+    }
+
+    return [super respondsToSelector:aSelector];
+}
 @end
 

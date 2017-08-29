@@ -45,6 +45,13 @@ NS_ASSUME_NONNULL_BEGIN
  @return The formatted, textual representation of the object.
  */
 - (NSAttributedString *)optionAttributedDescription;
-//- (UIView *)optionViewReusingView:(nullable UIView *)reusableView;
+
+/**
+ Provides a custom view for the complex object for being displayed as a picker row.
+
+ @param reusableView The view to be reused for performance purposes.
+ @return A reusable view that's going to be a row on the picker.
+ */
+- (UIView *)optionViewReusingView:(nullable UIView *)reusableView;
 @end
 NS_ASSUME_NONNULL_END
