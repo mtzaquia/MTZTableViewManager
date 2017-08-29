@@ -39,8 +39,11 @@ import MTZTableViewManager
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.keyboardDismissMode = .onDrag
-        tableView.contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            tableView.contentInsetAdjustmentBehavior = .never
+        } else {
+            self.edgesForExtendedLayout = []
+        }
 
         formObject = PersonFormObject()
 

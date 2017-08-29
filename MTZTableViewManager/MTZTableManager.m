@@ -41,6 +41,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic) MTZTableData *tableData;
 @property (nonatomic, readonly) MTZCommandExecutor *commandExecutor;
+@property (nonatomic) CGFloat keyboardBaseBottomInset;
 @end
 
 @implementation MTZTableManager
@@ -57,8 +58,6 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     if (self) {
         _tableView = tableView;
         _tableView.estimatedRowHeight = _estimatedRowHeight ?: MTZTableManagerEstimatedRowHeight;
-        _tableView.estimatedSectionHeaderHeight = _estimatedRowHeight ?: MTZTableManagerEstimatedRowHeight;
-        _tableView.estimatedSectionFooterHeight = _estimatedRowHeight ?: MTZTableManagerEstimatedRowHeight;
         _tableView.rowHeight = UITableViewAutomaticDimension;
         _tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
         _tableView.sectionFooterHeight = UITableViewAutomaticDimension;
@@ -78,6 +77,9 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
         _tableView.tableFooterView = _tableData.footerView;
         [self setupInitialHiddenStateFromTableData:_tableData forTableView:_tableView];
         _commandExecutor = commandExecutor;
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboard:) name:UIKeyboardWillShowNotification object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboard:) name:UIKeyboardWillHideNotification object:nil];
     }
 
     return self;
@@ -89,6 +91,28 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 }
 
 #pragma mark - Private
+- (void)handleKeyboard:(NSNotification *)notification {
+    BOOL showing = [notification.name isEqualToString:UIKeyboardWillShowNotification];
+    if (self.keyboardBaseBottomInset == 0) {
+        self.keyboardBaseBottomInset = self.tableView.contentInset.bottom;
+    }
+
+    NSDictionary *userInfo = notification.userInfo;
+    CGRect keyboardFrame = [self.tableView convertRect:[userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue] fromView:nil];
+    CGRect intersect = CGRectIntersection(keyboardFrame, self.tableView.bounds);
+    if (!CGRectIsNull(intersect)) {
+        NSTimeInterval keyboardAnimationDuration = [userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+        NSInteger keyboardAnimationCurve = [userInfo[UIKeyboardAnimationCurveUserInfoKey] integerValue] << 16;
+        [UIView animateWithDuration:keyboardAnimationDuration delay:0 options:keyboardAnimationCurve animations:^{
+            self.tableView.contentInset = UIEdgeInsetsMake(self.tableView.contentInset.top,
+                                                           self.tableView.contentInset.left,
+                                                           (showing ? intersect.size.height : self.keyboardBaseBottomInset),
+                                                           self.tableView.contentInset.right);
+            self.tableView.scrollIndicatorInsets = self.tableView.contentInset;
+        } completion:nil];
+    }
+}
+
 - (UITableView *)tableView {
     NSAssert(_tableView, @"The table view is weakly held by MTZTableManager, so they must be strongly held by something else.");
     return _tableView;

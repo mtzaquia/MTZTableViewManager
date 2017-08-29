@@ -35,6 +35,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 @interface MTZTableFormRow ()
 @property (nonatomic) UIPickerView *pickerView;
 @property (nonatomic) NSInteger selectedPickerIndex;
+@property (nonatomic) CGFloat calculatedPickerComponentHeight;
 @end
 
 @implementation MTZTableFormRow
@@ -237,6 +238,16 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     return [option optionViewReusingView:view];
 }
 
+- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
+    if (self.calculatedPickerComponentHeight > 0) {
+        return self.calculatedPickerComponentHeight;
+    }
+
+    UIView *sampleView = [self pickerView:pickerView viewForRow:0 forComponent:component reusingView:nil];
+    self.calculatedPickerComponentHeight = [sampleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
+    return self.calculatedPickerComponentHeight;
+}
+
 #pragma mark - Private
 - (id)finalFieldValueWithCustomValue:(id)customValue {
     id inputValue = customValue ?: [self.formObject valueForKeyPath:self.keyPath];
@@ -272,7 +283,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 #pragma mark - Runtime
 - (BOOL)respondsToSelector:(SEL)aSelector {
-    if (aSelector == @selector(pickerView:viewForRow:forComponent:reusingView:)) {
+    if (aSelector == @selector(pickerView:viewForRow:forComponent:reusingView:) || aSelector == @selector(pickerView:rowHeightForComponent:)) {
         return [[self.availableOptions firstObject] respondsToSelector:@selector(optionViewReusingView:)];
     }
 
