@@ -78,6 +78,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
         [self setupInitialHiddenStateFromTableData:_tableData forTableView:_tableView];
         _commandExecutor = commandExecutor;
 
+        _keyboardBaseBottomInset = NSNotFound;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboard:) name:UIKeyboardWillShowNotification object:nil];
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(handleKeyboard:) name:UIKeyboardWillHideNotification object:nil];
     }
@@ -93,7 +94,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 #pragma mark - Private
 - (void)handleKeyboard:(NSNotification *)notification {
     BOOL showing = [notification.name isEqualToString:UIKeyboardWillShowNotification];
-    if (self.keyboardBaseBottomInset == 0) {
+    if (self.keyboardBaseBottomInset == NSNotFound) {
         self.keyboardBaseBottomInset = self.tableView.contentInset.bottom;
     }
 
