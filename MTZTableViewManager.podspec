@@ -1,11 +1,13 @@
 Pod::Spec.new do |s|
 
   s.name         = "MTZTableViewManager"
-  s.version      = "1.0.3"
+  s.version      = "1.1.1"
   s.summary      = "A powerful framework for creating table views in a descriptive way, as well generating and handling table view forms."
 
   s.description  = <<-DESC
-  MTZTableViewManager is a powerful framework that allows you to create table views in a descriptive way, by specifying rows and sections without having to bother with indexes. It also provides a set of tools for creating forms and handling their input, applying masks, performing validations and converting to and from complex objects.
+  MTZTableViewManager is a powerful framework that allows you to create table views in a descriptive way, by specifying rows and sections 
+  without having to bother with indexes. It also provides a set of tools for creating forms and handling their input, applying masks, 
+  performing validations and converting to and from complex objects.
   DESC
 
   s.homepage     = "https://github.com/mtzaquia/MTZTableViewManager"

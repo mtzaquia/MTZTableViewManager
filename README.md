@@ -6,6 +6,7 @@ MTZTableViewManager is a powerful framework that allows you to create table view
 # Installation
 
 ## Manual
+- Make sure to pick the right tag (`1.1.1` at the moment).
 - Drop the file `MTZTableViewManager.xcodeproj` inside your Xcode project. 
 - Make sure your submodules are up-to-date.
 - Drag the `MTZTableViewManager.framework` (under `Products`) to your target `Linked Frameworks and Libraries` area.
@@ -13,7 +14,7 @@ MTZTableViewManager is a powerful framework that allows you to create table view
 ## CocoaPods
 You can also declare the following on your `Podfile`:
 ```ruby
-pod 'MTZTableViewManager', '~> 1.0.3'
+pod 'MTZTableViewManager', '~> 1.1.1'
 ```
 *Note that this will also add `MTZExpirationDatePicker` as a pod dependency.*
 
@@ -97,7 +98,7 @@ Form fields automatically provide you with `inputAccessoryView` for jumping betw
 "mtz_done" = "Done";
 ```
 
-*Please note that if the keyboard provides a return button, the "Done" button is ommitted.*
+* If the keyboard provides a return button, the "Done" button is ommitted.
 
 ### Form date rows
 Dates are a special topic. Due to that, if you want to interact with a `NSDate` key path, use `MTZTableFormDateRow` instead:
