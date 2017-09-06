@@ -30,7 +30,7 @@ Pod::Spec.new do |s|
                            "MTZTableViewManager/Forms/MTZTextFieldMasker.h",
                            "MTZTableViewManager/Resources/MTZFormUtils.h",
                            "MTZTableViewManager/Command/MTZCommandExecutor.h",
-                           "MTZTableViewManager/Command/Protocols/MTZCommand{,Executing,Registering,Context}.h"
+                           "MTZTableViewManager/Command/Protocols/MTZCommand*.h"
                           ]
 
    s.requires_arc = true

@@ -1,6 +1,6 @@
 PODS:
   - MTZExpirationDatePicker (1.0.1)
-  - MTZTableViewManager (1.0.3):
+  - MTZTableViewManager (1.1.1):
     - MTZExpirationDatePicker (~> 1.0.1)
 
 DEPENDENCIES:
@@ -12,7 +12,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   MTZExpirationDatePicker: 0ccde6d751565f26d1a7cf6455c9acc5beaefbe2
-  MTZTableViewManager: 92f10c0734f814c77bcc32c930cdf70cae985daa
+  MTZTableViewManager: 427d7b65cb89c84b3151ca39e9605019723959ef
 
 PODFILE CHECKSUM: b2aac608634bfc1de4505c46dc3dc788b6092e91
 
