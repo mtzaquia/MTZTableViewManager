@@ -25,7 +25,7 @@
 
 @import Foundation;
 
-@class MTZCommandContext;
+@protocol MTZCommandContext;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -42,7 +42,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param context The context in which the command was triggered.
  */
 - (void)wasInvokedWithPayload:(nullable id)payload
-                        sender:(id)sender
+                       sender:(id)sender
                       context:(id<MTZCommandContext>)context NS_SWIFT_NAME(wasInvoked(with:sender:context:));
 
 @end
