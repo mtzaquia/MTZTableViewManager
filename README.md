@@ -6,7 +6,7 @@ MTZTableViewManager is a powerful framework that allows you to create table view
 # Installation
 
 ## Manual
-- Make sure to pick the right tag (`1.1.2` at the moment).
+- Make sure to pick the right tag (`1.1.3` at the moment).
 - Drop the file `MTZTableViewManager.xcodeproj` inside your Xcode project. 
 - Make sure your submodules are up-to-date.
 - Drag the `MTZTableViewManager.framework` (under `Products`) to your target `Linked Frameworks and Libraries` area.
@@ -14,7 +14,7 @@ MTZTableViewManager is a powerful framework that allows you to create table view
 ## CocoaPods
 You can also declare the following on your `Podfile`:
 ```ruby
-pod 'MTZTableViewManager', '~> 1.1.2'
+pod 'MTZTableViewManager', '~> 1.1.3'
 ```
 *Note that this will also add `MTZExpirationDatePicker` as a pod dependency.*
 
