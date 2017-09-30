@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "MTZTableViewManager"
-  s.version      = "1.1.3"
+  s.version      = "1.2.0"
   s.summary      = "A powerful framework for creating table views in a descriptive way, as well generating and handling table view forms."
 
   s.description  = <<-DESC
@@ -25,6 +25,7 @@ Pod::Spec.new do |s|
   s.public_header_files = [
                            "MTZTableViewManager/MTZTable{Manager,Data,Section,Row}.h", 
                            "MTZTableViewManager/Protocols/MTZModel*.h",
+                           "MTZTableViewManager/Protocols/MTZReloadable.h",
                            "MTZTableViewManager/Forms/MTZTable{FormRow,FormDateRow}.h",
                            "MTZTableViewManager/Forms/Protocols/MTZForm{Object,Editing,Field,Option}.h",
                            "MTZTableViewManager/Forms/MTZForm{Validator,Converter}.h",

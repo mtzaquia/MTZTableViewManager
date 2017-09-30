@@ -25,17 +25,17 @@
 
 @import UIKit;
 
-@protocol MTZModel;
+#import "MTZModel.h"
+#import "MTZReloadable.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> _Nullable model);
 
-
 /**
  A row capable of displaying models and perform actions upon selection.
  */
-@interface MTZTableRow : NSObject
+@interface MTZTableRow : NSObject <MTZReloadable>
 
 /// The class of the cell to be used for this table row.
 @property (nonatomic) Class clazz;

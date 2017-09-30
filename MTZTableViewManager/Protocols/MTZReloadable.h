@@ -1,5 +1,5 @@
 //
-// MTZCommandRegistering.h
+// MTZReloadable.h
 // MTZTableManager
 //
 // Copyright (c) 2017 Mauricio Tremea Zaquia (@mtzaquia)
@@ -25,19 +25,27 @@
 
 @import Foundation;
 
-#import "MTZCommand.h"
-
 NS_ASSUME_NONNULL_BEGIN
 
-@protocol MTZCommandRegistering <NSObject>
+//typedef void (^MTZReloadFinishedBlock)(void);
+//typedef void (^MTZReloadBlock)(MTZReloadFinishedBlock completion);
 
 /**
- Add a command to the list of available commands for later execution.
-
- @param command The instance of the command.
+ Declares a component as capable of being dynamically reloaded.
  */
-- (void)registerCommand:(id<MTZCommand>)command;
+@protocol MTZReloadable <NSObject>
 
+/**
+ Immediately reloads the component.
+ */
+- (void)reload;
+
+/**
+ Puts the component into a reloading state until the completion block is called.
+
+ @param reloadBlock The operations to be performed and that will ultimately call the completion block.
+ */
+//- (void)reloadWithBlock:(MTZReloadBlock)reloadBlock;
 @end
 
 NS_ASSUME_NONNULL_END

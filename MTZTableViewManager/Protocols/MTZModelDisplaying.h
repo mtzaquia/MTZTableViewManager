@@ -24,9 +24,9 @@
 //
 
 @import Foundation;
+#import "MTZModel.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
 
 /**
  Declares a cell capable of displaying information from a @c MTZModel.

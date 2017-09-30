@@ -23,15 +23,6 @@
 // THE SOFTWARE.
 //
 
-#import <objc/runtime.h>
-
-static inline BOOL MTZFormObjectKeyPathIsOfClass(NSObject<MTZFormObject> *formObject, MTZKeyPath *keyPath, Class clazz) {
-    objc_property_t theProperty = class_getProperty([formObject class], keyPath.UTF8String);
-    const char *propertyAttributesRaw = property_getAttributes(theProperty);
-    NSString *propertyAttributes = [NSString stringWithUTF8String:propertyAttributesRaw];
-    return [propertyAttributes containsString:NSStringFromClass(clazz)];
-}
-
 static inline NSDateFormatter *MTZSharedDateFormatter() {
     static NSDateFormatter *formatter;
     static dispatch_once_t onceToken;

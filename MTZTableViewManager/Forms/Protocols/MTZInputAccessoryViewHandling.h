@@ -23,7 +23,7 @@
 // THE SOFTWARE.
 //
 
-@import Foundation;
+@import UIKit;
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -25,7 +25,7 @@
 
 @import Foundation;
 
-@protocol MTZFormField;
+#import "MTZFormField.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

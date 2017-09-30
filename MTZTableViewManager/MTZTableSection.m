@@ -25,9 +25,9 @@
 
 #import "MTZTableSection+Private.h"
 #import "MTZTableData+Private.h"
-#import "MTZTableRow+Private.h"
 #import "MTZTableFormRow+Private.h"
 #import "MTZTableManagerUtils.h"
+#import "MTZTableRow+Private.h"
 #import "UIResponder+FirstResponder.h"
 
 @interface MTZTableSection ()
@@ -90,6 +90,23 @@
 
     return formRows;
 }
+
+//#pragma mark - MTZReloadable
+//- (void)reload {
+//    dispatch_async(MTZTableUpdateQueue(), ^{
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            // Only reload the section rows that are visible, otherwise the table jumps.
+//            NSArray *rowsToReload = [self.tableData.tableView indexPathsForVisibleRows];
+//            rowsToReload = [rowsToReload objectsAtIndexes:[rowsToReload indexesOfObjectsPassingTest:^BOOL(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
+//                return indexPath.section == self.index;
+//            }]];
+//
+//            [self.tableData.tableView beginUpdates];
+//            [self.tableData.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationNone];
+//            [self.tableData.tableView endUpdates];
+//        });
+//    });
+//}
 
 #pragma mark - MTZFormValidatable
 - (BOOL)validate:(NSError **)error {

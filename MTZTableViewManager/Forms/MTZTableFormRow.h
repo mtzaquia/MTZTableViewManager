@@ -24,13 +24,14 @@
 //
 
 #import "MTZTableRow.h"
+
 #import "MTZFormUtils.h"
+#import "MTZFormObject.h"
+#import "MTZFormOption.h"
 
 @class MTZFormConverter;
 @class MTZFormValidator;
 @class MTZTextFieldMasker;
-@protocol MTZFormObject;
-@protocol MTZFormOption;
 
 NS_ASSUME_NONNULL_BEGIN
 

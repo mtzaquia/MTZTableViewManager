@@ -24,10 +24,10 @@
 //
 
 @import Foundation;
-#import "MTZCommandRegistering.h"
 
-@protocol MTZCommand;
-@protocol MTZCommandContext;
+#import "MTZCommandRegistering.h"
+#import "MTZCommand.h"
+#import "MTZCommandContext.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

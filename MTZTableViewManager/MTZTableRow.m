@@ -24,6 +24,8 @@
 //
 
 #import "MTZTableRow+Private.h"
+#import "MTZTableData+Private.h"
+#import "MTZTableManagerUtils.h"
 #import "MTZTableSection+Private.h"
 
 @implementation MTZTableRow
@@ -65,6 +67,21 @@
 
     _hidden = hidden;
     [self.section setTableRow:self hidden:_hidden];
+}
+
+#pragma mark - MTZReloadable
+- (void)reload {
+    dispatch_async(MTZTableUpdateQueue(), ^{
+        NSIndexPath *rowPath = [self.section.tableData indexPathForTableRow:self];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            // Only reload if the cell is visible, otherwise the table jumps.
+            if ([[self.section.tableData.tableView indexPathsForVisibleRows] containsObject:rowPath]) {
+                [self.section.tableData.tableView beginUpdates];
+                [self.section.tableData.tableView reloadRowsAtIndexPaths:@[rowPath] withRowAnimation:UITableViewRowAnimationFade];
+                [self.section.tableData.tableView endUpdates];
+            }
+        });
+    });
 }
 
 @end

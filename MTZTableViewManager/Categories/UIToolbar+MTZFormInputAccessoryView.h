@@ -25,7 +25,7 @@
 
 @import UIKit;
 
-@protocol MTZInputAccessoryViewHandling;
+#import "MTZInputAccessoryViewHandling.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

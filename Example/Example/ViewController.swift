@@ -105,6 +105,13 @@ import MTZTableViewManager
         let resultsRow = MTZTableRow(class: ActionCell.self, model: resultsModel) { [unowned self] (_, _) in
             self.viewResult(nil)
         }
+
+        let populateModel = ActionCellModel()
+        populateModel.actionTitle = "Populate Name"
+        let populateRow = MTZTableRow(class: ActionCell.self, model: populateModel) { [unowned self] (_, _) in
+            self.formObject.name = "Populated dynamically"
+            nameRow.reload()
+        }
         
         let infoNib = UINib(nibName: "InformationCell", bundle: nil)
         let infoModel = InformationCellModel()
@@ -115,7 +122,7 @@ import MTZTableViewManager
         infoRow.expandedHeight = UITableViewAutomaticDimension
         let infoSection = MTZTableSection(tableRows: [infoRow])
         
-        let actionsSection = MTZTableSection(tableRows: [validateRow, resultsRow])
+        let actionsSection = MTZTableSection(tableRows: [validateRow, resultsRow, populateRow])
 
         let tableData = MTZTableData(tableSections: [formSection, infoSection, actionsSection])
 

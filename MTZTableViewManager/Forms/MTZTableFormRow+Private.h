@@ -30,8 +30,7 @@
 #import "MTZTableManagerUtils.h"
 #import "MTZTableRow+Private.h"
 #import "MTZTableSection+Private.h"
-
-@protocol MTZFormObject;
+#import "MTZFormObject.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

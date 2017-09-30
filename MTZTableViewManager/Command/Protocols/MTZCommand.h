@@ -25,7 +25,7 @@
 
 @import Foundation;
 
-@protocol MTZCommandContext;
+#import "MTZCommandContext.h"
 
 NS_ASSUME_NONNULL_BEGIN
 

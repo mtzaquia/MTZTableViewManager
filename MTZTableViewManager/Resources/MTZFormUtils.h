@@ -23,6 +23,9 @@
 // THE SOFTWARE.
 //
 
+#import <objc/runtime.h>
+#import "MTZFormObject.h"
+
 @protocol MTZKeyPath <NSObject>
 @end
 typedef NSString<MTZKeyPath> MTZKeyPath;
@@ -34,3 +37,9 @@ static inline MTZKeyPath *GetMTZKeyPath(__unused unsigned long val, NSString *st
 #define KEYPATH(obj, key) GetMTZKeyPath(sizeof(obj.key), @#key)
 #define CLASSKEY(cls, key) KEYPATH(((cls*)nil), key)
 
+static inline BOOL MTZFormObjectKeyPathIsOfClass(NSObject<MTZFormObject> *formObject, MTZKeyPath *keyPath, Class clazz) {
+    objc_property_t theProperty = class_getProperty([formObject class], keyPath.UTF8String);
+    const char *propertyAttributesRaw = property_getAttributes(theProperty);
+    NSString *propertyAttributes = [NSString stringWithUTF8String:propertyAttributesRaw];
+    return [propertyAttributes containsString:NSStringFromClass(clazz)];
+}
