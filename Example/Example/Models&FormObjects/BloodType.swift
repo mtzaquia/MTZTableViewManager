@@ -40,6 +40,11 @@ import MTZTableViewManager
         ]
     }
 
+    override func isEqual(_ object: Any?) -> Bool {
+        guard let object = object as? BloodType else { return false }
+        return self.optionDescription() == object.optionDescription()
+    }
+
     var group: String!
     var rhFactor: Bool = false
 
@@ -53,40 +58,40 @@ import MTZTableViewManager
         return "\(self.group!)\(self.rhFactor ? "+" : "-")"
     }
 
-//    func optionViewReusing(_ reusableView: UIView?) -> UIView {
-//        if let reusableView = reusableView {
-//            let imageView = reusableView.viewWithTag(1) as! UIImageView
-//            let textLabel = reusableView.viewWithTag(2) as! UILabel
-//            imageView.image = UIImage(named: self.optionDescription())
-//            textLabel.text = self.optionDescription()
-//            return reusableView
-//        } else {
-//            let finalView = UIView()
-//            let imageView = UIImageView(image: UIImage(named: self.optionDescription()))
-//            imageView.translatesAutoresizingMaskIntoConstraints = false
-//            imageView.tag = 1
-//            finalView.addSubview(imageView)
-//            let textLabel = UILabel()
-//            textLabel.translatesAutoresizingMaskIntoConstraints = false
-//            textLabel.tag = 2
-//            textLabel.text = self.optionDescription()
-//            finalView.addSubview(textLabel)
-//
-//            NSLayoutConstraint.activate([
-//                imageView.topAnchor.constraint(equalTo: finalView.topAnchor, constant: 8),
-//                imageView.bottomAnchor.constraint(equalTo: finalView.bottomAnchor, constant: -8),
-//                imageView.heightAnchor.constraint(equalToConstant: 50),
-//                imageView.widthAnchor.constraint(equalToConstant: 50),
-//                imageView.centerYAnchor.constraint(equalTo: finalView.centerYAnchor),
-//                imageView.leadingAnchor.constraint(equalTo: finalView.leadingAnchor, constant: 16),
-//                textLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
-//                textLabel.trailingAnchor.constraint(equalTo: finalView.trailingAnchor, constant: 16),
-//                textLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
-//            ])
-//
-//            return finalView
-//        }
-//    }
+    func optionViewReusing(_ reusableView: UIView?) -> UIView {
+        if let reusableView = reusableView {
+            let imageView = reusableView.viewWithTag(1) as! UIImageView
+            let textLabel = reusableView.viewWithTag(2) as! UILabel
+            imageView.image = UIImage(named: self.optionDescription())
+            textLabel.text = self.optionDescription()
+            return reusableView
+        } else {
+            let finalView = UIView()
+            let imageView = UIImageView(image: UIImage(named: self.optionDescription()))
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.tag = 1
+            finalView.addSubview(imageView)
+            let textLabel = UILabel()
+            textLabel.translatesAutoresizingMaskIntoConstraints = false
+            textLabel.tag = 2
+            textLabel.text = self.optionDescription()
+            finalView.addSubview(textLabel)
+
+            NSLayoutConstraint.activate([
+                imageView.topAnchor.constraint(equalTo: finalView.topAnchor, constant: 8),
+                imageView.bottomAnchor.constraint(equalTo: finalView.bottomAnchor, constant: -8),
+                imageView.heightAnchor.constraint(equalToConstant: 50),
+                imageView.widthAnchor.constraint(equalToConstant: 50),
+                imageView.centerYAnchor.constraint(equalTo: finalView.centerYAnchor),
+                imageView.leadingAnchor.constraint(equalTo: finalView.leadingAnchor, constant: 16),
+                textLabel.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 8),
+                textLabel.trailingAnchor.constraint(equalTo: finalView.trailingAnchor, constant: 16),
+                textLabel.centerYAnchor.constraint(equalTo: imageView.centerYAnchor)
+            ])
+
+            return finalView
+        }
+    }
 
     override var description: String {
         return """
