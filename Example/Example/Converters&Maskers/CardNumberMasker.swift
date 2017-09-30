@@ -35,7 +35,7 @@ class CardNumberMasker: MTZTextFieldMasker {
         return CharacterSet.decimalDigits
     }
 
-    override func stringToAppend(at index: Int) -> String? {
+    override func stringToAppend(at index: Int, of currentString: String) -> String? {
         if [4, 8, 12].contains(index) {
             return " "
         }

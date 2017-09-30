@@ -42,6 +42,7 @@ extern NSErrorUserInfoKey const MTZTableFormRowKey;
 @property (nonatomic, weak) __kindof UIControl<MTZFormField> *formField;
 @property (nonatomic) MTZKeyPath *keyPath;
 
+- (void)updateFormFieldWithCustomValue:(nullable id)customValue;
 - (id)finalFieldValueWithCustomValue:(id)customValue;
 - (id)finalFormValue;
 @end

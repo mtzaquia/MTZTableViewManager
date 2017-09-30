@@ -50,9 +50,10 @@ NS_ASSUME_NONNULL_BEGIN
  A method that asks for text to be inserted into an specific index on the current string.
 
  @param index The index to be verified against.
+ @param currentString The string currently being displayed, before the masker appending.
  @return The string to be added at the given index.
  */
-- (nullable NSString *)stringToAppendAtIndex:(NSInteger)index;
+- (nullable NSString *)stringToAppendAtIndex:(NSInteger)index ofString:(NSString *)currentString;
 
 @end
 

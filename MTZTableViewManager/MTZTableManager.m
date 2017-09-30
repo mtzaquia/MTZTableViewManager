@@ -123,21 +123,21 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     [tableData.sections enumerateObjectsUsingBlock:^(MTZTableSection * _Nonnull section, NSUInteger idx, BOOL * _Nonnull stop) {
         section.tableData = tableData;
         section.index = idx;
-        if (section.headerClazz) {
-            [tableView registerClass:section.headerClazz forHeaderFooterViewReuseIdentifier:NSStringFromClass(section.headerClazz)];
+        if (section.headerClass) {
+            [tableView registerClass:section.headerClass forHeaderFooterViewReuseIdentifier:NSStringFromClass(section.headerClass)];
         }
 
-        if (section.footerClazz) {
-            [tableView registerClass:section.footerClazz forHeaderFooterViewReuseIdentifier:NSStringFromClass(section.footerClazz)];
+        if (section.footerClass) {
+            [tableView registerClass:section.footerClass forHeaderFooterViewReuseIdentifier:NSStringFromClass(section.footerClass)];
         }
 
         [section.rows enumerateObjectsUsingBlock:^(MTZTableRow * _Nonnull row, NSUInteger idx, BOOL * _Nonnull stop) {
             row.section = section;
             row.index = idx;
-            if (row.clazz) {
-                [tableView registerClass:row.clazz forCellReuseIdentifier:NSStringFromClass(row.clazz)];
-            } else if (row.nib) {
-                [tableView registerNib:row.nib forCellReuseIdentifier:row.nib.description];
+            if (row.cellClass) {
+                [tableView registerClass:row.cellClass forCellReuseIdentifier:NSStringFromClass(row.cellClass)];
+            } else if (row.cellNib) {
+                [tableView registerNib:row.cellNib forCellReuseIdentifier:row.cellNib.description];
             }
         }];
     }];
@@ -187,7 +187,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     MTZTableRow *row = self.tableData.sections[indexPath.section].rows[indexPath.row];
-    NSString *identifier = NSStringFromClass(row.clazz) ?: row.nib.description;
+    NSString *identifier = NSStringFromClass(row.cellClass) ?: row.cellNib.description;
     NSAssert(identifier.length, @"Every MTZTableRow must provide a class or a nib.");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
 
@@ -239,13 +239,13 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     MTZTableSection *tableSection = self.tableData.sections[section];
-    if (!tableSection.headerClazz) {
+    if (!tableSection.headerClass) {
         return nil;
     }
 
-    UITableViewHeaderFooterView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(tableSection.headerClazz)];
+    UITableViewHeaderFooterView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(tableSection.headerClass)];
     if (!view) {
-        view = [[tableSection.headerClazz alloc] initWithReuseIdentifier:NSStringFromClass(tableSection.headerClazz)];
+        view = [[tableSection.headerClass alloc] initWithReuseIdentifier:NSStringFromClass(tableSection.headerClass)];
     }
 
     if ([view conformsToProtocol:@protocol(MTZModelDisplaying)]) {
@@ -257,13 +257,13 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     MTZTableSection *tableSection = self.tableData.sections[section];
-    if (!tableSection.footerClazz) {
+    if (!tableSection.footerClass) {
         return nil;
     }
 
-    UITableViewHeaderFooterView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(tableSection.footerClazz)];
+    UITableViewHeaderFooterView *view = [tableView dequeueReusableHeaderFooterViewWithIdentifier:NSStringFromClass(tableSection.footerClass)];
     if (!view) {
-        view = [[tableSection.footerClazz alloc] initWithReuseIdentifier:NSStringFromClass(tableSection.footerClazz)];
+        view = [[tableSection.footerClass alloc] initWithReuseIdentifier:NSStringFromClass(tableSection.footerClass)];
     }
 
     if ([view conformsToProtocol:@protocol(MTZModelDisplaying)]) {

@@ -63,14 +63,9 @@
     [self.formObject setValue:formObjectTypedValue forKeyPath:self.keyPath];
 }
 
-- (void)updateFormFieldWithCustomValue:(id)customValue {
-    id formFieldTypedValue = [self finalFieldValueWithCustomValue:customValue];
-    self.formField.fieldValue = formFieldTypedValue;
-}
-
 - (void)setFormField:(__kindof UIControl<MTZFormField> *)formField {
     [super setFormField:formField];
-    NSAssert([formField isKindOfClass:[UITextField class]], @"MTZTableFormDateRow can only be applied to UITextField rows.");
+    NSAssert(!formField || [formField isKindOfClass:[UITextField class]], @"MTZTableFormDateRow can only be applied to UITextField rows.");
 
     if (self.datePickerMode != MTZDatePickerModeExpirationDate) {
         self.datePicker = [[UIDatePicker alloc] init];

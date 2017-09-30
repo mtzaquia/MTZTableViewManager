@@ -38,10 +38,10 @@ typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> _Nullable
 @interface MTZTableRow : NSObject <MTZReloadable>
 
 /// The class of the cell to be used for this table row.
-@property (nonatomic) Class clazz;
+@property (nonatomic, readonly) Class cellClass;
 
 /// The nib of the cell to be used for this table row.
-@property (nonatomic) UINib *nib;
+@property (nonatomic, readonly) UINib *cellNib;
 
 /// The regular height of the cell. If not set, automatic height will be used.
 @property (nonatomic) CGFloat regularHeight;

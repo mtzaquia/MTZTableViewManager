@@ -41,7 +41,7 @@
 - (instancetype)initWithClass:(Class)clazz model:(id<MTZModel>)model action:(MTZTableRowAction)action {
     self = [super init];
     if (self) {
-        _clazz = clazz;
+        _cellClass = clazz;
         _model = model;
         _action = action;
     }
@@ -52,7 +52,7 @@
 - (instancetype)initWithNib:(UINib *)nib model:(id<MTZModel>)model action:(MTZTableRowAction)action {
     self = [super init];
     if (self) {
-        _nib = nib;
+        _cellNib = nib;
         _model = model;
         _action = action;
     }

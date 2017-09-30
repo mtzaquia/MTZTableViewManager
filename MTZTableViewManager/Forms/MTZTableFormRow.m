@@ -34,7 +34,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 @interface MTZTableFormRow ()
 @property (nonatomic) UIPickerView *pickerView;
-@property (nonatomic) NSInteger selectedPickerIndex;
+@property (nonatomic) id<MTZFormOption> selectedOption;
 @property (nonatomic) CGFloat calculatedPickerComponentHeight;
 @end
 
@@ -53,7 +53,6 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     if (self) {
         _formObject = formObject;
         _keyPath = keyPath;
-        _selectedPickerIndex = NSNotFound;
         [self checkDataTypes];
     }
 
@@ -65,7 +64,6 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     if (self) {
         _formObject = formObject;
         _keyPath = keyPath;
-        _selectedPickerIndex = NSNotFound;
         [self checkDataTypes];
     }
 
@@ -83,14 +81,15 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 - (void)updateFormFieldWithCustomValue:(id)customValue {
     id formFieldTypedValue = [self finalFieldValueWithCustomValue:customValue];
-    if (formFieldTypedValue) {
-        Class finalClazz = [formFieldTypedValue class];
-        while ([NSStringFromClass(finalClazz) containsString:@"Swift"]) {
-            finalClazz = [finalClazz superclass];
+    if (formFieldTypedValue && !self.availableOptions.count) {
+        Class finalClass = [formFieldTypedValue class];
+        while ([NSStringFromClass(finalClass) containsString:@"Swift"] ||
+               [NSStringFromClass(finalClass) containsString:@"NSTaggedPointerString"]) {
+            finalClass = [finalClass superclass];
         }
 
-        NSAssert([[self.formField.fieldValue class] isSubclassOfClass:finalClazz] ||
-                 [finalClazz isSubclassOfClass:[self.formField.fieldValue superclass]], @"Type '%@' for form field with type '%@' is incompatible without a converter.", [formFieldTypedValue class], [self.formField.fieldValue class]);
+        NSAssert(!self.formField || [[self.formField.fieldValue class] isSubclassOfClass:finalClass] ||
+                 [finalClass isSubclassOfClass:[self.formField.fieldValue superclass]], @"Type '%@' for form field with type '%@' is incompatible without a converter.", [formFieldTypedValue class], [self.formField.fieldValue class]);
     }
 
     self.formField.fieldValue = formFieldTypedValue;
@@ -114,16 +113,16 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     }
 
     if (self.availableOptions.count) {
-        NSAssert([formField isKindOfClass:[UITextField class]], @"availableOptions can only be applied to UITextField rows.");
+        self.selectedOption = [self.formObject valueForKeyPath:self.keyPath];
+        NSAssert(!formField || [formField isKindOfClass:[UITextField class]], @"availableOptions can only be applied to UITextField rows.");
         self.pickerView = [[UIPickerView alloc] init];
         self.pickerView.delegate = self;
         [formField setInputView:self.pickerView];
-        if (self.selectedPickerIndex != NSNotFound) {
-            [self updateFormFieldWithCustomValue:self.availableOptions[self.selectedPickerIndex]];
-        } else {
-            [self updateFormFieldWithCustomValue:nil];
-        }
+        [self updateFormFieldWithCustomValue:self.selectedOption];
     } else {
+        if ([formField respondsToSelector:@selector(setInputView:)]) {
+            [formField setInputView:nil];
+        }
         [self updateFormFieldWithCustomValue:nil];
     }
 
@@ -150,13 +149,21 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     return YES;
 }
 
+#pragma mark - MTZReloadable
+- (void)reload {
+    self.formField = self.formField;
+    [super reload];
+}
+
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     if (self.availableOptions.count && !textField.text.length) {
-        [self updateFormFieldWithCustomValue:self.availableOptions.firstObject];
-        self.selectedPickerIndex = 0;
-    } else if (self.availableOptions.count) {
-        [self.pickerView selectRow:self.selectedPickerIndex inComponent:0 animated:NO];
+        self.selectedOption = self.availableOptions.firstObject;
+        [self updateFormFieldWithCustomValue:self.selectedOption];
+    } else if (self.selectedOption) {
+        NSInteger index = [self.availableOptions indexOfObject:self.selectedOption];
+        NSAssert(index != NSNotFound, @"MTZFormOption objects must provide a valid isEqual: implementation.");
+        [self.pickerView selectRow:index inComponent:0 animated:NO];
     }
 
     if ([self.formField respondsToSelector:@selector(setInvalid:)]) {
@@ -229,8 +236,8 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 }
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.selectedPickerIndex = row;
-    [self updateFormFieldWithCustomValue:self.availableOptions[row]];
+    self.selectedOption = self.availableOptions[row];
+    [self updateFormFieldWithCustomValue:self.selectedOption];
 }
 
 - (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
@@ -262,8 +269,8 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 - (id)finalFormValue {
     if (self.availableOptions.count) {
-        if (self.selectedPickerIndex < self.availableOptions.count) {
-            return self.availableOptions[self.selectedPickerIndex];
+        if (self.selectedOption) {
+            return self.selectedOption;
         } else {
             return nil;
         }
@@ -283,7 +290,8 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 #pragma mark - Runtime
 - (BOOL)respondsToSelector:(SEL)aSelector {
-    if (aSelector == @selector(pickerView:viewForRow:forComponent:reusingView:) || aSelector == @selector(pickerView:rowHeightForComponent:)) {
+    if (aSelector == @selector(pickerView:viewForRow:forComponent:reusingView:) ||
+        aSelector == @selector(pickerView:rowHeightForComponent:)) {
         return [[self.availableOptions firstObject] respondsToSelector:@selector(optionViewReusingView:)];
     }
 

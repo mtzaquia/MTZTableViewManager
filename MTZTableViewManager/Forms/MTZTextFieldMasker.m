@@ -42,7 +42,7 @@
     return nil;
 }
 
-- (nullable NSString *)stringToAppendAtIndex:(NSInteger)index {
+- (nullable NSString *)stringToAppendAtIndex:(NSInteger)index ofString:(nonnull NSString *)currentString {
     return nil;
 }
 
@@ -107,10 +107,10 @@
 
     NSMutableString *finalString = [NSMutableString new];
     for (NSUInteger i=0; i<[originalText length]; i++) {
-        if ([self stringToAppendAtIndex:i]) {
-            [finalString appendString:[self stringToAppendAtIndex:i]];
+        if ([self stringToAppendAtIndex:i ofString:originalText]) {
+            [finalString appendString:[self stringToAppendAtIndex:i ofString:originalText]];
             if (i < originalCursorPosition) {
-                (*cursor) += [self stringToAppendAtIndex:i].length;
+                (*cursor) += [self stringToAppendAtIndex:i ofString:originalText].length;
             }
         }
 

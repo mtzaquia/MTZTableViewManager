@@ -32,7 +32,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MTZTableSection : NSObject //<MTZReloadable>
+@interface MTZTableSection : NSObject 
 
 /// The model to configure the header and footer of the section, if applicable.
 @property (nonatomic, nullable) id<MTZModel> model;
@@ -41,7 +41,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat headerHeight;
 
 /// The class of the header. Has preference over @c headerText.
-@property (nonatomic, nullable) Class headerClazz;
+@property (nonatomic, nullable) Class headerClass;
 
 /// The text to be displayed on the header.
 @property (nonatomic, nullable) NSString *headerText;
@@ -50,7 +50,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) CGFloat footerHeight;
 
 /// The class of the footer. Has preference over @c footerText.
-@property (nonatomic, nullable) Class footerClazz;
+@property (nonatomic, nullable) Class footerClass;
 
 /// The text to be displayed on the footer.
 @property (nonatomic, nullable) NSString *footerText;

@@ -105,12 +105,15 @@ import MTZTableViewManager
         let resultsRow = MTZTableRow(class: ActionCell.self, model: resultsModel) { [unowned self] (_, _) in
             self.viewResult(nil)
         }
-
         let populateModel = ActionCellModel()
         populateModel.actionTitle = "Populate Name"
         let populateRow = MTZTableRow(class: ActionCell.self, model: populateModel) { [unowned self] (_, _) in
-            self.formObject.name = "Populated dynamically"
+            self.formObject.name = "Mauricio T Z"
+            self.formObject.date = Date().addingTimeInterval(60*60*24)//timeIntervalSince1970: 707001000)
+            self.formObject.blood = BloodType.allBloodTypes.last
             nameRow.reload()
+            self.dateRow.reload()
+            self.bloodRow.reload()
         }
         
         let infoNib = UINib(nibName: "InformationCell", bundle: nil)
