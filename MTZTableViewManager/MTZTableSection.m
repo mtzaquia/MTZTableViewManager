@@ -92,21 +92,20 @@
 }
 
 //#pragma mark - MTZReloadable
-//- (void)reload {
-//    dispatch_async(MTZTableUpdateQueue(), ^{
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            // Only reload the section rows that are visible, otherwise the table jumps.
-//            NSArray *rowsToReload = [self.tableData.tableView indexPathsForVisibleRows];
-//            rowsToReload = [rowsToReload objectsAtIndexes:[rowsToReload indexesOfObjectsPassingTest:^BOOL(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
-//                return indexPath.section == self.index;
-//            }]];
-//
-//            [self.tableData.tableView beginUpdates];
-//            [self.tableData.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationNone];
-//            [self.tableData.tableView endUpdates];
-//        });
-//    });
-//}
+- (void)reload {
+    dispatch_async(MTZTableUpdateQueue(), ^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSArray *rowsToReload = [self.tableData.tableView indexPathsForVisibleRows];
+            rowsToReload = [rowsToReload objectsAtIndexes:[rowsToReload indexesOfObjectsPassingTest:^BOOL(NSIndexPath *indexPath, NSUInteger idx, BOOL *stop) {
+                return indexPath.section == self.index;
+            }]];
+
+            [self.tableData.tableView beginUpdates];
+            [self.tableData.tableView reloadRowsAtIndexPaths:rowsToReload withRowAnimation:UITableViewRowAnimationFade];
+            [self.tableData.tableView endUpdates];
+        });
+    });
+}
 
 #pragma mark - MTZFormValidatable
 - (BOOL)validate:(NSError **)error {

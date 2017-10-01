@@ -139,12 +139,6 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     return YES;
 }
 
-#pragma mark - MTZReloadable
-- (void)reload {
-    self.formField = self.formField;
-    [super reload];
-}
-
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
     if ([self.formField respondsToSelector:@selector(setInvalid:)]) {

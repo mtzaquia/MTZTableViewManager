@@ -113,10 +113,7 @@ import MTZTableViewManager
             self.formObject.date = Date().addingTimeInterval(60*60*24)//timeIntervalSince1970: 707001000)
             self.formObject.blood = BloodType.allBloodTypes.last
 
-            nameRow.reload()
-            cardNumberRow.reload()
-            self.dateRow.reload()
-            self.bloodRow.reload()
+            formSection.reload()
         }
         
         let infoNib = UINib(nibName: "InformationCell", bundle: nil)

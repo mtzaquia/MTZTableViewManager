@@ -38,6 +38,7 @@
 static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 
 @interface MTZTableManager () <UITableViewDataSource, UITableViewDelegate>
+@property (nonatomic) NSMutableDictionary *cellsEstimatedHeights;
 @property (nonatomic, weak) UITableView *tableView;
 @property (nonatomic) MTZTableData *tableData;
 @property (nonatomic, readonly) MTZCommandExecutor *commandExecutor;
@@ -56,6 +57,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 - (instancetype)initWithTableView:(UITableView *)tableView tableData:(MTZTableData *)tableData commandExecutor:(MTZCommandExecutor *)commandExecutor {
     self = [super init];
     if (self) {
+        _cellsEstimatedHeights = [@{} mutableCopy];
         _tableView = tableView;
         _tableView.estimatedRowHeight = _estimatedRowHeight ?: MTZTableManagerEstimatedRowHeight;
         _tableView.rowHeight = UITableViewAutomaticDimension;
@@ -218,6 +220,19 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 }
 
 #pragma mark - UITableViewDelegate
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
+    self.cellsEstimatedHeights[indexPath] = @(CGRectGetHeight(cell.frame));
+}
+
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSNumber *height = self.cellsEstimatedHeights[indexPath];
+    if (height) {
+        return height.doubleValue;
+    }
+
+    return UITableViewAutomaticDimension;
+}
+
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     MTZTableRow *row = self.tableData.sections[indexPath.section].rows[indexPath.row];

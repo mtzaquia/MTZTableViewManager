@@ -32,7 +32,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MTZTableSection : NSObject 
+@interface MTZTableSection : NSObject <MTZReloadable>
 
 /// The model to configure the header and footer of the section, if applicable.
 @property (nonatomic, nullable) id<MTZModel> model;
