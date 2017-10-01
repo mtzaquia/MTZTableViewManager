@@ -27,7 +27,6 @@
 
 #import "MTZFormUtils.h"
 #import "MTZFormObject.h"
-#import "MTZFormOption.h"
 
 @class MTZFormConverter;
 @class MTZFormValidator;
@@ -52,8 +51,7 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
 /// A list of validators for the form row. Validation is ordered and stops at first error.
 @property (nonatomic, strong, nullable) NSArray<__kindof MTZFormValidator *> *validators;
 
-/// A list of available options for the current form row. If set, the @c inputView for the row becomes a picker.
-@property (nonatomic, strong, nullable) NSArray<id<MTZFormOption>> *availableOptions;
+
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;

@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol MTZFormField <NSObject>
 
 /// The field to be retrieved/set on the field.
-@property (nonatomic) id fieldValue;
+@property (nonatomic, nullable) id fieldValue;
 
 @optional
 /**

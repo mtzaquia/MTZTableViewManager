@@ -37,13 +37,14 @@ NS_ASSUME_NONNULL_BEGIN
 /// This key will have the form row at @c NSError @c userInfo that errored out during a validation.
 extern NSErrorUserInfoKey const MTZTableFormRowKey;
 
-@interface MTZTableFormRow () <UITextFieldDelegate, UITextViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, MTZFormValidatable>
+@interface MTZTableFormRow () <UITextFieldDelegate, UITextViewDelegate, MTZFormValidatable>
 @property (nonatomic, weak) NSObject<MTZFormObject> *formObject;
 @property (nonatomic, weak) __kindof UIControl<MTZFormField> *formField;
 @property (nonatomic) MTZKeyPath *keyPath;
 
+- (void)updateFormObject;
 - (void)updateFormFieldWithCustomValue:(nullable id)customValue;
-- (id)finalFieldValueWithCustomValue:(id)customValue;
+- (id)finalFieldValueWithCustomValue:(nullable id)customValue;
 - (id)finalFormValue;
 @end
 

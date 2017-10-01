@@ -18,6 +18,7 @@
 #import "MTZModelDisplaying.h"
 #import "MTZReloadable.h"
 #import "MTZTableFormDateRow.h"
+#import "MTZTableFormOptionRow.h"
 #import "MTZTableFormRow.h"
 #import "MTZFormEditing.h"
 #import "MTZFormField.h"

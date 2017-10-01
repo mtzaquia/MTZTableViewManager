@@ -1,5 +1,5 @@
 //
-// MTZTableFormDateRow.h
+// MTZTableFormOptionRow.h
 // MTZTableManager
 //
 // Copyright (c) 2017 Mauricio Tremea Zaquia (@mtzaquia)
@@ -24,32 +24,20 @@
 //
 
 #import "MTZTableFormRow.h"
+#import "MTZFormOption.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef NS_ENUM(NSInteger, MTZDatePickerMode) {
-    MTZDatePickerModeTime = UIDatePickerModeTime,
-    MTZDatePickerModeDate = UIDatePickerModeDate,
-    MTZDatePickerModeDateAndTime = UIDatePickerModeDateAndTime,
-    MTZDatePickerModeCountDownTimer = UIDatePickerModeCountDownTimer,
-    MTZDatePickerModeExpirationDate = 27 // avoid collision.
-};
-
 /**
- A table form row that is only compatible with dates.
+ A table form row that is compatible with a list of options.
  */
-@interface MTZTableFormDateRow : MTZTableFormRow
+@interface MTZTableFormOptionRow : MTZTableFormRow
 
 @property (nonatomic, strong, nullable) __kindof MTZTextFieldMasker *masker NS_UNAVAILABLE;
+@property (nonatomic, strong, nullable) __kindof MTZFormConverter *converter NS_UNAVAILABLE;
 
-/// The date picker mode to be used on the form provided date picker.
-@property (nonatomic) MTZDatePickerMode datePickerMode;
-
-/// The mininum date that should be available on the form provided date picker.
-@property (nonatomic, nullable) NSDate *minimumDate;
-
-/// The maximum date that should be available on the form provided date picker.
-@property (nonatomic, nullable) NSDate *maximumDate;
+/// A list of available options for the current form row. If set, the @c inputView for the row becomes a picker.
+@property (nonatomic, strong, nullable) NSArray<id<MTZFormOption>> *availableOptions;
 
 @end
 

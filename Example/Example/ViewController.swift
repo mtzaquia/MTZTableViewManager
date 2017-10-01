@@ -33,7 +33,7 @@ import MTZTableViewManager
     dynamic var formObject: PersonFormObject!
 
     var dateRow: MTZTableFormDateRow! // required for KVO.
-    var bloodRow: MTZTableFormRow!
+    var bloodRow: MTZTableFormOptionRow!
 
 
     
@@ -86,7 +86,7 @@ import MTZTableViewManager
 
         let bloodModel = TextFieldCellModel()
         bloodModel.placeholderText = "Blood Type"
-        bloodRow = MTZTableFormRow(nib: textFieldCellNib, formObject: formObject, keyPath: #keyPath(PersonFormObject.blood), model: bloodModel)
+        bloodRow = MTZTableFormOptionRow(nib: textFieldCellNib, formObject: formObject, keyPath: #keyPath(PersonFormObject.blood), model: bloodModel)
         bloodRow.validators = [NonNilValidator(errorMessage: "Blood type must be selected")]
         bloodRow.availableOptions = BloodType.allBloodTypes
         bloodRow.hidden = true
@@ -106,12 +106,15 @@ import MTZTableViewManager
             self.viewResult(nil)
         }
         let populateModel = ActionCellModel()
-        populateModel.actionTitle = "Populate Name"
+        populateModel.actionTitle = "Populate Fields"
         let populateRow = MTZTableRow(class: ActionCell.self, model: populateModel) { [unowned self] (_, _) in
             self.formObject.name = "Mauricio T Z"
+            self.formObject.cardNumber = "5555444433331111"
             self.formObject.date = Date().addingTimeInterval(60*60*24)//timeIntervalSince1970: 707001000)
             self.formObject.blood = BloodType.allBloodTypes.last
+
             nameRow.reload()
+            cardNumberRow.reload()
             self.dateRow.reload()
             self.bloodRow.reload()
         }

@@ -37,8 +37,6 @@
 @implementation MTZTableFormDateRow
 
 @dynamic masker;
-@dynamic validators;
-@dynamic availableOptions;
 
 - (instancetype)initWithNib:(UINib *)nib formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
     self = [super initWithNib:nib formObject:formObject keyPath:keyPath model:model];
@@ -56,11 +54,6 @@
     }
 
     return self;
-}
-
-- (void)updateFormObject {
-    id formObjectTypedValue = [self finalFormValue];
-    [self.formObject setValue:formObjectTypedValue forKeyPath:self.keyPath];
 }
 
 - (void)setFormField:(__kindof UIControl<MTZFormField> *)formField {
@@ -137,6 +130,11 @@
         __unused BOOL isDate = MTZFormObjectKeyPathIsOfClass(self.formObject, (MTZKeyPath *)self.keyPath, [NSDate class]);
         NSAssert(isDate, @"MTZTableFormDateRow is only compatible with NSDate (keypath '%@').", self.keyPath);
     }
+}
+
+- (void)updateFormObject {
+    id formObjectTypedValue = [self finalFormValue];
+    [self.formObject setValue:formObjectTypedValue forKeyPath:self.keyPath];
 }
 
 - (id)finalFieldValueWithCustomValue:(id)customValue {

@@ -33,9 +33,6 @@ NSErrorUserInfoKey const MTZTableFormRowKey = @"MTZTableFormRowKey";
 NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 @interface MTZTableFormRow ()
-@property (nonatomic) UIPickerView *pickerView;
-@property (nonatomic) id<MTZFormOption> selectedOption;
-@property (nonatomic) CGFloat calculatedPickerComponentHeight;
 @end
 
 @implementation MTZTableFormRow
@@ -81,7 +78,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 - (void)updateFormFieldWithCustomValue:(id)customValue {
     id formFieldTypedValue = [self finalFieldValueWithCustomValue:customValue];
-    if (formFieldTypedValue && !self.availableOptions.count) {
+    if (formFieldTypedValue) {
         Class finalClass = [formFieldTypedValue class];
         while ([NSStringFromClass(finalClass) containsString:@"Swift"] ||
                [NSStringFromClass(finalClass) containsString:@"NSTaggedPointerString"]) {
@@ -93,6 +90,9 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     }
 
     self.formField.fieldValue = formFieldTypedValue;
+    if (self.masker) {
+        [self.masker textFieldDidChange:self.formField];
+    }
 }
 
 #pragma mark - Properties
@@ -103,6 +103,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 - (void)setFormField:(__kindof UIControl<MTZFormField> *)formField {
     _formField = formField;
+    [_formField removeTarget:nil action:nil forControlEvents:UIControlEventAllEvents];
     [_formField addTarget:self action:@selector(updateFormObject) forControlEvents:UIControlEventEditingChanged];
     [_formField addTarget:self action:@selector(updateFormObject) forControlEvents:UIControlEventValueChanged];
 
@@ -112,24 +113,13 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
         [textField addTarget:self.masker action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     }
 
-    if (self.availableOptions.count) {
-        self.selectedOption = [self.formObject valueForKeyPath:self.keyPath];
-        NSAssert(!formField || [formField isKindOfClass:[UITextField class]], @"availableOptions can only be applied to UITextField rows.");
-        self.pickerView = [[UIPickerView alloc] init];
-        self.pickerView.delegate = self;
-        [formField setInputView:self.pickerView];
-        [self updateFormFieldWithCustomValue:self.selectedOption];
-    } else {
-        if ([formField respondsToSelector:@selector(setInputView:)]) {
-            [formField setInputView:nil];
-        }
-        [self updateFormFieldWithCustomValue:nil];
-    }
-
     if ([formField isKindOfClass:[UITextField class]] || [formField isKindOfClass:[UITextView class]]) {
         ((UITextField *)formField).delegate = self;
+        ((UITextField *)formField).inputView = nil;
         ((UITextField *)formField).inputAccessoryView = [UIToolbar inputAccessoryViewForControl:formField  delegate:self.section];
     }
+
+    [self updateFormFieldWithCustomValue:nil];
 }
 
 #pragma mark - MTZFormValidatable
@@ -157,25 +147,12 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    if (self.availableOptions.count && !textField.text.length) {
-        self.selectedOption = self.availableOptions.firstObject;
-        [self updateFormFieldWithCustomValue:self.selectedOption];
-    } else if (self.selectedOption) {
-        NSInteger index = [self.availableOptions indexOfObject:self.selectedOption];
-        NSAssert(index != NSNotFound, @"MTZFormOption objects must provide a valid isEqual: implementation.");
-        [self.pickerView selectRow:index inComponent:0 animated:NO];
-    }
-
     if ([self.formField respondsToSelector:@selector(setInvalid:)]) {
         [self.formField setInvalid:NO];
     }
 }
 
 - (void)textFieldDidEndEditing:(UITextField *)textField {
-    if (self.availableOptions.count) {
-        [self updateFormObject];
-    }
-
     if ([self.formField respondsToSelector:@selector(setInvalid:)]) {
         if (textField.text.length) {
             NSError *error;
@@ -187,10 +164,6 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    if (self.availableOptions.count) {
-        return NO;
-    }
-
     self.masker.previousTextFieldContent = textField.text;
     self.masker.previousSelection = textField.selectedTextRange;
     self.masker.textWasPasted = string.length > 1;
@@ -211,56 +184,10 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     [self textFieldDidEndEditing:(UITextField *)textView];
 }
 
-#pragma mark - UIPickerViewDataSource
-- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView {
-    return 1;
-}
-
-- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    return self.availableOptions.count;
-}
-
-#pragma mark - UIPickerViewDelegate
-- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    id<MTZFormOption> option = self.availableOptions[row];
-    return option.optionDescription;
-}
-
-- (NSAttributedString *)pickerView:(UIPickerView *)pickerView attributedTitleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    id<MTZFormOption> option = self.availableOptions[row];
-    if ([option respondsToSelector:@selector(optionAttributedDescription)]) {
-        return option.optionAttributedDescription;
-    }
-
-    return nil;
-}
-
-- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
-    self.selectedOption = self.availableOptions[row];
-    [self updateFormFieldWithCustomValue:self.selectedOption];
-}
-
-- (UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view {
-    id<MTZFormOption> option = self.availableOptions[row];
-    return [option optionViewReusingView:view];
-}
-
-- (CGFloat)pickerView:(UIPickerView *)pickerView rowHeightForComponent:(NSInteger)component {
-    if (self.calculatedPickerComponentHeight > 0) {
-        return self.calculatedPickerComponentHeight;
-    }
-
-    UIView *sampleView = [self pickerView:pickerView viewForRow:0 forComponent:component reusingView:nil];
-    self.calculatedPickerComponentHeight = [sampleView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    return self.calculatedPickerComponentHeight;
-}
-
 #pragma mark - Private
 - (id)finalFieldValueWithCustomValue:(id)customValue {
     id inputValue = customValue ?: [self.formObject valueForKeyPath:self.keyPath];
-    if (self.availableOptions.count) {
-        return ((id<MTZFormOption>)inputValue).optionDescription;
-    } else if (self.converter) {
+    if (self.converter) {
         return [self.converter toFieldValue:inputValue];
     }
 
@@ -268,13 +195,7 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 }
 
 - (id)finalFormValue {
-    if (self.availableOptions.count) {
-        if (self.selectedOption) {
-            return self.selectedOption;
-        } else {
-            return nil;
-        }
-    } else if (self.converter) {
+    if (self.converter) {
         return [self.converter fromFieldValue:self.formField.fieldValue];
     }
     
@@ -288,14 +209,5 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
     }
 }
 
-#pragma mark - Runtime
-- (BOOL)respondsToSelector:(SEL)aSelector {
-    if (aSelector == @selector(pickerView:viewForRow:forComponent:reusingView:) ||
-        aSelector == @selector(pickerView:rowHeightForComponent:)) {
-        return [[self.availableOptions firstObject] respondsToSelector:@selector(optionViewReusingView:)];
-    }
-
-    return [super respondsToSelector:aSelector];
-}
 @end
 

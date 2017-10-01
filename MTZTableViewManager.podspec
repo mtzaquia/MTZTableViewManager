@@ -26,7 +26,7 @@ Pod::Spec.new do |s|
                            "MTZTableViewManager/MTZTable{Manager,Data,Section,Row}.h", 
                            "MTZTableViewManager/Protocols/MTZModel*.h",
                            "MTZTableViewManager/Protocols/MTZReloadable.h",
-                           "MTZTableViewManager/Forms/MTZTable{FormRow,FormDateRow}.h",
+                           "MTZTableViewManager/Forms/MTZTableForm{Row,DateRow,OptionRow}.h",
                            "MTZTableViewManager/Forms/Protocols/MTZForm{Object,Editing,Field,Option}.h",
                            "MTZTableViewManager/Forms/MTZForm{Validator,Converter}.h",
                            "MTZTableViewManager/Forms/MTZTextFieldMasker.h",
