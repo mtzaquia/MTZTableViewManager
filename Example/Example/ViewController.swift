@@ -137,7 +137,7 @@ import MTZTableViewManager
 
         tableViewManager = MTZTableManager(tableView: tableView, tableData: tableData, commandExecutor: commandExecutor)
 
-        // After setting tableViewManager, as `.initial` trigger the hidden flag immediately.
+        // After setting tableViewManager, as `.initial` triggers the hidden flag immediately.
         addObserver(self, forKeyPath: #keyPath(ViewController.formObject.employed), options: [.initial, .new], context: nil)
     }
 

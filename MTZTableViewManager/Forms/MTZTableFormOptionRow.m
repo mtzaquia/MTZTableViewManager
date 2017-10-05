@@ -49,12 +49,12 @@
     [formField setInputView:self.pickerView];
     [self updateFormFieldWithCustomValue:self.selectedOption];
 
+    NSAssert(self.availableOptions.count, @"MTZTableFormOptionRow must have at least one available option!");
     ((UITextField *)formField).inputAccessoryView = [UIToolbar inputAccessoryViewForControl:formField  delegate:self.section];
 }
 
 #pragma mark - UITextFieldDelegate
 - (void)textFieldDidBeginEditing:(UITextField *)textField {
-    NSAssert(self.availableOptions.count, @"MTZTableFormOptionRow must have at least one available option!");
     if (!self.selectedOption) {
         self.selectedOption = self.availableOptions.firstObject;
         [self updateFormFieldWithCustomValue:self.selectedOption];
