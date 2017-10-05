@@ -26,7 +26,11 @@
 import UIKit
 import MTZTableViewManager
 
-@objcMembers class ViewController: UIViewController {
+@objcMembers class ViewController: UIViewController, MTZCommandContext {
+
+    lazy var commandExecutor: MTZCommandExecutor = { [unowned self] in
+        return MTZCommandExecutor(context: self)
+    }()
 
     @IBOutlet weak var tableView: UITableView!
     var tableViewManager: MTZTableManager!
@@ -129,7 +133,6 @@ import MTZTableViewManager
 
         let tableData = MTZTableData(tableSections: [formSection, infoSection, actionsSection])
 
-        let commandExecutor = MTZCommandExecutor(context: self)
         commandExecutor.register(AlertCommand(message: "This command was registered"))
 
         tableViewManager = MTZTableManager(tableView: tableView, tableData: tableData, commandExecutor: commandExecutor)

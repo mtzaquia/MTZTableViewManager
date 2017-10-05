@@ -1,5 +1,5 @@
 //
-//  MTZCommandContext.h
+// MTZCommandContext.h
 // MTZTableManager
 //
 // Copyright (c) 2017 Mauricio Tremea Zaquia (@mtzaquia)
@@ -25,15 +25,18 @@
 
 @import UIKit;
 
+@class MTZCommandExecutor;
+
 NS_ASSUME_NONNULL_BEGIN
 
 /**
  Defines an object as compatible for being a context to be provided for @c MTZCommand invocations.
  */
 @protocol MTZCommandContext <NSObject>
+
+/// The executor to be used to trigger commands or chain commands.
+@property (nonatomic, readonly) MTZCommandExecutor *commandExecutor;
+
 @end
 
 NS_ASSUME_NONNULL_END
-
-@interface UIViewController (MTZCommandContext) <MTZCommandContext>
-@end

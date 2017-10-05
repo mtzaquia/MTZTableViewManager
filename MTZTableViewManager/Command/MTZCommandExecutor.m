@@ -23,9 +23,12 @@
 // THE SOFTWARE.
 //
 
-#import "MTZCommandExecutor+Private.h"
-#import "MTZCommand.h"
-#import "MTZCommandContext.h"
+#import "MTZCommandExecutor.h"
+
+@interface MTZCommandExecutor ()
+@property (nonatomic, readonly, weak) id<MTZCommandContext> context;
+@property (nonatomic, readonly) NSMutableDictionary *availableCommands;
+@end
 
 @implementation MTZCommandExecutor
 
@@ -47,7 +50,7 @@
     [self invokeCommandWithClass:commandClass payload:nil sender:sender];
 }
 
-- (void)invokeCommandWithClass:(Class<MTZCommand>)commandClass payload:(id)payload sender:(id)sender {
+- (void)invokeCommandWithClass:(Class<MTZCommand>)commandClass payload:(id<MTZCommandPayload>)payload sender:(id)sender {
     id<MTZCommand> command = self.availableCommands[NSStringFromClass(commandClass)];
     NSAssert(command, @"All commands must be added to the invoker using -[MTZCommandInvoker registerCommand:] prior to being executed.");
     [command wasInvokedWithPayload:nil sender:sender context:self.context];

@@ -25,11 +25,11 @@
 
 #import "UIResponder+FirstResponder.h"
 
-static __weak id currentFirstResponder;
+static __weak UIResponder *currentFirstResponder;
 
 @implementation UIResponder (FirstResponder)
 
-+ (id)mtz_currentFirstResponder {
++ (UIResponder *)mtz_currentFirstResponder {
     currentFirstResponder = nil;
     [[UIApplication sharedApplication] sendAction:@selector(findFirstResponder:) to:nil from:nil forEvent:nil];
     return currentFirstResponder;

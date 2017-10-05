@@ -29,7 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface UIResponder (FirstResponder)
 
-+ (nullable id)mtz_currentFirstResponder;
++ (nullable UIResponder *)mtz_currentFirstResponder;
 
 @end
 

@@ -1,5 +1,5 @@
 //
-// MTZCommandExecutor+Private.h
+// MTZCommandPayload.h
 // MTZTableManager
 //
 // Copyright (c) 2017 Mauricio Tremea Zaquia (@mtzaquia)
@@ -23,21 +23,11 @@
 // THE SOFTWARE.
 //
 
-#import "MTZCommandExecutor.h"
+@import UIKit;
 
 NS_ASSUME_NONNULL_BEGIN
 
-/**
- A class capable of executing commands.
- */
-@interface MTZCommandExecutor ()
-
-/// A context that will be provided to all commands triggered by this executor.
-@property (nonatomic, readonly, weak) id context;
-
-/// A dictionary with the commands available for execution. Keys are the command classes.
-@property (nonatomic, readonly) NSMutableDictionary *availableCommands;
-
+@protocol MTZCommandPayload <NSObject>
 @end
 
 NS_ASSUME_NONNULL_END

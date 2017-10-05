@@ -8,66 +8,66 @@
 
 /* Begin PBXBuildFile section */
 		0201EA5B397B4BF84CB6498296D999F4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A622B49C9194407915368BB51A60B545 /* Foundation.framework */; };
-		0494F8A7AEB3182E8DF410BF7A64B0DB /* MTZTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB1C8341FEAC974684D7F8F3372BF7C8 /* MTZTableManager.m */; };
-		0551AE5E6C81201F96AD14759E1CAEFA /* MTZCommandContext.h in Headers */ = {isa = PBXBuildFile; fileRef = D7016E1E59AD62684F36DC01E322C5E2 /* MTZCommandContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		055E1EFE8696D74D54C62CD6F74FF9F1 /* MTZTableFormOptionRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 509836C8849595121A16524B336F754F /* MTZTableFormOptionRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		05744D238148C3BE4514F670395874F3 /* MTZFormConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 4C7CD0C01878F18C53B72D612190AFB2 /* MTZFormConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		060E58788FD7397A1CB00BFD873482B9 /* MTZCommandRegistering.h in Headers */ = {isa = PBXBuildFile; fileRef = B08A22DF53A9BBB79801F5DB05E46280 /* MTZCommandRegistering.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0856816C16CA207BF6DC24241CFA927F /* MTZCommandExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 86FE1DB8F449D5737AD19274BC3B5044 /* MTZCommandExecutor.m */; };
-		0A17BE38AD941D997D6317FD01181058 /* UIResponder+FirstResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = E04209B8FCEDB1C597FD1381963CFD65 /* UIResponder+FirstResponder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0494F8A7AEB3182E8DF410BF7A64B0DB /* MTZTableManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 7FE57623693E07CC7BC0D9C35E585CAD /* MTZTableManager.m */; };
+		0856816C16CA207BF6DC24241CFA927F /* MTZCommandExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = 713345595B1D47B5C122B4887FEE21BD /* MTZCommandExecutor.m */; };
 		10E15E3012AC287FA5E57BAF0BE69C9E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A622B49C9194407915368BB51A60B545 /* Foundation.framework */; };
-		218485C109E9A55E762577AE45ABC848 /* MTZTextFieldMasker.m in Sources */ = {isa = PBXBuildFile; fileRef = 16EDBDAFC063F4099DFB5DE8AE1AEB5A /* MTZTextFieldMasker.m */; };
-		2539A80211CAA076B2BAD26D9AD0504C /* MTZTableFormRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 42F6857A5F52B6925D4B7655237D2079 /* MTZTableFormRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		2EE58E205379CF02997EBF95FD93EE70 /* MTZTableSection.h in Headers */ = {isa = PBXBuildFile; fileRef = FC4BF2848F443CCB7B80CCA95FA9B01C /* MTZTableSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		32D553415A802042951CE571E935B789 /* MTZCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 128484C4BDEE9FAFF8DC68520EAA4D8C /* MTZCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3384676443AFF59988D276616556F6C7 /* MTZTableViewManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DCBA07D81430D955FF6236B961969CE /* MTZTableViewManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		3730856DD7D4E3BFB56BFFB2A4F934C8 /* MTZCommandExecutor+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 7A3EF0B50CE2BE4CA4F6AC6C449C2D57 /* MTZCommandExecutor+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		3819F02AEA3F50B3BF8ED3EBFCBC0671 /* MTZTableFormRow.m in Sources */ = {isa = PBXBuildFile; fileRef = D5E2F2DB8ABBB2AE2C49DF6C911F47C4 /* MTZTableFormRow.m */; };
-		576A757476775E12E508036DD13B277C /* MTZInputAccessoryViewHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = 10EDE93331BF881A8A78E265F25E3B26 /* MTZInputAccessoryViewHandling.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		5771915662F75EE4353DE5C028CB769F /* MTZTableData+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = A6FD378337B198F3A64604F763D0BB5F /* MTZTableData+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		58E36EE1EEF239473C3377F8C872199B /* MTZTextFieldMasker.h in Headers */ = {isa = PBXBuildFile; fileRef = E543ED1813B1F3CAF6FE966F17375A77 /* MTZTextFieldMasker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5945E17C8EC669A4A6205A3BB8840895 /* MTZCommandExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 062D0F4581D5BA3FBB74BB2382D9A9FA /* MTZCommandExecutor.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DE34D65A13D1C6117338E7E65BE6119 /* MTZFormConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = D8B3768B3648A55D45CA6D9EBDA04EC0 /* MTZFormConverter.m */; };
-		5EF244CF0E7CA77D39A4B06120C883B5 /* MTZCommandExecuting.h in Headers */ = {isa = PBXBuildFile; fileRef = 5A0D6EB8796F62256F4825765A181881 /* MTZCommandExecuting.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		622AA875FF2DC95E1E34CEFC642E6CE7 /* MTZTableFormOptionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B09CE86B0F797A5FFAD9A53F90382D /* MTZTableFormOptionRow.m */; };
-		6A62F8728C36C1FE4853AC35A1B57428 /* MTZFormEditing.h in Headers */ = {isa = PBXBuildFile; fileRef = AD483126294A75E8990E9FB7BDF8A730 /* MTZFormEditing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1187F4FF503F3298BC1C2C89978177C9 /* MTZModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 8EC385CA58C241A71C3DC1AE471B7105 /* MTZModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1694348CB7F55E7DE47F1CC61CD34DD0 /* MTZFormObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 54FA722924647158929ADDDAA85E3CA4 /* MTZFormObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1811A2DD6F3F8CB9842657FA5F3F1622 /* MTZTableFormRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 223699A638A4C4090E76D5AC68A24D7E /* MTZTableFormRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B694F25C386B03508146D0A09EEDC71 /* UIToolbar+MTZFormInputAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = BC857E07E8D3E712CD6E74B24F3682D5 /* UIToolbar+MTZFormInputAccessoryView.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		1F48B774993E43BEB8D5EFBADFD92DC3 /* MTZCommandExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = 06F87D36921050B0F08EA440B58BA5BF /* MTZCommandExecutor.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		20B978A0E3DEAE98B020086AC132EE32 /* MTZTextFieldMasker.h in Headers */ = {isa = PBXBuildFile; fileRef = D1FE97B1B81AD50F83D27B929CE9A7BE /* MTZTextFieldMasker.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		218485C109E9A55E762577AE45ABC848 /* MTZTextFieldMasker.m in Sources */ = {isa = PBXBuildFile; fileRef = B24EDA251646F1AABF7DB2FFD835531A /* MTZTextFieldMasker.m */; };
+		257A221DB22E3E21CEAA1077CB8C0DA8 /* MTZFormUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 762596D1DEE604AE5757A3D85DE8C27B /* MTZFormUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3819F02AEA3F50B3BF8ED3EBFCBC0671 /* MTZTableFormRow.m in Sources */ = {isa = PBXBuildFile; fileRef = C1D5B08F780209014E134B23B804FDD9 /* MTZTableFormRow.m */; };
+		4280755A25FBA91985DF1B973BF3446C /* MTZTableSection+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = DFD9227A49ED9AA1317B1BFEFDDFA1A5 /* MTZTableSection+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		44CA55CCCE0250373E4156C06B699221 /* MTZTableManagerUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = A865950FE9EA0CA6346F5E4BB9A49CF4 /* MTZTableManagerUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		58FA6C1E53968C8A8851A592A1431DA3 /* MTZFormValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = 0469462029CC6A9CDAB6BD12CF3C94E5 /* MTZFormValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5DE34D65A13D1C6117338E7E65BE6119 /* MTZFormConverter.m in Sources */ = {isa = PBXBuildFile; fileRef = 8DDCA0D3575B52C61BE84C8FC61A967A /* MTZFormConverter.m */; };
+		6101EA6BBDA13539F6C291CEE67D94D9 /* MTZCommand.h in Headers */ = {isa = PBXBuildFile; fileRef = 46C4C56C1FA961E587B93A257A338F20 /* MTZCommand.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		622AA875FF2DC95E1E34CEFC642E6CE7 /* MTZTableFormOptionRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 42FCA638CCB968CE69B2C9C278E5F5AD /* MTZTableFormOptionRow.m */; };
+		63A2FA990521F13BF44E8783413F3A79 /* MTZTableViewManager-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C004837991FBBE38794D5B9567FBC4AC /* MTZTableViewManager-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		67F18E2557E17C9A389855AE740F015C /* MTZFormValidatable.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3AA796056DEC8160F8AE706FD16CEF /* MTZFormValidatable.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		6CD908531840AB1F1BEAE4CE8410FAFF /* MTZInputAccessoryViewHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = 578D75AFA35C236ADE8936E7345E40DF /* MTZInputAccessoryViewHandling.h */; settings = {ATTRIBUTES = (Project, ); }; };
 		74F8868D88CE9E75775A1612FD06789B /* Pods-Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C9BDE82371C83FA9AE91B05F77ACAA36 /* Pods-Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		765F8303A70E75AC8AF557AC4A4AE3EF /* MTZExpirationDatePicker-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B3F3E4147C6F12C920D2B2648E42E971 /* MTZExpirationDatePicker-dummy.m */; };
-		77C46C92F930842118CA97C086501612 /* MTZTableRow+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = E4C5E4EFEF922D719FC9390BB7D232F0 /* MTZTableRow+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		7A2553807D83BA6ABCF5468DA2D476CC /* MTZFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F21ECF9BE9F89719A3CF634A2124025 /* MTZFormValidator.m */; };
-		7F2237C94646E17BD4F7DFA3CAE0813A /* MTZFormUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = 34BD72A9B80BC885E1141BDD42036F9F /* MTZFormUtils.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7A2553807D83BA6ABCF5468DA2D476CC /* MTZFormValidator.m in Sources */ = {isa = PBXBuildFile; fileRef = 880348310E269481F0B77AB3A49F381E /* MTZFormValidator.m */; };
+		7AB4FAC3C6B55E403D481D96AD99582E /* MTZFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = A3ACE1DF6E65B3F9A3DF298D2EB4E83B /* MTZFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		7B2DC68D99C3AA259EE180E92140769E /* MTZTableRow+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = FFACB515A27E54BA2F27C58671731210 /* MTZTableRow+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7E70457082E598F57FD9E58654FC8822 /* MTZModelDisplaying.h in Headers */ = {isa = PBXBuildFile; fileRef = F1CD433139E3AD71EBC18C6F6F2EC8FC /* MTZModelDisplaying.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8839C124A95B640CFE5166108F89B753 /* MTZFormConverter.h in Headers */ = {isa = PBXBuildFile; fileRef = 423580B16A01AF18AA7B381EACB314D2 /* MTZFormConverter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8CC61622A09CDD2760D0345F42C8840D /* MTZExpirationDatePicker-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 26088E94787962752A492A5E1753C04C /* MTZExpirationDatePicker-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		8E0FD58ACBAAA2BD4916FCB3308E3909 /* UIToolbar+MTZFormInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = DE731157B9DC79C848AF6FDDC5EB3B93 /* UIToolbar+MTZFormInputAccessoryView.m */; };
-		910D117E4C24312E6671BDE515BF1490 /* MTZTableFormRow+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = C1483CEA7652DE96279E80B1364E0D3E /* MTZTableFormRow+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9128548C0133112C12FF6C4303F90CB8 /* MTZTableData.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E3D356D563E5F42D01FD2107B9B9A67 /* MTZTableData.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		97EBF88DA1896BF72631F7D09FC1E44A /* MTZTableViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 6A37B6802A8AD6A09257F79F69236815 /* MTZTableViewManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9A3AF875AC23660115D76E955DA0657A /* UIResponder+FirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = 1653672A1BA90D0E9752D57FB6642267 /* UIResponder+FirstResponder.m */; };
-		9CB6E3FF5B997B48544309EC92684660 /* MTZTableSection+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = D64710B5841ACB60B8EF08971B2FB23B /* MTZTableSection+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		9D8A89F16F20235784506EEEEFED62C6 /* MTZModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 0D770616C6942658138A6E34B1F54F6A /* MTZModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8E0FD58ACBAAA2BD4916FCB3308E3909 /* UIToolbar+MTZFormInputAccessoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9804EEE1C054C6D4F2E4637E75CFEF88 /* UIToolbar+MTZFormInputAccessoryView.m */; };
+		9A3AF875AC23660115D76E955DA0657A /* UIResponder+FirstResponder.m in Sources */ = {isa = PBXBuildFile; fileRef = C0BF51EF98662183BF2F5E7E1953F9EE /* UIResponder+FirstResponder.m */; };
+		9B623A96F9C8C82494065D58AE2EF47F /* MTZTableFormOptionRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A9B8F8FA8ED3719617E7E0A94B40104 /* MTZTableFormOptionRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9CDD225E292D207F587CEBD448E52250 /* MTZTableFormDateRow.h in Headers */ = {isa = PBXBuildFile; fileRef = F7EDCED760777F228121B6E4CADBF898 /* MTZTableFormDateRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A35FCA8E38EC066E46EFAFA5B16E768F /* MTZFormEditing.h in Headers */ = {isa = PBXBuildFile; fileRef = 9D5786C598E5AACE455C3877EF39B5E9 /* MTZFormEditing.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A42BF4DA97A71B4EEDB12CBA06B63F48 /* MTZCommandContext.h in Headers */ = {isa = PBXBuildFile; fileRef = DA768A30C83EC62C6BA2EAFD37BEEF6A /* MTZCommandContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A5BC0DFB47B9A77052F8771297E5252C /* MTZExpirationDatePicker.h in Headers */ = {isa = PBXBuildFile; fileRef = 356B27FEE848E0FB864C5796CBA52A1C /* MTZExpirationDatePicker.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		B257ABEF839CE9C28BE300E96FD462A6 /* MTZFormObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 18B68A3C7D6FC892F6A2AB33748A9934 /* MTZFormObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AECEA201432653B27D6565819610DE58 /* MTZTableData+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 4B84798694ED6ABD7BEA2F38095E6D80 /* MTZTableData+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B510A0A34FDD908EA70980FD7CC9FB12 /* UIResponder+FirstResponder.h in Headers */ = {isa = PBXBuildFile; fileRef = 3767195538C3C9D2EDE0C165F7E58665 /* UIResponder+FirstResponder.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B52DC73177336B39B6CED0170AAD84E2 /* MTZCommandExecuting.h in Headers */ = {isa = PBXBuildFile; fileRef = F24199408CE1D9AFDAC611368E180F3E /* MTZCommandExecuting.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B6ED5DB281FA417FB736FD947A84B475 /* MTZFormOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 821668105BED1C1D8311F2264DF0AC8A /* MTZFormOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		BAED50B9558D5BAA1687423D1BFDD9E7 /* MTZTableSection.h in Headers */ = {isa = PBXBuildFile; fileRef = 11CA99BD87698B2A0BBF6AED9C849D8A /* MTZTableSection.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BC63E006D0AECE73485854F2814C7E78 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A622B49C9194407915368BB51A60B545 /* Foundation.framework */; };
-		BDF5950B8745AD45CF3E264F50F32BB7 /* MTZTableFormDateRow.h in Headers */ = {isa = PBXBuildFile; fileRef = C6F3BB06EDF69F450E9CEFD7734255ED /* MTZTableFormDateRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C1F963BF1E5631227ECE1204F5286B38 /* MTZModelDisplaying.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B2529D4E8EBE88DA79557AE9F250AA5 /* MTZModelDisplaying.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C8DE64A32B03DCAB4E037E31991BA46F /* MTZFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = FB216FE097290E332BB35F59C34AEC3A /* MTZFormField.m */; };
-		C993F78B569EA8186371CF68777E759B /* MTZTableManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 88DA689B48171093451E03F67C75B510 /* MTZTableManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CACDA9580C42CE907D4272C54C6B9360 /* MTZTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 38B1FDFAE1411F157F05ADE44656085D /* MTZTableData.m */; };
-		CB851C2114A22FC00B8C6BF475BF2E9D /* MTZFormField.h in Headers */ = {isa = PBXBuildFile; fileRef = 51DC1975587E5175AABCF0CF7382CC12 /* MTZFormField.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D3829B25B73CBC50D6668211EBA51B80 /* MTZFormValidator.h in Headers */ = {isa = PBXBuildFile; fileRef = E0808E89D40146FD356997CA363AAEB6 /* MTZFormValidator.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C2B787777858151FCC0F5551C1318510 /* MTZCommandRegistering.h in Headers */ = {isa = PBXBuildFile; fileRef = 5EA065CCD4B1B5ACA3D43770A69313E2 /* MTZCommandRegistering.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C54A48AD3767990D0A4FE282E4ECAD98 /* MTZTextFieldMasker+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 778B5DDB6100D3036D6E32B53C7BCDAA /* MTZTextFieldMasker+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C7C1894981FF99A35AF8251A7192C161 /* MTZReloadable.h in Headers */ = {isa = PBXBuildFile; fileRef = 155D2508FB03400BC7AA921676281B5A /* MTZReloadable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C8DE64A32B03DCAB4E037E31991BA46F /* MTZFormField.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C2F4B4E10366BDEC831CBA5FA18FE67 /* MTZFormField.m */; };
+		CACDA9580C42CE907D4272C54C6B9360 /* MTZTableData.m in Sources */ = {isa = PBXBuildFile; fileRef = 6A2C344AE2506BB848155D1D0D4C6C4D /* MTZTableData.m */; };
+		CF2E1D66AEA92659F1118CE41EA6F91F /* MTZCommandPayload.h in Headers */ = {isa = PBXBuildFile; fileRef = FDBB06DB336C488FEDEAFCDB75DD76B6 /* MTZCommandPayload.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D55D6BF6E499E9B82301F04B2C7E285E /* MTZTableFormRow+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = DF7C5BE1F94A2F082908012459E2268A /* MTZTableFormRow+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D932193F7705E975D89EC38E8DC4F980 /* MTZTableManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 47CA92E78D6D0853488829EBCF6A9DCA /* MTZTableManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DC1F37326D01049B5835C534F8727B5A /* MTZExpirationDatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = D0C262E4E8AE3CA664B4E4D298F0EE92 /* MTZExpirationDatePicker.m */; };
-		DDBC8539CDD9D6B9C63ADDFCFA4D0586 /* MTZTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = ED4A7E0CD73D54C321DE670B46C8B6F2 /* MTZTableSection.m */; };
+		DDBC8539CDD9D6B9C63ADDFCFA4D0586 /* MTZTableSection.m in Sources */ = {isa = PBXBuildFile; fileRef = 33F3047DF58AF7F9E79BC43C02419FFF /* MTZTableSection.m */; };
 		DF76608B7BFAF07A79BC3E1666179996 /* MTZExpirationDatePicker.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F482F6173D86DA676F3C6AFA50AED01 /* MTZExpirationDatePicker.framework */; };
-		E71E94C816415967ED64396C0E9FB609 /* MTZTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = B84F53F174569A3CDF2921893FA55403 /* MTZTableRow.m */; };
-		E9DAFECA2D597CD45CD21805F7E44865 /* MTZTableViewManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D1B6056EA93418B1A594CDDA50DC626 /* MTZTableViewManager-dummy.m */; };
-		ECE2746D7E99F3CD30B39FBE491F9FB1 /* MTZReloadable.h in Headers */ = {isa = PBXBuildFile; fileRef = CE442711D1389BEB718F6E01A70F5608 /* MTZReloadable.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		ED2EF34F005874534C08ABD5ADA817CD /* MTZTableFormDateRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 71D27DD9ABBB69DF326531B05C0E9D1E /* MTZTableFormDateRow.m */; };
-		F374EE2E0AC093B176DBAF5E22807856 /* MTZFormOption.h in Headers */ = {isa = PBXBuildFile; fileRef = 28FFFA8E0C30311FCEB3C8CAA7BC6CF5 /* MTZFormOption.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		F64AD719ED6385CA6F136F0378DD3038 /* MTZTextFieldMasker+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 5917A766D4B457F8A71FC41FC99F86B3 /* MTZTextFieldMasker+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F7FADD287C3C59E1BB2D25628D8231DE /* MTZFormValidatable.h in Headers */ = {isa = PBXBuildFile; fileRef = 07F13409507DD29249182F0B467D5A85 /* MTZFormValidatable.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		F89D4BFFDBC28CD3273CC9AD87829AC9 /* UIToolbar+MTZFormInputAccessoryView.h in Headers */ = {isa = PBXBuildFile; fileRef = 447F475EDB4216B8AC32751C57F60A0B /* UIToolbar+MTZFormInputAccessoryView.h */; settings = {ATTRIBUTES = (Project, ); }; };
-		FAE9B1FC6ED95F1C0FF13E9C0424B03B /* MTZTableManagerUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = ABD8CAAA4D3E1FD97D251B7ED0B4A190 /* MTZTableManagerUtils.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		E2B42D7DBED384BBDCFBEDB8D37EEDA0 /* MTZTableData.h in Headers */ = {isa = PBXBuildFile; fileRef = CD3ACF4B15B59F7583544BC1685E6D19 /* MTZTableData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5A770FB4D5BCBFE6567839DC899FFA8 /* MTZTableRow.h in Headers */ = {isa = PBXBuildFile; fileRef = B5C07DFB2E0A95FB582219E6274BE40E /* MTZTableRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E71E94C816415967ED64396C0E9FB609 /* MTZTableRow.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C433CAC8009620930D9B979BC5CE817 /* MTZTableRow.m */; };
+		E9DAFECA2D597CD45CD21805F7E44865 /* MTZTableViewManager-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D43FEF0959675A6A8DFEA22AB2366B77 /* MTZTableViewManager-dummy.m */; };
+		ED2EF34F005874534C08ABD5ADA817CD /* MTZTableFormDateRow.m in Sources */ = {isa = PBXBuildFile; fileRef = D74F9FFECC6ED9EB00BED50D27CAC76C /* MTZTableFormDateRow.m */; };
 		FCE23D041001993C185CCAE45DAB3583 /* Pods-Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 699118D7DDD5F335E4FB8B17DC0F12D2 /* Pods-Example-dummy.m */; };
-		FD9A7E77115AEF9F1172FD5BEB9B0918 /* MTZTableRow.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E456DB07C985F8ABE1B83903594ECC1 /* MTZTableRow.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FD2CD7921AA082AEFF2FF3F81C6B5338 /* MTZTableViewManager.h in Headers */ = {isa = PBXBuildFile; fileRef = B88C20E830704B88346128258971458F /* MTZTableViewManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,85 +95,85 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		011E97CA3D72F0FB1D6869F1E65CCB09 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		015619DCAAC404E7B92C843D839E9F58 /* MTZTableViewManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MTZTableViewManager.framework; path = MTZTableViewManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		011E97CA3D72F0FB1D6869F1E65CCB09 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		015619DCAAC404E7B92C843D839E9F58 /* MTZTableViewManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MTZTableViewManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E6907CF2644EB1CF8E23F708A3DA0B /* Pods-Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-resources.sh"; sourceTree = "<group>"; };
-		05B09CE86B0F797A5FFAD9A53F90382D /* MTZTableFormOptionRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTableFormOptionRow.m; sourceTree = "<group>"; };
-		062D0F4581D5BA3FBB74BB2382D9A9FA /* MTZCommandExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandExecutor.h; sourceTree = "<group>"; };
-		07F13409507DD29249182F0B467D5A85 /* MTZFormValidatable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormValidatable.h; sourceTree = "<group>"; };
-		0D770616C6942658138A6E34B1F54F6A /* MTZModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZModel.h; sourceTree = "<group>"; };
-		10EDE93331BF881A8A78E265F25E3B26 /* MTZInputAccessoryViewHandling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZInputAccessoryViewHandling.h; sourceTree = "<group>"; };
-		119072C64A19799964E1620D83F514FB /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
-		128484C4BDEE9FAFF8DC68520EAA4D8C /* MTZCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommand.h; sourceTree = "<group>"; };
+		0469462029CC6A9CDAB6BD12CF3C94E5 /* MTZFormValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormValidator.h; sourceTree = "<group>"; };
+		06F87D36921050B0F08EA440B58BA5BF /* MTZCommandExecutor.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandExecutor.h; sourceTree = "<group>"; };
+		119072C64A19799964E1620D83F514FB /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
+		11CA99BD87698B2A0BBF6AED9C849D8A /* MTZTableSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTZTableSection.h; path = MTZTableViewManager/MTZTableSection.h; sourceTree = "<group>"; };
 		149054C495E8EC590CAB4C524133016F /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
-		1653672A1BA90D0E9752D57FB6642267 /* UIResponder+FirstResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+FirstResponder.m"; sourceTree = "<group>"; };
-		16EDBDAFC063F4099DFB5DE8AE1AEB5A /* MTZTextFieldMasker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTextFieldMasker.m; sourceTree = "<group>"; };
-		18B68A3C7D6FC892F6A2AB33748A9934 /* MTZFormObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormObject.h; sourceTree = "<group>"; };
-		1B2529D4E8EBE88DA79557AE9F250AA5 /* MTZModelDisplaying.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZModelDisplaying.h; sourceTree = "<group>"; };
-		22039E63F1657F53556DB9A9BF70FDE0 /* MTZExpirationDatePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MTZExpirationDatePicker.modulemap; sourceTree = "<group>"; };
+		155D2508FB03400BC7AA921676281B5A /* MTZReloadable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZReloadable.h; sourceTree = "<group>"; };
+		22039E63F1657F53556DB9A9BF70FDE0 /* MTZExpirationDatePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MTZExpirationDatePicker.modulemap; sourceTree = "<group>"; };
+		223699A638A4C4090E76D5AC68A24D7E /* MTZTableFormRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableFormRow.h; sourceTree = "<group>"; };
 		26088E94787962752A492A5E1753C04C /* MTZExpirationDatePicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZExpirationDatePicker-umbrella.h"; sourceTree = "<group>"; };
-		28FFFA8E0C30311FCEB3C8CAA7BC6CF5 /* MTZFormOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormOption.h; sourceTree = "<group>"; };
-		30E18F444DC39F7184ECC9E1F01D85AD /* MTZTableViewManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MTZTableViewManager.modulemap; sourceTree = "<group>"; };
-		34BD72A9B80BC885E1141BDD42036F9F /* MTZFormUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormUtils.h; sourceTree = "<group>"; };
+		2C2F4B4E10366BDEC831CBA5FA18FE67 /* MTZFormField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZFormField.m; sourceTree = "<group>"; };
+		33F3047DF58AF7F9E79BC43C02419FFF /* MTZTableSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTZTableSection.m; path = MTZTableViewManager/MTZTableSection.m; sourceTree = "<group>"; };
 		356B27FEE848E0FB864C5796CBA52A1C /* MTZExpirationDatePicker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZExpirationDatePicker.h; sourceTree = "<group>"; };
-		38B1FDFAE1411F157F05ADE44656085D /* MTZTableData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTZTableData.m; path = MTZTableViewManager/MTZTableData.m; sourceTree = "<group>"; };
-		394C8D221ADFF66A963C50825DF9F3DB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		42F6857A5F52B6925D4B7655237D2079 /* MTZTableFormRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableFormRow.h; sourceTree = "<group>"; };
-		447F475EDB4216B8AC32751C57F60A0B /* UIToolbar+MTZFormInputAccessoryView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+MTZFormInputAccessoryView.h"; sourceTree = "<group>"; };
-		4C7CD0C01878F18C53B72D612190AFB2 /* MTZFormConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormConverter.h; sourceTree = "<group>"; };
-		4F21ECF9BE9F89719A3CF634A2124025 /* MTZFormValidator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZFormValidator.m; sourceTree = "<group>"; };
+		3767195538C3C9D2EDE0C165F7E58665 /* UIResponder+FirstResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIResponder+FirstResponder.h"; sourceTree = "<group>"; };
+		3C433CAC8009620930D9B979BC5CE817 /* MTZTableRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTZTableRow.m; path = MTZTableViewManager/MTZTableRow.m; sourceTree = "<group>"; };
+		423580B16A01AF18AA7B381EACB314D2 /* MTZFormConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormConverter.h; sourceTree = "<group>"; };
+		42FCA638CCB968CE69B2C9C278E5F5AD /* MTZTableFormOptionRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTableFormOptionRow.m; sourceTree = "<group>"; };
+		46C4C56C1FA961E587B93A257A338F20 /* MTZCommand.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommand.h; sourceTree = "<group>"; };
+		47CA92E78D6D0853488829EBCF6A9DCA /* MTZTableManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTZTableManager.h; path = MTZTableViewManager/MTZTableManager.h; sourceTree = "<group>"; };
+		4B84798694ED6ABD7BEA2F38095E6D80 /* MTZTableData+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTZTableData+Private.h"; path = "MTZTableViewManager/MTZTableData+Private.h"; sourceTree = "<group>"; };
 		4F482F6173D86DA676F3C6AFA50AED01 /* MTZExpirationDatePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MTZExpirationDatePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		509836C8849595121A16524B336F754F /* MTZTableFormOptionRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableFormOptionRow.h; sourceTree = "<group>"; };
-		51DC1975587E5175AABCF0CF7382CC12 /* MTZFormField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormField.h; sourceTree = "<group>"; };
+		54FA722924647158929ADDDAA85E3CA4 /* MTZFormObject.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormObject.h; sourceTree = "<group>"; };
 		552550F3F912264E5D073F8893691F88 /* Pods-Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-frameworks.sh"; sourceTree = "<group>"; };
-		5917A766D4B457F8A71FC41FC99F86B3 /* MTZTextFieldMasker+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZTextFieldMasker+Private.h"; sourceTree = "<group>"; };
-		5A0D6EB8796F62256F4825765A181881 /* MTZCommandExecuting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandExecuting.h; sourceTree = "<group>"; };
+		578D75AFA35C236ADE8936E7345E40DF /* MTZInputAccessoryViewHandling.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZInputAccessoryViewHandling.h; sourceTree = "<group>"; };
 		5BD644F4612E58206F98F522864CC56F /* MTZExpirationDatePicker-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZExpirationDatePicker-prefix.pch"; sourceTree = "<group>"; };
+		5EA065CCD4B1B5ACA3D43770A69313E2 /* MTZCommandRegistering.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandRegistering.h; sourceTree = "<group>"; };
 		699118D7DDD5F335E4FB8B17DC0F12D2 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
-		6A37B6802A8AD6A09257F79F69236815 /* MTZTableViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableViewManager.h; sourceTree = "<group>"; };
-		71D27DD9ABBB69DF326531B05C0E9D1E /* MTZTableFormDateRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTableFormDateRow.m; sourceTree = "<group>"; };
-		7418727809F5D07A022B502373F98C32 /* MTZTableViewManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTZTableViewManager.xcconfig; sourceTree = "<group>"; };
+		6A2C344AE2506BB848155D1D0D4C6C4D /* MTZTableData.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTZTableData.m; path = MTZTableViewManager/MTZTableData.m; sourceTree = "<group>"; };
+		6A3FAA3D9A16F0772FE62442558ECA28 /* MTZTableViewManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTZTableViewManager.xcconfig; sourceTree = "<group>"; };
+		713345595B1D47B5C122B4887FEE21BD /* MTZCommandExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZCommandExecutor.m; sourceTree = "<group>"; };
+		74D1FB3722C278C63E8DA7BBC1713F6D /* MTZTableViewManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MTZTableViewManager.modulemap; sourceTree = "<group>"; };
+		762596D1DEE604AE5757A3D85DE8C27B /* MTZFormUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormUtils.h; sourceTree = "<group>"; };
 		764D33E23CE6C1111110B04F5CBADADB /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		7A3EF0B50CE2BE4CA4F6AC6C449C2D57 /* MTZCommandExecutor+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZCommandExecutor+Private.h"; sourceTree = "<group>"; };
-		7A48DAC2DC18E4DBA5B572B37D7718BC /* MTZExpirationDatePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MTZExpirationDatePicker.framework; path = MTZExpirationDatePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		7D1B6056EA93418B1A594CDDA50DC626 /* MTZTableViewManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MTZTableViewManager-dummy.m"; sourceTree = "<group>"; };
-		86FE1DB8F449D5737AD19274BC3B5044 /* MTZCommandExecutor.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZCommandExecutor.m; sourceTree = "<group>"; };
-		88DA689B48171093451E03F67C75B510 /* MTZTableManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTZTableManager.h; path = MTZTableViewManager/MTZTableManager.h; sourceTree = "<group>"; };
-		8E3D356D563E5F42D01FD2107B9B9A67 /* MTZTableData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTZTableData.h; path = MTZTableViewManager/MTZTableData.h; sourceTree = "<group>"; };
-		8E456DB07C985F8ABE1B83903594ECC1 /* MTZTableRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTZTableRow.h; path = MTZTableViewManager/MTZTableRow.h; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9DCBA07D81430D955FF6236B961969CE /* MTZTableViewManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZTableViewManager-umbrella.h"; sourceTree = "<group>"; };
+		778B5DDB6100D3036D6E32B53C7BCDAA /* MTZTextFieldMasker+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZTextFieldMasker+Private.h"; sourceTree = "<group>"; };
+		7A48DAC2DC18E4DBA5B572B37D7718BC /* MTZExpirationDatePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MTZExpirationDatePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7FE57623693E07CC7BC0D9C35E585CAD /* MTZTableManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTZTableManager.m; path = MTZTableViewManager/MTZTableManager.m; sourceTree = "<group>"; };
+		821668105BED1C1D8311F2264DF0AC8A /* MTZFormOption.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormOption.h; sourceTree = "<group>"; };
+		880348310E269481F0B77AB3A49F381E /* MTZFormValidator.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZFormValidator.m; sourceTree = "<group>"; };
+		8A9B8F8FA8ED3719617E7E0A94B40104 /* MTZTableFormOptionRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableFormOptionRow.h; sourceTree = "<group>"; };
+		8DDCA0D3575B52C61BE84C8FC61A967A /* MTZFormConverter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZFormConverter.m; sourceTree = "<group>"; };
+		8EC385CA58C241A71C3DC1AE471B7105 /* MTZModel.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZModel.h; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9804EEE1C054C6D4F2E4637E75CFEF88 /* UIToolbar+MTZFormInputAccessoryView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+MTZFormInputAccessoryView.m"; sourceTree = "<group>"; };
+		9D5786C598E5AACE455C3877EF39B5E9 /* MTZFormEditing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormEditing.h; sourceTree = "<group>"; };
+		A3ACE1DF6E65B3F9A3DF298D2EB4E83B /* MTZFormField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormField.h; sourceTree = "<group>"; };
 		A622B49C9194407915368BB51A60B545 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		A661FECCEBFF9D01869EE3B29C4C1EFF /* Pods-Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Example-acknowledgements.markdown"; sourceTree = "<group>"; };
-		A6FD378337B198F3A64604F763D0BB5F /* MTZTableData+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTZTableData+Private.h"; path = "MTZTableViewManager/MTZTableData+Private.h"; sourceTree = "<group>"; };
-		ABD8CAAA4D3E1FD97D251B7ED0B4A190 /* MTZTableManagerUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableManagerUtils.h; sourceTree = "<group>"; };
-		AD483126294A75E8990E9FB7BDF8A730 /* MTZFormEditing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormEditing.h; sourceTree = "<group>"; };
-		B08A22DF53A9BBB79801F5DB05E46280 /* MTZCommandRegistering.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandRegistering.h; sourceTree = "<group>"; };
+		A865950FE9EA0CA6346F5E4BB9A49CF4 /* MTZTableManagerUtils.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableManagerUtils.h; sourceTree = "<group>"; };
+		B24EDA251646F1AABF7DB2FFD835531A /* MTZTextFieldMasker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTextFieldMasker.m; sourceTree = "<group>"; };
 		B3F3E4147C6F12C920D2B2648E42E971 /* MTZExpirationDatePicker-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MTZExpirationDatePicker-dummy.m"; sourceTree = "<group>"; };
-		B84F53F174569A3CDF2921893FA55403 /* MTZTableRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTZTableRow.m; path = MTZTableViewManager/MTZTableRow.m; sourceTree = "<group>"; };
-		C1483CEA7652DE96279E80B1364E0D3E /* MTZTableFormRow+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZTableFormRow+Private.h"; sourceTree = "<group>"; };
-		C6F3BB06EDF69F450E9CEFD7734255ED /* MTZTableFormDateRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableFormDateRow.h; sourceTree = "<group>"; };
+		B5C07DFB2E0A95FB582219E6274BE40E /* MTZTableRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTZTableRow.h; path = MTZTableViewManager/MTZTableRow.h; sourceTree = "<group>"; };
+		B88C20E830704B88346128258971458F /* MTZTableViewManager.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableViewManager.h; sourceTree = "<group>"; };
+		BC857E07E8D3E712CD6E74B24F3682D5 /* UIToolbar+MTZFormInputAccessoryView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIToolbar+MTZFormInputAccessoryView.h"; sourceTree = "<group>"; };
+		BFF02C0E6DF4CA8FC426D3F158D061BE /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C004837991FBBE38794D5B9567FBC4AC /* MTZTableViewManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZTableViewManager-umbrella.h"; sourceTree = "<group>"; };
+		C0BF51EF98662183BF2F5E7E1953F9EE /* UIResponder+FirstResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+FirstResponder.m"; sourceTree = "<group>"; };
+		C1D5B08F780209014E134B23B804FDD9 /* MTZTableFormRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTableFormRow.m; sourceTree = "<group>"; };
+		C91F941A29F973D71738BB16FA040EC7 /* MTZTableViewManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZTableViewManager-prefix.pch"; sourceTree = "<group>"; };
 		C9BDE82371C83FA9AE91B05F77ACAA36 /* Pods-Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Example-umbrella.h"; sourceTree = "<group>"; };
-		CE442711D1389BEB718F6E01A70F5608 /* MTZReloadable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZReloadable.h; sourceTree = "<group>"; };
+		CD3ACF4B15B59F7583544BC1685E6D19 /* MTZTableData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTZTableData.h; path = MTZTableViewManager/MTZTableData.h; sourceTree = "<group>"; };
 		D0C262E4E8AE3CA664B4E4D298F0EE92 /* MTZExpirationDatePicker.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZExpirationDatePicker.m; sourceTree = "<group>"; };
-		D5E2F2DB8ABBB2AE2C49DF6C911F47C4 /* MTZTableFormRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTableFormRow.m; sourceTree = "<group>"; };
-		D64710B5841ACB60B8EF08971B2FB23B /* MTZTableSection+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTZTableSection+Private.h"; path = "MTZTableViewManager/MTZTableSection+Private.h"; sourceTree = "<group>"; };
-		D7016E1E59AD62684F36DC01E322C5E2 /* MTZCommandContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandContext.h; sourceTree = "<group>"; };
-		D8B3768B3648A55D45CA6D9EBDA04EC0 /* MTZFormConverter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZFormConverter.m; sourceTree = "<group>"; };
-		DB1C8341FEAC974684D7F8F3372BF7C8 /* MTZTableManager.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTZTableManager.m; path = MTZTableViewManager/MTZTableManager.m; sourceTree = "<group>"; };
-		DE731157B9DC79C848AF6FDDC5EB3B93 /* UIToolbar+MTZFormInputAccessoryView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+MTZFormInputAccessoryView.m"; sourceTree = "<group>"; };
-		E04209B8FCEDB1C597FD1381963CFD65 /* UIResponder+FirstResponder.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIResponder+FirstResponder.h"; sourceTree = "<group>"; };
-		E0808E89D40146FD356997CA363AAEB6 /* MTZFormValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormValidator.h; sourceTree = "<group>"; };
-		E4C5E4EFEF922D719FC9390BB7D232F0 /* MTZTableRow+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTZTableRow+Private.h"; path = "MTZTableViewManager/MTZTableRow+Private.h"; sourceTree = "<group>"; };
+		D1FE97B1B81AD50F83D27B929CE9A7BE /* MTZTextFieldMasker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTextFieldMasker.h; sourceTree = "<group>"; };
+		D43FEF0959675A6A8DFEA22AB2366B77 /* MTZTableViewManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MTZTableViewManager-dummy.m"; sourceTree = "<group>"; };
+		D74F9FFECC6ED9EB00BED50D27CAC76C /* MTZTableFormDateRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTableFormDateRow.m; sourceTree = "<group>"; };
+		DA3AA796056DEC8160F8AE706FD16CEF /* MTZFormValidatable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormValidatable.h; sourceTree = "<group>"; };
+		DA768A30C83EC62C6BA2EAFD37BEEF6A /* MTZCommandContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandContext.h; sourceTree = "<group>"; };
+		DF7C5BE1F94A2F082908012459E2268A /* MTZTableFormRow+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZTableFormRow+Private.h"; sourceTree = "<group>"; };
+		DFD9227A49ED9AA1317B1BFEFDDFA1A5 /* MTZTableSection+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTZTableSection+Private.h"; path = "MTZTableViewManager/MTZTableSection+Private.h"; sourceTree = "<group>"; };
 		E512A5F985F876750237FD237C3AEEDA /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
-		E543ED1813B1F3CAF6FE966F17375A77 /* MTZTextFieldMasker.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTextFieldMasker.h; sourceTree = "<group>"; };
 		E7EEE6B13F660161FB160EEE68610E71 /* MTZExpirationDatePicker.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTZExpirationDatePicker.xcconfig; sourceTree = "<group>"; };
-		ED4A7E0CD73D54C321DE670B46C8B6F2 /* MTZTableSection.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = MTZTableSection.m; path = MTZTableViewManager/MTZTableSection.m; sourceTree = "<group>"; };
 		EFFB74AAA6B2AE8DABF0E88E61E09178 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F9DBA588EA020D6683AA81E8C5116411 /* MTZTableViewManager-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZTableViewManager-prefix.pch"; sourceTree = "<group>"; };
-		FB216FE097290E332BB35F59C34AEC3A /* MTZFormField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZFormField.m; sourceTree = "<group>"; };
-		FC4BF2848F443CCB7B80CCA95FA9B01C /* MTZTableSection.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTZTableSection.h; path = MTZTableViewManager/MTZTableSection.h; sourceTree = "<group>"; };
+		F1CD433139E3AD71EBC18C6F6F2EC8FC /* MTZModelDisplaying.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZModelDisplaying.h; sourceTree = "<group>"; };
+		F24199408CE1D9AFDAC611368E180F3E /* MTZCommandExecuting.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandExecuting.h; sourceTree = "<group>"; };
+		F7EDCED760777F228121B6E4CADBF898 /* MTZTableFormDateRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableFormDateRow.h; sourceTree = "<group>"; };
+		FDBB06DB336C488FEDEAFCDB75DD76B6 /* MTZCommandPayload.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandPayload.h; sourceTree = "<group>"; };
 		FF28BE401E6A51FCE2B039022D5B8BFD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FFACB515A27E54BA2F27C58671731210 /* MTZTableRow+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTZTableRow+Private.h"; path = "MTZTableViewManager/MTZTableRow+Private.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,39 +205,42 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		059CB1AEEAFAF62A5527414471D1646A /* Command */ = {
+		361DAF43E9F4CE26F481441A4CAF77E0 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				062D0F4581D5BA3FBB74BB2382D9A9FA /* MTZCommandExecutor.h */,
-				86FE1DB8F449D5737AD19274BC3B5044 /* MTZCommandExecutor.m */,
-				7A3EF0B50CE2BE4CA4F6AC6C449C2D57 /* MTZCommandExecutor+Private.h */,
-				70DF8A189B2A1AC091646EAC41D29A16 /* Protocols */,
+				BFF02C0E6DF4CA8FC426D3F158D061BE /* Info.plist */,
+				74D1FB3722C278C63E8DA7BBC1713F6D /* MTZTableViewManager.modulemap */,
+				6A3FAA3D9A16F0772FE62442558ECA28 /* MTZTableViewManager.xcconfig */,
+				D43FEF0959675A6A8DFEA22AB2366B77 /* MTZTableViewManager-dummy.m */,
+				C91F941A29F973D71738BB16FA040EC7 /* MTZTableViewManager-prefix.pch */,
+				C004837991FBBE38794D5B9567FBC4AC /* MTZTableViewManager-umbrella.h */,
 			);
-			name = Command;
-			path = MTZTableViewManager/Command;
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/MTZTableViewManager";
 			sourceTree = "<group>";
 		};
-		4561EE13C5E30FDAA751D8001F0D5D3D /* Forms */ = {
+		3E3198D07DE584BF7DD0B8556A02E898 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				4C7CD0C01878F18C53B72D612190AFB2 /* MTZFormConverter.h */,
-				D8B3768B3648A55D45CA6D9EBDA04EC0 /* MTZFormConverter.m */,
-				E0808E89D40146FD356997CA363AAEB6 /* MTZFormValidator.h */,
-				4F21ECF9BE9F89719A3CF634A2124025 /* MTZFormValidator.m */,
-				C6F3BB06EDF69F450E9CEFD7734255ED /* MTZTableFormDateRow.h */,
-				71D27DD9ABBB69DF326531B05C0E9D1E /* MTZTableFormDateRow.m */,
-				509836C8849595121A16524B336F754F /* MTZTableFormOptionRow.h */,
-				05B09CE86B0F797A5FFAD9A53F90382D /* MTZTableFormOptionRow.m */,
-				42F6857A5F52B6925D4B7655237D2079 /* MTZTableFormRow.h */,
-				D5E2F2DB8ABBB2AE2C49DF6C911F47C4 /* MTZTableFormRow.m */,
-				C1483CEA7652DE96279E80B1364E0D3E /* MTZTableFormRow+Private.h */,
-				E543ED1813B1F3CAF6FE966F17375A77 /* MTZTextFieldMasker.h */,
-				16EDBDAFC063F4099DFB5DE8AE1AEB5A /* MTZTextFieldMasker.m */,
-				5917A766D4B457F8A71FC41FC99F86B3 /* MTZTextFieldMasker+Private.h */,
-				FB04D16E76F3F45969EB8F905F971BD2 /* Protocols */,
+				3767195538C3C9D2EDE0C165F7E58665 /* UIResponder+FirstResponder.h */,
+				C0BF51EF98662183BF2F5E7E1953F9EE /* UIResponder+FirstResponder.m */,
+				BC857E07E8D3E712CD6E74B24F3682D5 /* UIToolbar+MTZFormInputAccessoryView.h */,
+				9804EEE1C054C6D4F2E4637E75CFEF88 /* UIToolbar+MTZFormInputAccessoryView.m */,
 			);
-			name = Forms;
-			path = MTZTableViewManager/Forms;
+			name = Categories;
+			path = MTZTableViewManager/Categories;
+			sourceTree = "<group>";
+		};
+		4230DDEDDABE4FF6DFBF84E691C1C098 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				46C4C56C1FA961E587B93A257A338F20 /* MTZCommand.h */,
+				DA768A30C83EC62C6BA2EAFD37BEEF6A /* MTZCommandContext.h */,
+				F24199408CE1D9AFDAC611368E180F3E /* MTZCommandExecuting.h */,
+				FDBB06DB336C488FEDEAFCDB75DD76B6 /* MTZCommandPayload.h */,
+				5EA065CCD4B1B5ACA3D43770A69313E2 /* MTZCommandRegistering.h */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		4B2AEF1A66FCD6CA7112F3450C7010A5 /* MTZExpirationDatePicker */ = {
@@ -247,8 +250,21 @@
 				D0C262E4E8AE3CA664B4E4D298F0EE92 /* MTZExpirationDatePicker.m */,
 				B4B2BF1722F3CEBF4201C0B3F1C6F12D /* Support Files */,
 			);
-			name = MTZExpirationDatePicker;
 			path = MTZExpirationDatePicker;
+			sourceTree = "<group>";
+		};
+		4C3A9ED29DD32F704138852894175A76 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9D5786C598E5AACE455C3877EF39B5E9 /* MTZFormEditing.h */,
+				A3ACE1DF6E65B3F9A3DF298D2EB4E83B /* MTZFormField.h */,
+				2C2F4B4E10366BDEC831CBA5FA18FE67 /* MTZFormField.m */,
+				54FA722924647158929ADDDAA85E3CA4 /* MTZFormObject.h */,
+				821668105BED1C1D8311F2264DF0AC8A /* MTZFormOption.h */,
+				DA3AA796056DEC8160F8AE706FD16CEF /* MTZFormValidatable.h */,
+				578D75AFA35C236ADE8936E7345E40DF /* MTZInputAccessoryViewHandling.h */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		4EDF2775C5DEA28B4C8A91CD5C44FD0F /* Frameworks */ = {
@@ -260,6 +276,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		53AA805CEAAA5C99A0B303D2262227FA /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				762596D1DEE604AE5757A3D85DE8C27B /* MTZFormUtils.h */,
+				A865950FE9EA0CA6346F5E4BB9A49CF4 /* MTZTableManagerUtils.h */,
+				B88C20E830704B88346128258971458F /* MTZTableViewManager.h */,
+			);
+			name = Resources;
+			path = MTZTableViewManager/Resources;
+			sourceTree = "<group>";
+		};
 		6A4F6A14E3FB951290E4531728B7A461 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,16 +295,29 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		70DF8A189B2A1AC091646EAC41D29A16 /* Protocols */ = {
+		6D4B4C4385EBCB3542A14587E5D1D2DD /* MTZTableViewManager */ = {
 			isa = PBXGroup;
 			children = (
-				128484C4BDEE9FAFF8DC68520EAA4D8C /* MTZCommand.h */,
-				D7016E1E59AD62684F36DC01E322C5E2 /* MTZCommandContext.h */,
-				5A0D6EB8796F62256F4825765A181881 /* MTZCommandExecuting.h */,
-				B08A22DF53A9BBB79801F5DB05E46280 /* MTZCommandRegistering.h */,
+				CD3ACF4B15B59F7583544BC1685E6D19 /* MTZTableData.h */,
+				6A2C344AE2506BB848155D1D0D4C6C4D /* MTZTableData.m */,
+				4B84798694ED6ABD7BEA2F38095E6D80 /* MTZTableData+Private.h */,
+				47CA92E78D6D0853488829EBCF6A9DCA /* MTZTableManager.h */,
+				7FE57623693E07CC7BC0D9C35E585CAD /* MTZTableManager.m */,
+				B5C07DFB2E0A95FB582219E6274BE40E /* MTZTableRow.h */,
+				3C433CAC8009620930D9B979BC5CE817 /* MTZTableRow.m */,
+				FFACB515A27E54BA2F27C58671731210 /* MTZTableRow+Private.h */,
+				11CA99BD87698B2A0BBF6AED9C849D8A /* MTZTableSection.h */,
+				33F3047DF58AF7F9E79BC43C02419FFF /* MTZTableSection.m */,
+				DFD9227A49ED9AA1317B1BFEFDDFA1A5 /* MTZTableSection+Private.h */,
+				3E3198D07DE584BF7DD0B8556A02E898 /* Categories */,
+				7E7193CD70254B4DFFCD28CEADDE87AA /* Command */,
+				A25B4A8B9241672F35773BC5C5ACA27D /* Forms */,
+				B9D045035C87CE130101B1418E18D301 /* Protocols */,
+				53AA805CEAAA5C99A0B303D2262227FA /* Resources */,
+				361DAF43E9F4CE26F481441A4CAF77E0 /* Support Files */,
 			);
-			name = Protocols;
-			path = Protocols;
+			name = MTZTableViewManager;
+			path = ../..;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -292,6 +332,17 @@
 			);
 			sourceTree = "<group>";
 		};
+		7E7193CD70254B4DFFCD28CEADDE87AA /* Command */ = {
+			isa = PBXGroup;
+			children = (
+				06F87D36921050B0F08EA440B58BA5BF /* MTZCommandExecutor.h */,
+				713345595B1D47B5C122B4887FEE21BD /* MTZCommandExecutor.m */,
+				4230DDEDDABE4FF6DFBF84E691C1C098 /* Protocols */,
+			);
+			name = Command;
+			path = MTZTableViewManager/Command;
+			sourceTree = "<group>";
+		};
 		86D19E9790BF2117AFF8E4EF5CE16F07 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,29 +351,27 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		AF92DB9F769AA558D3CEB3672ECF840B /* MTZTableViewManager */ = {
+		A25B4A8B9241672F35773BC5C5ACA27D /* Forms */ = {
 			isa = PBXGroup;
 			children = (
-				8E3D356D563E5F42D01FD2107B9B9A67 /* MTZTableData.h */,
-				38B1FDFAE1411F157F05ADE44656085D /* MTZTableData.m */,
-				A6FD378337B198F3A64604F763D0BB5F /* MTZTableData+Private.h */,
-				88DA689B48171093451E03F67C75B510 /* MTZTableManager.h */,
-				DB1C8341FEAC974684D7F8F3372BF7C8 /* MTZTableManager.m */,
-				8E456DB07C985F8ABE1B83903594ECC1 /* MTZTableRow.h */,
-				B84F53F174569A3CDF2921893FA55403 /* MTZTableRow.m */,
-				E4C5E4EFEF922D719FC9390BB7D232F0 /* MTZTableRow+Private.h */,
-				FC4BF2848F443CCB7B80CCA95FA9B01C /* MTZTableSection.h */,
-				ED4A7E0CD73D54C321DE670B46C8B6F2 /* MTZTableSection.m */,
-				D64710B5841ACB60B8EF08971B2FB23B /* MTZTableSection+Private.h */,
-				B6C985A130AE5560C867BC57470CDFF4 /* Categories */,
-				059CB1AEEAFAF62A5527414471D1646A /* Command */,
-				4561EE13C5E30FDAA751D8001F0D5D3D /* Forms */,
-				E3E366C3B2E7968FB95D4B069DC2B255 /* Protocols */,
-				BB2A74FA23D1B194A3A3CF7B356E2103 /* Resources */,
-				C7C505E054934E7AC97C0BEA8E98E0FA /* Support Files */,
+				423580B16A01AF18AA7B381EACB314D2 /* MTZFormConverter.h */,
+				8DDCA0D3575B52C61BE84C8FC61A967A /* MTZFormConverter.m */,
+				0469462029CC6A9CDAB6BD12CF3C94E5 /* MTZFormValidator.h */,
+				880348310E269481F0B77AB3A49F381E /* MTZFormValidator.m */,
+				F7EDCED760777F228121B6E4CADBF898 /* MTZTableFormDateRow.h */,
+				D74F9FFECC6ED9EB00BED50D27CAC76C /* MTZTableFormDateRow.m */,
+				8A9B8F8FA8ED3719617E7E0A94B40104 /* MTZTableFormOptionRow.h */,
+				42FCA638CCB968CE69B2C9C278E5F5AD /* MTZTableFormOptionRow.m */,
+				223699A638A4C4090E76D5AC68A24D7E /* MTZTableFormRow.h */,
+				C1D5B08F780209014E134B23B804FDD9 /* MTZTableFormRow.m */,
+				DF7C5BE1F94A2F082908012459E2268A /* MTZTableFormRow+Private.h */,
+				D1FE97B1B81AD50F83D27B929CE9A7BE /* MTZTextFieldMasker.h */,
+				B24EDA251646F1AABF7DB2FFD835531A /* MTZTextFieldMasker.m */,
+				778B5DDB6100D3036D6E32B53C7BCDAA /* MTZTextFieldMasker+Private.h */,
+				4C3A9ED29DD32F704138852894175A76 /* Protocols */,
 			);
-			name = MTZTableViewManager;
-			path = ../..;
+			name = Forms;
+			path = MTZTableViewManager/Forms;
 			sourceTree = "<group>";
 		};
 		B4B2BF1722F3CEBF4201C0B3F1C6F12D /* Support Files */ = {
@@ -339,18 +388,6 @@
 			path = "../Target Support Files/MTZExpirationDatePicker";
 			sourceTree = "<group>";
 		};
-		B6C985A130AE5560C867BC57470CDFF4 /* Categories */ = {
-			isa = PBXGroup;
-			children = (
-				E04209B8FCEDB1C597FD1381963CFD65 /* UIResponder+FirstResponder.h */,
-				1653672A1BA90D0E9752D57FB6642267 /* UIResponder+FirstResponder.m */,
-				447F475EDB4216B8AC32751C57F60A0B /* UIToolbar+MTZFormInputAccessoryView.h */,
-				DE731157B9DC79C848AF6FDDC5EB3B93 /* UIToolbar+MTZFormInputAccessoryView.m */,
-			);
-			name = Categories;
-			path = MTZTableViewManager/Categories;
-			sourceTree = "<group>";
-		};
 		B876F2EBE6774BA2AEBD9897AD145160 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
@@ -359,55 +396,15 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		BB2A74FA23D1B194A3A3CF7B356E2103 /* Resources */ = {
+		B9D045035C87CE130101B1418E18D301 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				34BD72A9B80BC885E1141BDD42036F9F /* MTZFormUtils.h */,
-				ABD8CAAA4D3E1FD97D251B7ED0B4A190 /* MTZTableManagerUtils.h */,
-				6A37B6802A8AD6A09257F79F69236815 /* MTZTableViewManager.h */,
-			);
-			name = Resources;
-			path = MTZTableViewManager/Resources;
-			sourceTree = "<group>";
-		};
-		C7C505E054934E7AC97C0BEA8E98E0FA /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				394C8D221ADFF66A963C50825DF9F3DB /* Info.plist */,
-				30E18F444DC39F7184ECC9E1F01D85AD /* MTZTableViewManager.modulemap */,
-				7418727809F5D07A022B502373F98C32 /* MTZTableViewManager.xcconfig */,
-				7D1B6056EA93418B1A594CDDA50DC626 /* MTZTableViewManager-dummy.m */,
-				F9DBA588EA020D6683AA81E8C5116411 /* MTZTableViewManager-prefix.pch */,
-				9DCBA07D81430D955FF6236B961969CE /* MTZTableViewManager-umbrella.h */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/MTZTableViewManager";
-			sourceTree = "<group>";
-		};
-		E3E366C3B2E7968FB95D4B069DC2B255 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				0D770616C6942658138A6E34B1F54F6A /* MTZModel.h */,
-				1B2529D4E8EBE88DA79557AE9F250AA5 /* MTZModelDisplaying.h */,
-				CE442711D1389BEB718F6E01A70F5608 /* MTZReloadable.h */,
+				8EC385CA58C241A71C3DC1AE471B7105 /* MTZModel.h */,
+				F1CD433139E3AD71EBC18C6F6F2EC8FC /* MTZModelDisplaying.h */,
+				155D2508FB03400BC7AA921676281B5A /* MTZReloadable.h */,
 			);
 			name = Protocols;
 			path = MTZTableViewManager/Protocols;
-			sourceTree = "<group>";
-		};
-		FB04D16E76F3F45969EB8F905F971BD2 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				AD483126294A75E8990E9FB7BDF8A730 /* MTZFormEditing.h */,
-				51DC1975587E5175AABCF0CF7382CC12 /* MTZFormField.h */,
-				FB216FE097290E332BB35F59C34AEC3A /* MTZFormField.m */,
-				18B68A3C7D6FC892F6A2AB33748A9934 /* MTZFormObject.h */,
-				28FFFA8E0C30311FCEB3C8CAA7BC6CF5 /* MTZFormOption.h */,
-				07F13409507DD29249182F0B467D5A85 /* MTZFormValidatable.h */,
-				10EDE93331BF881A8A78E265F25E3B26 /* MTZInputAccessoryViewHandling.h */,
-			);
-			name = Protocols;
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		FC03282C8A3351856CDF21B6CDBC5325 /* Products */ = {
@@ -441,7 +438,7 @@
 		FFA01DB7F047C3820D4B0D82FC6A6109 /* Development Pods */ = {
 			isa = PBXGroup;
 			children = (
-				AF92DB9F769AA558D3CEB3672ECF840B /* MTZTableViewManager */,
+				6D4B4C4385EBCB3542A14587E5D1D2DD /* MTZTableViewManager */,
 			);
 			name = "Development Pods";
 			sourceTree = "<group>";
@@ -457,55 +454,55 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		1E55CE04DC57194F2819017D723C6BA1 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6101EA6BBDA13539F6C291CEE67D94D9 /* MTZCommand.h in Headers */,
+				A42BF4DA97A71B4EEDB12CBA06B63F48 /* MTZCommandContext.h in Headers */,
+				B52DC73177336B39B6CED0170AAD84E2 /* MTZCommandExecuting.h in Headers */,
+				1F48B774993E43BEB8D5EFBADFD92DC3 /* MTZCommandExecutor.h in Headers */,
+				CF2E1D66AEA92659F1118CE41EA6F91F /* MTZCommandPayload.h in Headers */,
+				C2B787777858151FCC0F5551C1318510 /* MTZCommandRegistering.h in Headers */,
+				8839C124A95B640CFE5166108F89B753 /* MTZFormConverter.h in Headers */,
+				A35FCA8E38EC066E46EFAFA5B16E768F /* MTZFormEditing.h in Headers */,
+				7AB4FAC3C6B55E403D481D96AD99582E /* MTZFormField.h in Headers */,
+				1694348CB7F55E7DE47F1CC61CD34DD0 /* MTZFormObject.h in Headers */,
+				B6ED5DB281FA417FB736FD947A84B475 /* MTZFormOption.h in Headers */,
+				257A221DB22E3E21CEAA1077CB8C0DA8 /* MTZFormUtils.h in Headers */,
+				67F18E2557E17C9A389855AE740F015C /* MTZFormValidatable.h in Headers */,
+				58FA6C1E53968C8A8851A592A1431DA3 /* MTZFormValidator.h in Headers */,
+				6CD908531840AB1F1BEAE4CE8410FAFF /* MTZInputAccessoryViewHandling.h in Headers */,
+				1187F4FF503F3298BC1C2C89978177C9 /* MTZModel.h in Headers */,
+				7E70457082E598F57FD9E58654FC8822 /* MTZModelDisplaying.h in Headers */,
+				C7C1894981FF99A35AF8251A7192C161 /* MTZReloadable.h in Headers */,
+				AECEA201432653B27D6565819610DE58 /* MTZTableData+Private.h in Headers */,
+				E2B42D7DBED384BBDCFBEDB8D37EEDA0 /* MTZTableData.h in Headers */,
+				9CDD225E292D207F587CEBD448E52250 /* MTZTableFormDateRow.h in Headers */,
+				9B623A96F9C8C82494065D58AE2EF47F /* MTZTableFormOptionRow.h in Headers */,
+				D55D6BF6E499E9B82301F04B2C7E285E /* MTZTableFormRow+Private.h in Headers */,
+				1811A2DD6F3F8CB9842657FA5F3F1622 /* MTZTableFormRow.h in Headers */,
+				D932193F7705E975D89EC38E8DC4F980 /* MTZTableManager.h in Headers */,
+				44CA55CCCE0250373E4156C06B699221 /* MTZTableManagerUtils.h in Headers */,
+				7B2DC68D99C3AA259EE180E92140769E /* MTZTableRow+Private.h in Headers */,
+				E5A770FB4D5BCBFE6567839DC899FFA8 /* MTZTableRow.h in Headers */,
+				4280755A25FBA91985DF1B973BF3446C /* MTZTableSection+Private.h in Headers */,
+				BAED50B9558D5BAA1687423D1BFDD9E7 /* MTZTableSection.h in Headers */,
+				63A2FA990521F13BF44E8783413F3A79 /* MTZTableViewManager-umbrella.h in Headers */,
+				FD2CD7921AA082AEFF2FF3F81C6B5338 /* MTZTableViewManager.h in Headers */,
+				C54A48AD3767990D0A4FE282E4ECAD98 /* MTZTextFieldMasker+Private.h in Headers */,
+				20B978A0E3DEAE98B020086AC132EE32 /* MTZTextFieldMasker.h in Headers */,
+				B510A0A34FDD908EA70980FD7CC9FB12 /* UIResponder+FirstResponder.h in Headers */,
+				1B694F25C386B03508146D0A09EEDC71 /* UIToolbar+MTZFormInputAccessoryView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		27EFF2FD05A7304C6F9C5CE60686EFCC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				8CC61622A09CDD2760D0345F42C8840D /* MTZExpirationDatePicker-umbrella.h in Headers */,
 				A5BC0DFB47B9A77052F8771297E5252C /* MTZExpirationDatePicker.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		9D4791D32E4B8C6E689A639FC2262A76 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				32D553415A802042951CE571E935B789 /* MTZCommand.h in Headers */,
-				0551AE5E6C81201F96AD14759E1CAEFA /* MTZCommandContext.h in Headers */,
-				5EF244CF0E7CA77D39A4B06120C883B5 /* MTZCommandExecuting.h in Headers */,
-				3730856DD7D4E3BFB56BFFB2A4F934C8 /* MTZCommandExecutor+Private.h in Headers */,
-				5945E17C8EC669A4A6205A3BB8840895 /* MTZCommandExecutor.h in Headers */,
-				060E58788FD7397A1CB00BFD873482B9 /* MTZCommandRegistering.h in Headers */,
-				05744D238148C3BE4514F670395874F3 /* MTZFormConverter.h in Headers */,
-				6A62F8728C36C1FE4853AC35A1B57428 /* MTZFormEditing.h in Headers */,
-				CB851C2114A22FC00B8C6BF475BF2E9D /* MTZFormField.h in Headers */,
-				B257ABEF839CE9C28BE300E96FD462A6 /* MTZFormObject.h in Headers */,
-				F374EE2E0AC093B176DBAF5E22807856 /* MTZFormOption.h in Headers */,
-				7F2237C94646E17BD4F7DFA3CAE0813A /* MTZFormUtils.h in Headers */,
-				F7FADD287C3C59E1BB2D25628D8231DE /* MTZFormValidatable.h in Headers */,
-				D3829B25B73CBC50D6668211EBA51B80 /* MTZFormValidator.h in Headers */,
-				576A757476775E12E508036DD13B277C /* MTZInputAccessoryViewHandling.h in Headers */,
-				9D8A89F16F20235784506EEEEFED62C6 /* MTZModel.h in Headers */,
-				C1F963BF1E5631227ECE1204F5286B38 /* MTZModelDisplaying.h in Headers */,
-				ECE2746D7E99F3CD30B39FBE491F9FB1 /* MTZReloadable.h in Headers */,
-				5771915662F75EE4353DE5C028CB769F /* MTZTableData+Private.h in Headers */,
-				9128548C0133112C12FF6C4303F90CB8 /* MTZTableData.h in Headers */,
-				BDF5950B8745AD45CF3E264F50F32BB7 /* MTZTableFormDateRow.h in Headers */,
-				055E1EFE8696D74D54C62CD6F74FF9F1 /* MTZTableFormOptionRow.h in Headers */,
-				910D117E4C24312E6671BDE515BF1490 /* MTZTableFormRow+Private.h in Headers */,
-				2539A80211CAA076B2BAD26D9AD0504C /* MTZTableFormRow.h in Headers */,
-				C993F78B569EA8186371CF68777E759B /* MTZTableManager.h in Headers */,
-				FAE9B1FC6ED95F1C0FF13E9C0424B03B /* MTZTableManagerUtils.h in Headers */,
-				77C46C92F930842118CA97C086501612 /* MTZTableRow+Private.h in Headers */,
-				FD9A7E77115AEF9F1172FD5BEB9B0918 /* MTZTableRow.h in Headers */,
-				9CB6E3FF5B997B48544309EC92684660 /* MTZTableSection+Private.h in Headers */,
-				2EE58E205379CF02997EBF95FD93EE70 /* MTZTableSection.h in Headers */,
-				3384676443AFF59988D276616556F6C7 /* MTZTableViewManager-umbrella.h in Headers */,
-				97EBF88DA1896BF72631F7D09FC1E44A /* MTZTableViewManager.h in Headers */,
-				F64AD719ED6385CA6F136F0378DD3038 /* MTZTextFieldMasker+Private.h in Headers */,
-				58E36EE1EEF239473C3377F8C872199B /* MTZTextFieldMasker.h in Headers */,
-				0A17BE38AD941D997D6317FD01181058 /* UIResponder+FirstResponder.h in Headers */,
-				F89D4BFFDBC28CD3273CC9AD87829AC9 /* UIToolbar+MTZFormInputAccessoryView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -518,7 +515,7 @@
 			buildPhases = (
 				DD50B19D4EFB866995EE6B2802029F6A /* Sources */,
 				84E818CC6E5A395EFF675D7861C4A2ED /* Frameworks */,
-				9D4791D32E4B8C6E689A639FC2262A76 /* Headers */,
+				1E55CE04DC57194F2819017D723C6BA1 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -730,7 +727,7 @@
 		};
 		4462F593886DEBD4AD6542A281B99CE9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7418727809F5D07A022B502373F98C32 /* MTZTableViewManager.xcconfig */;
+			baseConfigurationReference = 6A3FAA3D9A16F0772FE62442558ECA28 /* MTZTableViewManager.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -878,7 +875,7 @@
 		};
 		DD0B6A2875600A7ECBC30D54DE65B382 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7418727809F5D07A022B502373F98C32 /* MTZTableViewManager.xcconfig */;
+			baseConfigurationReference = 6A3FAA3D9A16F0772FE62442558ECA28 /* MTZTableViewManager.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";

@@ -25,7 +25,7 @@
 
 #import "MTZTableManager.h"
 #import "MTZCommandExecuting.h"
-#import "MTZCommandExecutor+Private.h"
+#import "MTZCommandExecutor.h"
 #import "MTZTableData+Private.h"
 #import "MTZTableSection+Private.h"
 #import "MTZTableRow+Private.h"

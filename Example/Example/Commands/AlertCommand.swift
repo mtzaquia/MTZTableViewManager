@@ -35,13 +35,13 @@ class AlertCommand: NSObject, MTZCommand {
         super.init()
     }
 
-    func wasInvoked(with payload: Any?, sender: Any, context: MTZCommandContext) {
-        guard let context = context as? UIViewController else { return }
+    func wasInvoked(with payload: MTZCommandPayload?, sender: Any, context: MTZCommandContext) {
         let text = (sender as? NSObject)?.description
 
         let alert = UIAlertController(title: text ?? "Alert", message: self.message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
 
+        guard let context = context as? UIViewController else { return }
         context.present(alert, animated: true, completion: nil)
     }
 

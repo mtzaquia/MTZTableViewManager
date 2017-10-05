@@ -62,7 +62,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param payload A payload to support the command execution.
  @param sender The entity that triggered the action.
  */
-- (void)invokeCommandWithClass:(Class<MTZCommand>)commandClass payload:(nullable id)payload sender:(id)sender NS_SWIFT_NAME(invokeCommand(class:payload:sender:));
+- (void)invokeCommandWithClass:(Class<MTZCommand>)commandClass payload:(nullable id<MTZCommandPayload>)payload sender:(id)sender NS_SWIFT_NAME(invokeCommand(class:payload:sender:));
 
 @end
 
