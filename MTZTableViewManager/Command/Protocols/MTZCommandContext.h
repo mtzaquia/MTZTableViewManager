@@ -34,7 +34,7 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @protocol MTZCommandContext <NSObject>
 
-/// The executor to be used to trigger commands or chain commands.
+/// The executor to be used to trigger commands or chain commands. Provide a shared instance for the lifetime of your context.
 @property (nonatomic, readonly) MTZCommandExecutor *commandExecutor;
 
 @end
