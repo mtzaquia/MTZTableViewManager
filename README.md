@@ -6,7 +6,7 @@ MTZTableViewManager is a powerful framework that allows you to create table view
 # Installation
 
 ## Manual
-- Make sure to pick the right tag (`1.1.3` at the moment).
+- Make sure to pick the right tag (`1.2.0` at the moment).
 - Drop the file `MTZTableViewManager.xcodeproj` inside your Xcode project. 
 - Make sure your submodules are up-to-date.
 - Drag the `MTZTableViewManager.framework` (under `Products`) to your target `Linked Frameworks and Libraries` area.
@@ -14,7 +14,7 @@ MTZTableViewManager is a powerful framework that allows you to create table view
 ## CocoaPods
 You can also declare the following on your `Podfile`:
 ```ruby
-pod 'MTZTableViewManager', '~> 1.1.3'
+pod 'MTZTableViewManager', '~> 1.2.0'
 ```
 *Note that this will also add `MTZExpirationDatePicker` as a pod dependency.*
 
@@ -27,7 +27,7 @@ Getting started is fairly simple. Just declare a strongly-held `MTZTableManager`
 ```
 Then declare your rows, sections and finally the data. Using a custom `UITableViewCell` subclass is recommended.
 ```objc
-MTZTableRow *row = [[MTZTableRow alloc] initWithClazz:[MyCustomCell class] action:^(NSIndexPath * _Nonnull indexPath, id<MTZModel> model) {
+MTZTableRow *row = [[MTZTableRow alloc] initWithClass:[MyCustomCell class] action:^(NSIndexPath * _Nonnull indexPath, id<MTZModel> model) {
         NSLog(@"Tap!");
     }];
 MTZTableSection *section = [[MTZTableSection alloc] initWithTableRows:@[row]];
@@ -126,19 +126,24 @@ If you want to provide a set of options, do so by conforming the type of object 
 - (NSString *)optionDescription {
 return self.email;
 }
+
+- (BOOL)isEqual:(MyCustomUser *)object {
+    return self.ID == object.ID;
+}
 @end
 ```
 
-Then set the `availableOptions` property on the `MTZTableFormRow`:
+Then set the `availableOptions` property on the `MTZTableFormOptionRow`:
 ```objc
 NSArray *allUsers = @[[[MyCustomUser alloc] initWithID:1 email:@"a@b.com"],
                           [[MyCustomUser alloc] initWithID:2 email:@"b@c.com"],
                           [[MyCustomUser alloc] initWithID:3 email:@"c@d.com"]];
-MTZTableFormRow *userRow = [[MTZTableFormRow alloc] initWithClazz:[MyCustomTextFieldCell class] formObject:self.formObject keyPath:CLASSKEY(MyCustomFormObject, user)];
+MTZTableFormOptionRow *userRow = [[MTZTableFormOptionRow alloc] initWithClass:[MyCustomTextFieldCell class] formObject:self.formObject keyPath:CLASSKEY(MyCustomFormObject, user)];
 userRow.availableOptions = allUsers;
 ```
 
 * If you set available options, you must also use `UITextField` as a form field, as we replace the `inputView` with the adequate picker.
+* Make sure you provide a valid implementation of `isEqual:` to your `MTZFormOption` object.
 
 ### Converters
 TBA
@@ -147,7 +152,47 @@ TBA
 TBA
 
 ### Maskers
-TBA
+Maskers allow `UITextFields` to have their input:
+* limited to an specific amount of characters;
+* limited to an specific set of characters;
+* appended with placeholders in specific indexes (i.e.: Dots every 4 digits: 1234.1234.1234.1234).
+
+Simply subclass `MTZTextFieldMasker` and implement the desired methods:
+```objc
+@interface MyMasker : MTZTextFieldMasker
+@end
+
+// .m
+
+@implementation MyMasker
+
+- (NSCharacterSet *)allowedCharacterSet {
+    return [NSCharacterSet decimalDigitCharacterSet]; // only digits
+}
+
+- (NSInteger)maximumInputLength {
+    return 21; // i.e.: card number + spaces
+}
+
+- (NSString *)stringToAppendAtIndex:(NSInteger)index ofString:(NSString *)currentString {
+    if (index % 4 == 0) {
+        return @" "; // add space every 4 digits.
+    }
+
+    return nil;
+}
+
+@end
+```
+
+Then set the `masker` property to a `MTZTableFormRow` that uses an `UITextField`:
+```objc
+MTZTableFormRow *cardNumberRow = [[MTZTableFormRow alloc] initWithNib:myTextFieldCellNib formObject:myFormObject keyPath:CLASSKEY(MyFormObjectClass, cardNumber)];
+cardNumberRow.masker = [MyMasker new];
+```
+
+* All masker methods are optional.
+* As mentioned, this requires an `UITextField` to work properly.
 
 ## Commands
 TBA
