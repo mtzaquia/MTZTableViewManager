@@ -28,9 +28,9 @@ Getting started is fairly simple. Just declare a strongly-held `MTZTableManager`
 Then declare your rows, sections and finally the data. Using a custom `UITableViewCell` subclass is recommended.
 ```objc
 MTZTableRow *row = [[MTZTableRow alloc] initWithClass:[MyCustomCell class] 
-											   action:^(NSIndexPath * _Nonnull indexPath, id<MTZModel> model) {
-											       NSLog(@"Tap!");
-											   }];
+					       action:^(NSIndexPath * _Nonnull indexPath, id<MTZModel> model) {
+					           NSLog(@"Tap!");
+	                                       }];
 MTZTableSection *section = [[MTZTableSection alloc] initWithTableRows:@[row]];
 MTZTableData *data = [[MTZTableData alloc] initWithTableSections:@[section]];
 self.tableManager = [[MTZTableManager alloc] initWithTableView:self.tableView tableData:data];
@@ -104,7 +104,9 @@ Form fields automatically provide you with `inputAccessoryView` for jumping betw
 ### Form date rows
 Dates are a special topic. Due to that, if you want to interact with a `NSDate` key path, use `MTZTableFormDateRow` instead:
 ```objc
-MTZTableFormDateRow *dateRow = [[MTZTableFormDateRow alloc] initWithClass:[MyCustomTextFieldCell class] formObject:self.formObject keyPath:CLASSKEY(MyCustomFormObject, date)];
+MTZTableFormDateRow *dateRow = [[MTZTableFormDateRow alloc] initWithClass:[MyCustomTextFieldCell class] 
+                                                               formObject:self.formObject 
+							          keyPath:CLASSKEY(MyCustomFormObject, date)];
 dateRow.minimumDate = [NSDate date];
 dateRow.maximumDate = [[NSDate date] dateByAddingTimeInterval:60*60*24*15];
 dateRow.datePickerMode = MTZDatePickerModeDateAndTime;
@@ -125,7 +127,7 @@ If you want to provide a set of options, do so by conforming the type of object 
 @implementation MyCustomUser
 // ...
 - (NSString *)optionDescription {
-	return self.email;
+    return self.email;
 }
 
 - (BOOL)isEqual:(MyCustomUser *)object {
@@ -139,7 +141,9 @@ Then set the `availableOptions` property on the `MTZTableFormOptionRow`:
 NSArray *allUsers = @[[[MyCustomUser alloc] initWithID:1 email:@"a@b.com"],
                       [[MyCustomUser alloc] initWithID:2 email:@"b@c.com"],
                       [[MyCustomUser alloc] initWithID:3 email:@"c@d.com"]];
-MTZTableFormOptionRow *userRow = [[MTZTableFormOptionRow alloc] initWithClass:[MyCustomTextFieldCell class] formObject:self.formObject keyPath:CLASSKEY(MyCustomFormObject, user)];
+MTZTableFormOptionRow *userRow = [[MTZTableFormOptionRow alloc] initWithClass:[MyCustomTextFieldCell class] 
+                                                                   formObject:self.formObject 
+								      keyPath:CLASSKEY(MyCustomFormObject, user)];
 userRow.availableOptions = allUsers;
 ```
 
@@ -175,7 +179,8 @@ Simply subclass `MTZTextFieldMasker` and implement the desired methods:
     return 21; // i.e.: card number + spaces
 }
 
-- (NSString *)stringToAppendAtIndex:(NSInteger)index ofString:(NSString *)currentString {
+- (NSString *)stringToAppendAtIndex:(NSInteger)index 
+                           ofString:(NSString *)currentString {
     if (index % 4 == 0) {
         return @" "; // add space every 4 digits.
     }
@@ -188,7 +193,9 @@ Simply subclass `MTZTextFieldMasker` and implement the desired methods:
 
 Then set the `masker` property to a `MTZTableFormRow` that uses an `UITextField`:
 ```objc
-MTZTableFormRow *cardNumberRow = [[MTZTableFormRow alloc] initWithNib:myTextFieldCellNib formObject:myFormObject keyPath:CLASSKEY(MyFormObjectClass, cardNumber)];
+MTZTableFormRow *cardNumberRow = [[MTZTableFormRow alloc] initWithNib:myTextFieldCellNib 
+                                                           formObject:myFormObject 
+							      keyPath:CLASSKEY(MyFormObjectClass, cardNumber)];
 cardNumberRow.masker = [MyMasker new];
 ```
 
