@@ -35,7 +35,7 @@ class AlertCommand: NSObject, MTZCommand {
         super.init()
     }
 
-    func wasInvoked(with payload: MTZCommandPayload?, sender: Any, context: MTZCommandContext) {
+    func wasInvoked(with payload: MTZCommandPayload?, sender: Any?, context: MTZCommandContext) {
         let text = (sender as? NSObject)?.description
 
         let alert = UIAlertController(title: text ?? "Alert", message: self.message, preferredStyle: .alert)

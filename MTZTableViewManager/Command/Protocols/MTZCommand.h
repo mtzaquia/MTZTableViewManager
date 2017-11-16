@@ -43,7 +43,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param context The context in which the command was triggered.
  */
 - (void)wasInvokedWithPayload:(nullable id<MTZCommandPayload>)payload
-                       sender:(id)sender
+                       sender:(nullable id)sender
                       context:(id<MTZCommandContext>)context NS_SWIFT_NAME(wasInvoked(with:sender:context:));
 
 @end
