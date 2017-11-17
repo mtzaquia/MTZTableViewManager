@@ -12,7 +12,7 @@
     "Mauricio Tremea Zaquia": "mauriciotzaquia@gmail.com"
   },
   "platforms": {
-    "ios": "9.0"
+    "ios": "10.0"
   },
   "source": {
     "git": "https://github.com/mtzaquia/MTZTableViewManager.git",
@@ -21,8 +21,7 @@
   "source_files": "MTZTableViewManager/**/*.{h,m}",
   "public_header_files": [
     "MTZTableViewManager/MTZTable{Manager,Data,Section,Row}.h",
-    "MTZTableViewManager/Protocols/MTZModel*.h",
-    "MTZTableViewManager/Protocols/MTZReloadable.h",
+    "MTZTableViewManager/Protocols/*.h",
     "MTZTableViewManager/Forms/MTZTableForm{Row,DateRow,OptionRow}.h",
     "MTZTableViewManager/Forms/Protocols/MTZForm{Object,Editing,Field,Option}.h",
     "MTZTableViewManager/Forms/MTZForm{Validator,Converter}.h",

@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
 
   s.author       = { "Mauricio Tremea Zaquia" => "mauriciotzaquia@gmail.com" }
 
-  s.platform     = :ios, "9.0"
+  s.platform     = :ios, "10.0"
 
   s.source       = { :git => "https://github.com/mtzaquia/MTZTableViewManager.git", :tag => "#{s.version}" }
 
@@ -24,8 +24,7 @@ Pod::Spec.new do |s|
 
   s.public_header_files = [
                            "MTZTableViewManager/MTZTable{Manager,Data,Section,Row}.h", 
-                           "MTZTableViewManager/Protocols/MTZModel*.h",
-                           "MTZTableViewManager/Protocols/MTZReloadable.h",
+                           "MTZTableViewManager/Protocols/*.h",
                            "MTZTableViewManager/Forms/MTZTableForm{Row,DateRow,OptionRow}.h",
                            "MTZTableViewManager/Forms/Protocols/MTZForm{Object,Editing,Field,Option}.h",
                            "MTZTableViewManager/Forms/MTZForm{Validator,Converter}.h",

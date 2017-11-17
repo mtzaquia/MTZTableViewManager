@@ -1,5 +1,5 @@
 //
-// MTZTableSection+Private.h
+// MTZLazyModelPayload.h
 // MTZTableManager
 //
 // Copyright (c) 2017 Mauricio Tremea Zaquia (@mtzaquia)
@@ -25,24 +25,13 @@
 
 @import Foundation;
 
-#import "MTZTableSection.h"
-#import "MTZFormValidatable.h"
-#import "MTZInputAccessoryViewHandling.h"
-
-@class MTZTableData;
-@class MTZTableRow;
-@class MTZTableFormRow;
-
 NS_ASSUME_NONNULL_BEGIN
 
-@interface MTZTableSection () <MTZFormValidatable, MTZInputAccessoryViewHandling>
-@property (nonatomic, weak) MTZTableData *tableData;
-@property (nonatomic) NSUInteger index;
-@property (nonatomic) NSMutableArray<MTZTableRow *> *rows;
-@property (nonatomic, copy, readonly) NSArray<MTZTableFormRow *> *formRows;
-@property (nonatomic, readonly, nullable) id<MTZModel> model;
+/**
+ Defines an object that can provide dependencies for building @c MTZLazyModel instances on demand.
+ */
+@protocol MTZLazyModelPayload <MTZModel>
 
-- (void)setTableRow:(MTZTableRow *)tableRow hidden:(BOOL)hidden;
 @end
 
 NS_ASSUME_NONNULL_END

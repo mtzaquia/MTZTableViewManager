@@ -37,14 +37,6 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 @implementation MTZTableFormRow
 
-- (instancetype)initWithClass:(Class)clazz formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath {
-    return [self initWithClass:clazz formObject:formObject keyPath:keyPath model:nil];
-}
-
-- (instancetype)initWithNib:(UINib *)nib formObject:(id<MTZFormObject>)formObject keyPath:(MTZKeyPath *)keyPath {
-    return [self initWithNib:nib formObject:formObject keyPath:keyPath model:nil];
-}
-
 - (instancetype)initWithClass:(Class)clazz formObject:(NSObject<MTZFormObject> *)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
     self = [super initWithClass:clazz model:model action:nil];
     if (self) {
@@ -58,6 +50,36 @@ NSErrorUserInfoKey const MTZFormFieldKey = @"MTZFormFieldKey";
 
 - (instancetype)initWithNib:(UINib *)nib formObject:(NSObject<MTZFormObject> *)formObject keyPath:(MTZKeyPath *)keyPath model:(id<MTZModel>)model {
     self = [super initWithNib:nib model:model action:nil];
+    if (self) {
+        _formObject = formObject;
+        _keyPath = keyPath;
+        [self checkDataTypes];
+    }
+
+    return self;
+}
+
+- (instancetype)initWithClass:(Class)clazz
+                   formObject:(id<MTZFormObject>)formObject
+                      keyPath:(MTZKeyPath *)keyPath
+                   modelClass:(Class)modelClass
+                 modelPayload:(id<MTZLazyModelPayload>)modelPayload {
+    self = [super initWithClass:clazz modelClass:modelClass modelPayload:modelPayload action:nil];
+    if (self) {
+        _formObject = formObject;
+        _keyPath = keyPath;
+        [self checkDataTypes];
+    }
+
+    return self;
+}
+
+- (instancetype)initWithNib:(UINib *)nib
+                 formObject:(id<MTZFormObject>)formObject
+                    keyPath:(MTZKeyPath *)keyPath
+                 modelClass:(Class)modelClass
+               modelPayload:(id<MTZLazyModelPayload>)modelPayload {
+    self = [super initWithNib:nib modelClass:modelClass modelPayload:modelPayload action:nil];
     if (self) {
         _formObject = formObject;
         _keyPath = keyPath;

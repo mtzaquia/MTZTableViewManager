@@ -14,6 +14,8 @@
 #import "MTZTableManager.h"
 #import "MTZTableRow.h"
 #import "MTZTableSection.h"
+#import "MTZLazyModel.h"
+#import "MTZLazyModelPayload.h"
 #import "MTZModel.h"
 #import "MTZModelDisplaying.h"
 #import "MTZReloadable.h"

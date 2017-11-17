@@ -55,40 +55,21 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
-- (instancetype)initWithClass:(Class)clazz
-                       action:(nullable MTZTableRowAction)action NS_UNAVAILABLE;
-- (instancetype)initWithNib:(UINib *)nib
-                     action:(nullable MTZTableRowAction)action NS_UNAVAILABLE;
+
 - (instancetype)initWithClass:(Class)clazz
                         model:(nullable id<MTZModel>)model
                        action:(nullable MTZTableRowAction)action NS_UNAVAILABLE;
+- (instancetype)initWithClass:(Class)clazz
+                   modelClass:(Class)modelClass
+                 modelPayload:(id<MTZLazyModelPayload>)modelPayload
+                       action:(nullable MTZTableRowAction)action NS_UNAVAILABLE;
+- (instancetype)initWithNib:(UINib *)nib
+                 modelClass:(Class)modelClass
+               modelPayload:(id<MTZLazyModelPayload>)modelPayload
+                     action:(nullable MTZTableRowAction)action NS_UNAVAILABLE;
 - (instancetype)initWithNib:(UINib *)nib
                       model:(nullable id<MTZModel>)model
                      action:(nullable MTZTableRowAction)action NS_UNAVAILABLE;
-
-/**
- Provides an instance of @c MTZTableFormRow that can manipulate a form object at a given key path.
-
- @param clazz The class of the cell.
- @param formObject The form object to be edited.
- @param keyPath The key path to be manipulated by the field on the row.
- @return A valid instance of @c MTZTableFormRow.
- */
-- (instancetype)initWithClass:(Class)clazz
-                   formObject:(id<MTZFormObject>)formObject
-                      keyPath:(MTZKeyPath *)keyPath NS_SWIFT_NAME(init(class:formObject:keyPath:));
-
-/**
- Provides an instance of @c MTZTableFormRow that can manipulate a form object at a given key path.
-
- @param nib The nib of the cell. Always provide the same instance for different cells for reuse optimization.
- @param formObject The form object to be edited.
- @param keyPath The key path to be manipulated by the field on the row.
- @return A valid instance of @c MTZTableFormRow.
- */
-- (instancetype)initWithNib:(UINib *)nib
-                 formObject:(id<MTZFormObject>)formObject
-                    keyPath:(MTZKeyPath *)keyPath;
 
 /**
  Provides an instance of @c MTZTableFormRow that can manipulate a form object at a given key path.
@@ -117,6 +98,38 @@ extern NSErrorUserInfoKey const MTZFormFieldKey;
                  formObject:(id<MTZFormObject>)formObject
                     keyPath:(MTZKeyPath *)keyPath
                       model:(nullable id<MTZModel>)model NS_DESIGNATED_INITIALIZER;
+
+/**
+ Provides an instance of @c MTZTableFormRow that can manipulate a form object at a given key path.
+
+ @param clazz The class of the cell.
+ @param formObject The form object to be edited.
+ @param keyPath The key path to be manipulated by the field on the row.
+ @param modelClass A model class for configuring the cell's appearance.
+ @param modelPayload A model payload to generate an instance of the model class to configure the cell's appearance.
+ @return A valid instance of @c MTZTableFormRow.
+ */
+- (instancetype)initWithClass:(Class)clazz
+                   formObject:(id<MTZFormObject>)formObject
+                      keyPath:(MTZKeyPath *)keyPath
+                   modelClass:(Class)modelClass
+                 modelPayload:(id<MTZLazyModelPayload>)modelPayload NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(class:formObject:keyPath:modelClass:modelPayload:));
+
+/**
+ Provides an instance of @c MTZTableFormRow that can manipulate a form object at a given key path.
+
+ @param nib The nib of the cell. Always provide the same instance for different cells for reuse optimization.
+ @param formObject The form object to be edited.
+ @param keyPath The key path to be manipulated by the field on the row.
+ @param modelClass A model class for configuring the cell's appearance.
+ @param modelPayload A model payload to generate an instance of the model class to configure the cell's appearance.
+ @return A valid instance of @c MTZTableFormRow.
+ */
+- (instancetype)initWithNib:(UINib *)nib
+                 formObject:(id<MTZFormObject>)formObject
+                    keyPath:(MTZKeyPath *)keyPath
+                 modelClass:(Class)modelClass
+               modelPayload:(id<MTZLazyModelPayload>)modelPayload NS_DESIGNATED_INITIALIZER;
 
 @end
 

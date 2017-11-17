@@ -27,6 +27,8 @@
 
 #import "MTZModel.h"
 #import "MTZReloadable.h"
+#import "MTZLazyModel.h"
+#import "MTZLazyModelPayload.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -59,26 +61,6 @@ typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> _Nullable
 + (instancetype)new NS_UNAVAILABLE;
 
 /**
- Provides an instance of @c MTZTableRow that can perform an action when selected.
-
- @param clazz The class of the cell.
- @param action The action to be triggered while touching the cell.
- @return A valid instance of @c MTZTableFormRow.
- */
-- (instancetype)initWithClass:(Class)clazz
-                       action:(nullable MTZTableRowAction)action NS_SWIFT_NAME(init(class:action:));
-
-/**
- Provides an instance of @c MTZTableRow that can perform an action when selected.
-
- @param nib The nib of the cell. Always provide the same instance for different cells for reuse optimization.
- @param action The action to be triggered while touching the cell.
- @return A valid instance of @c MTZTableFormRow.
- */
-- (instancetype)initWithNib:(UINib *)nib
-                     action:(nullable MTZTableRowAction)action;
-
-/**
  Provides an instance of @c MTZTableRow that can be configured with a model and perform an action when selected.
 
  @param clazz The class of the cell.
@@ -87,8 +69,8 @@ typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> _Nullable
  @return A valid instance of @c MTZTableFormRow.
  */
 - (instancetype)initWithClass:(Class)clazz
-          model:(nullable id<MTZModel>)model
-         action:(nullable MTZTableRowAction)action NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(class:model:action:));
+                        model:(nullable id<MTZModel>)model
+                       action:(nullable MTZTableRowAction)action NS_DESIGNATED_INITIALIZER NS_SWIFT_NAME(init(class:model:action:));
 
 /**
  Provides an instance of @c MTZTableRow that can be configured with a model and perform an action when selected.
@@ -100,6 +82,34 @@ typedef void (^MTZTableRowAction)(NSIndexPath *indexPath, id<MTZModel> _Nullable
  */
 - (instancetype)initWithNib:(UINib *)nib
                       model:(nullable id<MTZModel>)model
+                     action:(nullable MTZTableRowAction)action NS_DESIGNATED_INITIALIZER;
+
+/**
+ Provides an instance of @c MTZTableRow that can be configured with a model and perform an action when selected.
+
+ @param clazz The class of the cell.
+ @param modelClass A model class for configuring the cell's appearance.
+ @param modelPayload A model payload to generate an instance of the model class to configure the cell's appearance.
+ @param action The action to be triggered while touching the cell.
+ @return A valid instance of @c MTZTableFormRow.
+ */
+- (instancetype)initWithClass:(Class)clazz
+                   modelClass:(Class)modelClass
+                 modelPayload:(id<MTZLazyModelPayload>)modelPayload
+                       action:(nullable MTZTableRowAction)action NS_DESIGNATED_INITIALIZER;
+
+/**
+ Provides an instance of @c MTZTableRow that can be configured with a model and perform an action when selected.
+
+ @param nib The nib of the cell. Always provide the same instance for different cells for reuse optimization.
+ @param modelClass A model class for configuring the cell's appearance.
+ @param modelPayload A model payload to generate an instance of the model class to configure the cell's appearance.
+ @param action The action to be triggered while touching the cell.
+ @return A valid instance of @c MTZTableFormRow.
+ */
+- (instancetype)initWithNib:(UINib *)nib
+                 modelClass:(Class)modelClass
+               modelPayload:(id<MTZLazyModelPayload>)modelPayload
                      action:(nullable MTZTableRowAction)action NS_DESIGNATED_INITIALIZER;
 
 @end

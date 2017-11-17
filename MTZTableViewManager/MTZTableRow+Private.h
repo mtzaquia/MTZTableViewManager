@@ -33,7 +33,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic) NSUInteger index;
 @property (nonatomic) BOOL expanded;
 @property (nonatomic, weak) MTZTableSection *section;
-@property (nonatomic, nullable) id<MTZModel> model;
+@property (nonatomic, readonly, nullable) id<MTZModel> model;
 @end
 
 NS_ASSUME_NONNULL_END

@@ -24,21 +24,23 @@
 //
 
 #import "MTZTableRow+Private.h"
+
 #import "MTZTableData+Private.h"
 #import "MTZTableManagerUtils.h"
 #import "MTZTableSection+Private.h"
 
+
+
+@interface MTZTableRow ()
+@property (nonatomic, nullable) Class modelClass;
+@property (nonatomic, nullable) id<MTZLazyModelPayload> modelPayload;
+@end
+
 @implementation MTZTableRow
 
-- (instancetype)initWithClass:(Class)clazz action:(MTZTableRowAction)action {
-    return [self initWithClass:clazz model:nil action:action];
-}
+@synthesize model = _model;
 
-- (instancetype)initWithNib:(UINib *)nib action:(MTZTableRowAction)action {
-    return [self initWithNib:nib model:nil action:action];
-}
-
-- (instancetype)initWithClass:(Class)clazz model:(id<MTZModel>)model action:(MTZTableRowAction)action {
+- (instancetype)initWithClass:(Class)clazz model:(id<MTZModel>)model action:(nullable MTZTableRowAction)action {
     self = [super init];
     if (self) {
         _cellClass = clazz;
@@ -49,11 +51,41 @@
     return self;
 }
 
-- (instancetype)initWithNib:(UINib *)nib model:(id<MTZModel>)model action:(MTZTableRowAction)action {
+- (instancetype)initWithNib:(UINib *)nib model:(id<MTZModel>)model action:(nullable MTZTableRowAction)action {
     self = [super init];
     if (self) {
         _cellNib = nib;
         _model = model;
+        _action = action;
+    }
+
+    return self;
+}
+
+- (instancetype)initWithClass:(Class)clazz
+                   modelClass:(Class)modelClass
+                 modelPayload:(id<MTZLazyModelPayload>)modelPayload
+                       action:(nullable MTZTableRowAction)action {
+    self = [super init];
+    if (self) {
+        _cellClass = clazz;
+        _modelClass = modelClass;
+        _modelPayload = modelPayload;
+        _action = action;
+    }
+
+    return self;
+}
+
+- (instancetype)initWithNib:(UINib *)nib
+                 modelClass:(Class)modelClass
+               modelPayload:(id<MTZLazyModelPayload>)modelPayload
+                     action:(nullable MTZTableRowAction)action {
+    self = [super init];
+    if (self) {
+        _cellNib = nib;
+        _modelClass = modelClass;
+        _modelPayload = modelPayload;
         _action = action;
     }
 
@@ -67,6 +99,15 @@
 
     _hidden = hidden;
     [self.section setTableRow:self hidden:_hidden];
+}
+
+- (id<MTZModel>)model {
+    if (!_model && self.modelClass) {
+        NSAssert([self.modelClass respondsToSelector:@selector(initWithPayload:)], @"Only classes conforming to MTZLazyModel can be used for lazy models.");
+        _model = [[[self.modelClass class] alloc] initWithPayload:self.modelPayload];
+    }
+
+    return _model;
 }
 
 #pragma mark - MTZReloadable

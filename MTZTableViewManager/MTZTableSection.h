@@ -34,9 +34,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MTZTableSection : NSObject <MTZReloadable>
 
-/// The model to configure the header and footer of the section, if applicable.
-@property (nonatomic, nullable) id<MTZModel> model;
-
 /// The height of the header. If not set, automatic height will be used.
 @property (nonatomic) CGFloat headerHeight;
 
