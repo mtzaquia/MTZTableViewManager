@@ -97,7 +97,7 @@ import MTZTableViewManager
 
         let formSection = MTZTableSection(tableRows: [nameRow, cardNumberRow, expirationDateRow, employedRow, dateRow, ageRow, bloodRow])
         formSection.headerText = "Person form"
-        formSection.footerText = "By filling this form you agree with the terms."
+        formSection.footerText = "By filling this form you agree with the terms with two lines to test footer self-sizing under different iOS versions."
         
         let validateModel = ActionCellModel()
         validateModel.actionTitle = "Validate"

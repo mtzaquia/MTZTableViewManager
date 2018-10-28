@@ -97,21 +97,21 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		011E97CA3D72F0FB1D6869F1E65CCB09 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Example.framework; path = "Pods-Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		015619DCAAC404E7B92C843D839E9F58 /* MTZTableViewManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MTZTableViewManager.framework; path = MTZTableViewManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		011E97CA3D72F0FB1D6869F1E65CCB09 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		015619DCAAC404E7B92C843D839E9F58 /* MTZTableViewManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MTZTableViewManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		01E6907CF2644EB1CF8E23F708A3DA0B /* Pods-Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Example-resources.sh"; sourceTree = "<group>"; };
 		048083122992A21363507064BE058B9D /* MTZFormField.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZFormField.m; sourceTree = "<group>"; };
 		06B2AA92B116113671659B2C631613C8 /* MTZTableRow+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTZTableRow+Private.h"; path = "MTZTableViewManager/MTZTableRow+Private.h"; sourceTree = "<group>"; };
 		08629E3D4A28266A24B319D575154A4C /* MTZTableData+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "MTZTableData+Private.h"; path = "MTZTableViewManager/MTZTableData+Private.h"; sourceTree = "<group>"; };
 		0D8E3C602053C815C16575B1943C3D33 /* MTZTableViewManager-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "MTZTableViewManager-dummy.m"; sourceTree = "<group>"; };
 		0F02CD1CE2F0673D2286EC01717B6D12 /* MTZTableViewManager-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZTableViewManager-umbrella.h"; sourceTree = "<group>"; };
-		119072C64A19799964E1620D83F514FB /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
+		119072C64A19799964E1620D83F514FB /* Pods-Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-Example.modulemap"; sourceTree = "<group>"; };
 		13F475E0E86D4E4653EBF5B20DF2720C /* MTZTableFormOptionRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTableFormOptionRow.m; sourceTree = "<group>"; };
 		149054C495E8EC590CAB4C524133016F /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		16195AA9CF9FEF6A6B196B97CC1DB59E /* UIResponder+FirstResponder.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIResponder+FirstResponder.m"; sourceTree = "<group>"; };
-		17433473E2ECACF31235D0F0E4B8ADB5 /* MTZTableViewManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MTZTableViewManager.modulemap; sourceTree = "<group>"; };
+		17433473E2ECACF31235D0F0E4B8ADB5 /* MTZTableViewManager.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MTZTableViewManager.modulemap; sourceTree = "<group>"; };
 		1D63513EBB2384EC871FF909F224FB87 /* MTZTableViewManager.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MTZTableViewManager.xcconfig; sourceTree = "<group>"; };
-		22039E63F1657F53556DB9A9BF70FDE0 /* MTZExpirationDatePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = MTZExpirationDatePicker.modulemap; sourceTree = "<group>"; };
+		22039E63F1657F53556DB9A9BF70FDE0 /* MTZExpirationDatePicker.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MTZExpirationDatePicker.modulemap; sourceTree = "<group>"; };
 		26088E94787962752A492A5E1753C04C /* MTZExpirationDatePicker-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "MTZExpirationDatePicker-umbrella.h"; sourceTree = "<group>"; };
 		266194AB7E4E4FA2296711611D8997B3 /* MTZFormValidator.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormValidator.h; sourceTree = "<group>"; };
 		292AC084D12370C6F8A39B411CD632ED /* MTZTableData.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = MTZTableData.h; path = MTZTableViewManager/MTZTableData.h; sourceTree = "<group>"; };
@@ -136,7 +136,7 @@
 		699118D7DDD5F335E4FB8B17DC0F12D2 /* Pods-Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Example-dummy.m"; sourceTree = "<group>"; };
 		734AA99773681E4F815F4C989805F252 /* MTZCommandPayload.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandPayload.h; sourceTree = "<group>"; };
 		764D33E23CE6C1111110B04F5CBADADB /* Pods-Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		7A48DAC2DC18E4DBA5B572B37D7718BC /* MTZExpirationDatePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = MTZExpirationDatePicker.framework; path = MTZExpirationDatePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7A48DAC2DC18E4DBA5B572B37D7718BC /* MTZExpirationDatePicker.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MTZExpirationDatePicker.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D0A47CB33C4A29CE93CD964FA31AE6B /* MTZFormConverter.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormConverter.h; sourceTree = "<group>"; };
 		7D8E345441500591463A3473FFB7EA68 /* UIToolbar+MTZFormInputAccessoryView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UIToolbar+MTZFormInputAccessoryView.m"; sourceTree = "<group>"; };
 		878A08A8C6D1DD6447AFD92427B2D2F0 /* MTZCommandContext.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZCommandContext.h; sourceTree = "<group>"; };
@@ -145,7 +145,7 @@
 		8B36D44E59B393EAE0D2093529D14205 /* MTZTableFormDateRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableFormDateRow.h; sourceTree = "<group>"; };
 		906B01A1BE98A7EF4475C37FC11906D6 /* MTZFormEditing.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormEditing.h; sourceTree = "<group>"; };
 		9345C322241151836F354F85985C4342 /* MTZFormField.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormField.h; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		9C742904E48C5C35BC6847FD115CF591 /* MTZFormValidatable.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZFormValidatable.h; sourceTree = "<group>"; };
 		A06A3F3735B5BDBCE65FD1F6C4A59395 /* MTZTableFormRow.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MTZTableFormRow.m; sourceTree = "<group>"; };
 		A121C4BC50B0A0F8E7491037D7B34997 /* MTZTableFormOptionRow.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MTZTableFormOptionRow.h; sourceTree = "<group>"; };
@@ -230,7 +230,6 @@
 				D0C262E4E8AE3CA664B4E4D298F0EE92 /* MTZExpirationDatePicker.m */,
 				B4B2BF1722F3CEBF4201C0B3F1C6F12D /* Support Files */,
 			);
-			name = MTZExpirationDatePicker;
 			path = MTZExpirationDatePicker;
 			sourceTree = "<group>";
 		};
@@ -267,7 +266,6 @@
 				9C742904E48C5C35BC6847FD115CF591 /* MTZFormValidatable.h */,
 				3B3C2CAAFB5C05622FB228873620023A /* MTZInputAccessoryViewHandling.h */,
 			);
-			name = Protocols;
 			path = Protocols;
 			sourceTree = "<group>";
 		};
@@ -300,7 +298,6 @@
 				734AA99773681E4F815F4C989805F252 /* MTZCommandPayload.h */,
 				AA9E738192FE1686F962AD9626A32773 /* MTZCommandRegistering.h */,
 			);
-			name = Protocols;
 			path = Protocols;
 			sourceTree = "<group>";
 		};
@@ -581,7 +578,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastUpgradeCheck = 1000;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -805,6 +802,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -812,6 +810,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -890,6 +889,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -897,6 +897,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

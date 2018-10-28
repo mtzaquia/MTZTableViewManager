@@ -40,7 +40,6 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
 @interface MTZTableManager () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic) NSMutableDictionary *cellsEstimatedHeights;
 @property (nonatomic, weak) UITableView *tableView;
-@property (nonatomic) MTZTableData *tableData;
 @property (nonatomic, readonly) MTZCommandExecutor *commandExecutor;
 @property (nonatomic) CGFloat keyboardBaseBottomInset;
 @end
@@ -64,20 +63,11 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
         _tableView.sectionHeaderHeight = UITableViewAutomaticDimension;
         _tableView.sectionFooterHeight = UITableViewAutomaticDimension;
 
-        _tableData = tableData;
-        [self registerTableData:_tableData forTableView:_tableView];
-        _tableData.tableView = _tableView;
+        self.tableData = tableData;
+
         _tableView.delegate = self;
         _tableView.dataSource = self;
-        if (_tableData.headerView) {
-            _tableView.tableHeaderView = _tableData.headerView;
-        } else {
-            CGRect headerFrame = (CGRect){0, 0, _tableView.bounds.size.width, CGFLOAT_MIN};
-            _tableView.tableHeaderView = [[UIView alloc] initWithFrame:headerFrame];
-        }
 
-        _tableView.tableFooterView = _tableData.footerView;
-        [self setupInitialHiddenStateFromTableData:_tableData forTableView:_tableView];
         _commandExecutor = commandExecutor;
 
         _keyboardBaseBottomInset = NSNotFound;
@@ -86,6 +76,29 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     }
 
     return self;
+}
+
+#pragma mark - Properties
+- (void)setTableData:(MTZTableData *)tableData {
+    BOOL setup = _tableData == nil;
+
+    _tableData = tableData;
+    [self registerTableData:_tableData forTableView:self.tableView];
+    _tableData.tableView = self.tableView;
+
+    if (_tableData.headerView) {
+        self.tableView.tableHeaderView = _tableData.headerView;
+    } else {
+        CGRect headerFrame = (CGRect){0, 0, self.tableView.bounds.size.width, CGFLOAT_MIN};
+        self.tableView.tableHeaderView = [[UIView alloc] initWithFrame:headerFrame];
+    }
+
+    _tableView.tableFooterView = _tableData.footerView;
+    BOOL shouldRelod = [self setupInitialHiddenStateFromTableData:_tableData forTableView:self.tableView];
+
+    if (!setup || shouldRelod) {
+        [self.tableView reloadData];
+    }
 }
 
 #pragma mark - MTZFormValidatable
@@ -152,7 +165,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     }
 }
 
-- (void)setupInitialHiddenStateFromTableData:(MTZTableData *)tableData forTableView:(UITableView *)tableView {
+- (BOOL)setupInitialHiddenStateFromTableData:(MTZTableData *)tableData forTableView:(UITableView *)tableView {
     BOOL shouldReloadData = NO;
     NSMutableArray *sectionsToRemove = [NSMutableArray array];
     NSMutableArray *rowsToRemove = [NSMutableArray array];
@@ -173,9 +186,7 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     }
 
     [tableData.sections removeObjectsInArray:sectionsToRemove];
-    if (shouldReloadData) {
-        [tableView reloadData];
-    }
+    return shouldReloadData;
 }
 
 #pragma mark - UITableViewDataSource

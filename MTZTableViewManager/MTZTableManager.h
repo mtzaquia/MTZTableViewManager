@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MTZTableManager : NSObject
 
+@property (nonatomic) MTZTableData *tableData;
 @property (nonatomic) CGFloat estimatedRowHeight;
 
 - (instancetype)init NS_UNAVAILABLE;

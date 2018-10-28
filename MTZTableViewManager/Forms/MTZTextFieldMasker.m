@@ -64,7 +64,7 @@
     [self inputAppendedWithCursor:&_currentCursor];
     if (self.textWasPasted) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            UITextPosition *targetPosition = [textField positionFromPosition:textField.beginningOfDocument offset:_currentCursor];
+            UITextPosition *targetPosition = [textField positionFromPosition:textField.beginningOfDocument offset:self->_currentCursor];
             textField.selectedTextRange = [textField textRangeFromPosition:targetPosition toPosition:targetPosition];
         });
     } else {
