@@ -53,7 +53,7 @@
 - (void)invokeCommandWithClass:(Class<MTZCommand>)commandClass payload:(id<MTZCommandPayload>)payload sender:(id)sender {
     id<MTZCommand> command = self.availableCommands[NSStringFromClass(commandClass)];
     NSAssert(command, @"All commands must be added to the invoker using -[MTZCommandInvoker registerCommand:] prior to being executed.");
-    [command wasInvokedWithPayload:nil sender:sender context:self.context];
+    [command wasInvokedWithPayload:payload sender:sender context:self.context];
 }
 
 @end

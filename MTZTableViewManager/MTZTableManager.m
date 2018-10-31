@@ -204,6 +204,11 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     NSAssert(identifier.length, @"Every MTZTableRow must provide a class or a nib.");
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:identifier forIndexPath:indexPath];
 
+    if ([cell conformsToProtocol:@protocol(MTZCommandExecuting)]) {
+        NSAssert(self.commandExecutor, @"A row conforms to MTZCommandExecuting, but the table manager instance has no context. Use '-[MTZTableManager initWithTableView:tableData:context:]' instead.");
+        [(id<MTZCommandExecuting>)cell setCommandExecutor:self.commandExecutor];
+    }
+
     if ([cell conformsToProtocol:@protocol(MTZModelDisplaying)]) {
         [(id<MTZModelDisplaying>)cell configureWithModel:row.model];
     }
@@ -211,11 +216,6 @@ static CGFloat MTZTableManagerEstimatedRowHeight = 44.0;
     if ([row isKindOfClass:[MTZTableFormRow class]]) {
         MTZTableFormRow *tableFormRow = (MTZTableFormRow *)row;
         [self configureTableFormRow:tableFormRow forCell:cell];
-    }
-
-    if ([cell conformsToProtocol:@protocol(MTZCommandExecuting)]) {
-        NSAssert(self.commandExecutor, @"A row conforms to MTZCommandExecuting, but the table manager instance has no context. Use '-[MTZTableManager initWithTableView:tableData:context:]' instead.");
-        [(id<MTZCommandExecuting>)cell setCommandExecutor:self.commandExecutor];
     }
 
     cell.selectionStyle = row.expandedHeight > 0 || row.expandedHeight == UITableViewAutomaticDimension || row.action ? UITableViewCellSelectionStyleDefault : UITableViewCellSelectionStyleNone;
